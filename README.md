@@ -1,27 +1,23 @@
-# Mijn Zakmes Collectie
+# 🗡️ Pocket Knife Collection
 
-## Welkom bij mijn privé-zakmescollectie! Deze HTML-pagina is puur bedoeld voor eigen gebruik en dient als een overzicht van mijn persoonlijke verzameling.
+This repository contains an HTML page that displays my personal pocket knife collection with all relevant details. 
+This project is intended for my personal use only.
 
-### 📌 Over dit project
+## Features
 
-Dit project is een eenvoudige statische website waarin ik mijn zakmessen catalogiseer. De pagina bevat afbeeldingen, specificaties en mijn persoonlijke aantekeningen over elk mes in mijn collectie.
+- 🖼️ Display of pocket knives with images
+- 📋 Detailed information about each knife (brand, model, specifications, etc.)
+- 🎨 Simple and clean design
+- 🔍 Search and sort function for all categories
 
-### 🚀 Functionaliteiten
+## Files
 
-Overzicht van mijn zakmessen
+- index.html - Main page
+- styles.css - Stylesheet
+- knife-database.json - All the knife data (not implemented yet)
 
-Afbeeldingen en details per zakmes
+## Acknowledgements
 
-Zoek- en sorteer functie
+This project is for my personal use only and is not intended for public distribution.
 
-### 📁 Bestanden
-
-index.html - Hoofdpagina van de collectie
-
-### 📜 Licentie
-
-Dit project is puur privé en niet bedoeld voor commercieel gebruik. Wil je iets vergelijkbaars maken? Voel je vrij om inspiratie op te doen!
-
-### 📞 Contact
-
-Heb je vragen of wil je iets delen over messenverzamelingen? Laat het me weten via GitHub of een ander kanaal!
+---
