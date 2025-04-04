@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mijn zakmes collectie</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+
+    <div class="controls">
+        <input type="text" id="search" placeholder="Zoek..." oninput="searchKnives()">
+        <button onclick="clearSearch()">Reset</button>
+        <select id="sort" onchange="sortKnives()">
+            <option value="aankoopdatum">Aankoopdatum</option>
+            <option value="merk">Merk</option>
+            <option value="naam">Naam</option>
+        </select>
+        <select id="sortOrder" onchange="sortKnives()">
+            <option value="asc">Oplopend</option>
+            <option value="desc" selected>Aflopend</option>
+        </select>
+    </div>
+
+    <div id="summary">
+        <p id="totalKnives">Aantal mesjes:</p>
+        <p id="totalValue">Nieuwwaarde:</p>
+        <p id="totalPurchaseValue">Aankoopwaarde:</p>
+    </div>
+
+    <div class="container" id="knifeContainer"></div>
+
+    <script>
+        async function loadKnives() {
+            const response = await fetch('database.json');
+            const knives = await response.json();
+            const container = document.getElementById('knifeContainer');
+            container.innerHTML = '';
+
+            knives.forEach(knife => {
+                const card = document.createElement('div');
+                card.classList.add('card');
+                card.innerHTML = `
+                    <div class="card-content">
+                        <div class="specs">
+                            <div class="row">
+                                <div class="topleft">
+                                    <h2><div class="merk">${knife.merk}</div> <div class="naam">${knife.naam}</div></h2>
+                                </div>
+                                <div class="topright">
+                                    <a href="${knife.link}" class="link-image" target="_blank">
+                                        <img src="${knife.afbeelding}" alt="${knife.naam}">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="left">
+                                    <div class="uitvoering"><strong>Uitvoering:</strong><br>${knife.uitvoering}</div>
+                                    <div class="lemmet-vorm"><strong>Lemmet vorm:</strong><br>${knife.lemmetVorm}</div>
+                                    <div class="afwerking"><strong>Afwerking:</strong><br>${knife.afwerking}</div>
+                                    <div class="openmethode"><strong>Openmethode:</strong><br>${knife.openmethode}</div>
+                                    <div class="vergrendeling"><strong>Vergrendeling:</strong><br>${knife.vergrendeling}</div>
+                                    <div class="gewicht"><strong>Gewicht:</strong><br>${knife.gewicht}</div>
+                                    <div class="aankoopdatum"><strong>Aankoopdatum:</strong><br>${knife.aankoopdatum}</div>
+                                </div>
+                                <div class="right">
+                                    <div class="staalsoort"><strong>Staalsoort:</strong><br>${knife.staalsoort}</div>
+                                    <div class="hardheid"><strong>Hardheid:</strong><br>${knife.hardheid}</div>
+                                    <div class="lengte-gesloten"><strong>Lengte gesloten:</strong><br>${knife.lengteGesloten}</div>
+                                    <div class="lengte-geopend"><strong>Lengte geopend:</strong><br>${knife.lengteGeopend}</div>
+                                    <div class="lengte-lemmet"><strong>Lengte lemmet:</strong><br>${knife.lengteLemmet}</div>
+                                    <div class="nieuwwaarde"><strong>Nieuwwaarde:</strong><br>${knife.nieuwwaarde}</div>
+                                    <div class="aankoopwaarde"><strong>Aankoopwaarde:</strong><br>${knife.aankoopwaarde}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function searchKnives() {
+            const query = document.getElementById('search').value.toLowerCase();
+            const cards = document.querySelectorAll('.card');
+            cards.forEach(card => {
+                const content = card.textContent.toLowerCase();
+                card.style.display = content.includes(query) ? 'block' : 'none';
+            });
+            updateSummary();
+        }
+
+        function clearSearch() {
+            document.getElementById('search').value = '';
+            searchKnives();
+        }
+
+        function sortKnives() {
+            const sortBy = document.getElementById('sort').value;
+            const sortOrder = document.getElementById('sortOrder').value;
+            const container = document.getElementById('knifeContainer');
+            const cards = Array.from(container.children);
+
+            cards.sort((a, b) => {
+                let aValue = a.querySelector(`.${sortBy}`).textContent.trim();
+                let bValue = b.querySelector(`.${sortBy}`).textContent.trim();
+
+                if (sortBy === 'aankoopdatum') {
+                    aValue = new Date(aValue.split('-').reverse().join('-'));
+                    bValue = new Date(bValue.split('-').reverse().join('-'));
+                    return sortOrder === 'asc' ? aValue - bValue : bValue - aValue;
+                } else {
+                    return sortOrder === 'asc'
+                        ? aValue.localeCompare(bValue, undefined, { numeric: true })
+                        : bValue.localeCompare(aValue, undefined, { numeric: true });
+                }
+            });
+
+            container.innerHTML = '';
+            cards.forEach(card => container.appendChild(card));
+            updateSummary();
+        }
+
+        function updateSummary() {
+            const cards = document.querySelectorAll('.card');
+            const totalKnives = cards.length;
+            let totalValue = 0;
+            let totalPurchaseValue = 0;
+
+            cards.forEach(card => {
+                const valueText = card.querySelector('.nieuwwaarde').textContent;
+                const purchaseValueText = card.querySelector('.aankoopwaarde').textContent;
+                const numericValue = parseFloat(valueText.replace(/[^\d,.-]/g, '').replace(',', '.'));
+                const numericPurchaseValue = parseFloat(purchaseValueText.replace(/[^\d,.-]/g, '').replace(',', '.'));
+                if (!isNaN(numericValue)) totalValue += numericValue;
+                if (!isNaN(numericPurchaseValue)) totalPurchaseValue += numericPurchaseValue;
+            });
+
+            document.getElementById('totalKnives').textContent = `Aantal mesjes: ${totalKnives}`;
+            document.getElementById('totalValue').textContent = `Nieuwwaarde: € ${totalValue.toFixed(2)}`;
+            document.getElementById('totalPurchaseValue').textContent = `Aankoopwaarde: € ${totalPurchaseValue.toFixed(2)}`;
+        }
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            await loadKnives();
+            document.getElementById('sort').value = 'aankoopdatum';
+            document.getElementById('sortOrder').value = 'desc';
+            sortKnives();
+            updateSummary();
+        });
+    </script>
+
+</body>
+</html>
