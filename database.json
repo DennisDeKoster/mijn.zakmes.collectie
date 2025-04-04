@@ -2,8 +2,6 @@
   {
     "merk": "Civivi",
     "naam": "Mini Praxis C18026C-1",
-    "link": "https://www.knivesandtools.nl/nl/pt/-civivi-mini-praxis-c18026c-1-green-g10-zakmes.htm",
-    "afbeelding": "https://assets.katogroup.eu/i/katogroup/CIC18026C-1_01_civivi?%24product-image%24=&fmt=auto&h=868&w=1304",
     "uitvoering": "Green G10",
     "lemmetVorm": "Droppoint",
     "afwerking": "Blackwashed",
@@ -17,8 +15,9 @@
     "lengteGeopend": "17,3 cm",
     "lengteLemmet": "8,4 cm",
     "nieuwwaarde": "€ 39,45",
-    "aankoopwaarde": "€ 39,45"
+    "aankoopwaarde": "€ 39,45",
+    "afbeelding": "https://example.com/afbeelding.jpg",
+    "link": "https://www.knivesandtools.nl/nl/pt/-civivi-mini-praxis-c18026c-1-green-g10-zakmes.htm"
   }
-
-  // ... hier de andere 15 messen
+  // Andere mesjes kunnen hier volgen...
 ]
