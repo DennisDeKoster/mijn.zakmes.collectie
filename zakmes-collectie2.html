@@ -115,14 +115,23 @@
             const sortOrder = document.getElementById('sortOrder').value;
             const container = document.getElementById('knifeContainer');
             const cards = Array.from(container.children);
-
+        
             cards.sort((a, b) => {
                 let aValue = a.querySelector(`.${sortBy}`).textContent.trim();
                 let bValue = b.querySelector(`.${sortBy}`).textContent.trim();
-
+        
                 if (sortBy === 'aankoopdatum') {
-                    aValue = new Date(aValue.split('-').reverse().join('-'));
-                    bValue = new Date(bValue.split('-').reverse().join('-'));
+                    // Controleer of de datum het juiste formaat heeft (dd-mm-jjjj)
+                    aValue = aValue.match(/\d{2}-\d{2}-\d{4}/);
+                    bValue = bValue.match(/\d{2}-\d{2}-\d{4}/);
+                    
+                    if (aValue && bValue) {
+                        aValue = new Date(aValue[0].split('-').reverse().join('-'));
+                        bValue = new Date(bValue[0].split('-').reverse().join('-'));
+                    } else {
+                        aValue = new Date(0); // Foutieve datum krijgt een lage waarde
+                        bValue = new Date(0);
+                    }
                     return sortOrder === 'asc' ? aValue - bValue : bValue - aValue;
                 } else {
                     return sortOrder === 'asc'
@@ -130,7 +139,7 @@
                         : bValue.localeCompare(aValue, undefined, { numeric: true });
                 }
             });
-
+        
             container.innerHTML = '';
             cards.forEach(card => container.appendChild(card));
             updateSummary();
