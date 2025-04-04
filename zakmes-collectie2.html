@@ -35,10 +35,9 @@
         async function loadKnives() {
             try {
                 const response = await fetch('database.json');
-                const knives = await response.json();
-                
-                // Log de JSON-gegevens om te kijken of ze correct geladen worden
-                console.log(knives); 
+                const text = await response.text();  // Verkrijg de inhoud als tekst
+                const knives = JSON.parse(text);     // Parse de tekst als JSON
+                console.log(knives);  // Log de geladen messen om te controleren
         
                 const container = document.getElementById('knifeContainer');
                 container.innerHTML = '';
@@ -86,7 +85,7 @@
                 });
             } catch (error) {
                 console.error("Fout bij het laden van mesjes:", error);
-                alert("Fout bij laden van mesjes: Controleer of database.json correct beschikbaar is.");
+                alert("Fout bij het laden van mesjes.");
             }
         }
 
