@@ -33,8 +33,16 @@
 
     <script>
         async function loadKnives() {
+        try {
             const response = await fetch('database.json');
+
+            if (!response.ok) {
+                throw new Error(`HTTP-fout: ${response.status}`);
+            }
+
             const knives = await response.json();
+            console.log("Mesjes geladen:", knives);
+
             const container = document.getElementById('knifeContainer');
             container.innerHTML = '';
 
@@ -79,7 +87,13 @@
                 `;
                 container.appendChild(card);
             });
+
+        } catch (error) {
+            console.error("Fout bij laden van mesjes:", error);
+            const container = document.getElementById('knifeContainer');
+            container.innerHTML = `<p style="color: red;">Fout bij het laden van de mesjes. Controleer of <code>database.json</code> correct beschikbaar is.</p>`;
         }
+    }
 
         function searchKnives() {
             const query = document.getElementById('search').value.toLowerCase();
