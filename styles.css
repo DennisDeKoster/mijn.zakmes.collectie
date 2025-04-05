@@ -40,32 +40,6 @@ body {
     font-size: 12px;
 }
 
-/* Media Queries */
-@media (min-width: 1920px) {
-    .container {
-        grid-template-columns: repeat(4, 1fr); /* Vier kaarten per rij op grote schermen */
-    }
-}
-
-@media (min-width: 1024px) and (max-width: 1919px) {
-    .container {
-        grid-template-columns: repeat(3, 1fr); /* Drie kaarten per rij op middelgrote schermen */
-    }
-}
-
-@media (max-width: 1023px) {
-    .container {
-        grid-template-columns: repeat(2, 1fr); /* Twee kaarten per rij op tablets */
-    }
-}
-
-@media (max-width: 767px) {
-    .container {
-        grid-template-columns: 1fr; /* Eén kaart per rij op mobiele apparaten */
-    }
-}
-
-
 .specs {
     display: flex;
     flex-direction: column;
@@ -207,4 +181,50 @@ button {
 
 button:hover {
     color: #333;
+}
+
+/* Media Queries */
+@media (min-width: 1920px) {
+    .container {
+        grid-template-columns: repeat(4, 1fr); /* Vier kaarten per rij op grote schermen */
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1919px) {
+    .container {
+        grid-template-columns: repeat(3, 1fr); /* Drie kaarten per rij op middelgrote schermen */
+    }
+}
+
+@media (max-width: 1023px) {
+    .container {
+        grid-template-columns: repeat(2, 1fr); /* Twee kaarten per rij op tablets */
+    }
+
+    .search-sort-container, .header1 {
+        flex-direction: column; /* Zet de elementen onder elkaar op kleinere schermen */
+        align-items: flex-start;
+    }
+
+    .search-bar input {
+        width: 100%; /* Zorgt ervoor dat het zoekveld de volledige breedte inneemt */
+    }
+}
+
+@media (max-width: 767px) {
+    .container {
+        grid-template-columns: 1fr; /* Eén kaart per rij op mobiele apparaten */
+    }
+
+    h1 {
+        font-size: 24px; /* Verkleint de tekstgrootte van de header op mobiele apparaten */
+    }
+
+    .search-bar input {
+        font-size: 12px; /* Verkleint de tekstgrootte van het zoekveld op mobiele apparaten */
+    }
+
+    .sort-options select {
+        font-size: 12px; /* Verkleint de tekstgrootte van de sorteeropties op mobiele apparaten */
+    }
 }
