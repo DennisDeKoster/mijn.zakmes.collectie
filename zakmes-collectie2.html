@@ -42,7 +42,7 @@
                                         <div class="vergrendeling"><strong>Vergrendeling:</strong><br>${knife.vergrendeling}</div>
                                         <div class="gewicht"><strong>Gewicht:</strong><br>${knife.gewicht}</div>
                                         <div class="aankoopdatum"><strong>Aankoopdatum:</strong><br>${knife.aankoopdatum}</div>
-                                        ${knife.mods ? `<div class="mods"><strong>Mods:</strong><br>${knife.mods}</div>` : ''}
+                                        ${knife.mods ? `<div class="mods"><strong>Mods:</strong><br>${knife.mods.link ? `<a href="${knife.mods.link}" target="_blank">${knife.mods.description}</a>` : knife.mods.description}</div>` : ''}
                                     </div>
                                     <div class="right">
                                         <div class="staalsoort"><strong>Staalsoort:</strong><br>${knife.staalsoort}</div>
