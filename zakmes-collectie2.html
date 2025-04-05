@@ -8,29 +8,6 @@
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-
-    <div class="controls">
-        <input type="text" id="search" placeholder="Zoek..." oninput="searchKnives()">
-        <button onclick="clearSearch()">Reset</button>
-        <select id="sort" onchange="sortKnives()">
-            <option value="aankoopdatum">Aankoopdatum</option>
-            <option value="merk">Merk</option>
-            <option value="naam">Naam</option>
-        </select>
-        <select id="sortOrder" onchange="sortKnives()">
-            <option value="asc">Oplopend</option>
-            <option value="desc" selected>Aflopend</option>
-        </select>
-    </div>
-
-    <div id="summary">
-        <p id="totalKnives">Aantal mesjes:</p>
-        <p id="totalValue">Nieuwwaarde:</p>
-        <p id="totalPurchaseValue">Aankoopwaarde:</p>
-    </div>
-
-    <div class="container" id="knifeContainer"></div>
-
     <script>
         async function loadKnives() {
             try {
@@ -50,7 +27,7 @@
                             <div class="specs">
                                 <div class="row">
                                     <div class="topleft">
-                                        <h2><div class="merk">${knife.merk}</div> <div class="naam">${knife.naam}</div></h2>
+                                        <h2><span class="merk">${knife.merk}</span> <span class="naam">${knife.naam}</span></h2>
                                     </div>
                                     <div class="topright">
                                         <a href="${knife.link}" class="link-image" target="_blank">
@@ -167,6 +144,25 @@
             updateSummary();
         });
     </script>
+    <div class="controls">
+        <input type="text" id="search" placeholder="Zoek..." oninput="searchKnives()">
+        <button onclick="clearSearch()">Reset</button>
+        <select id="sort" onchange="sortKnives()">
+            <option value="aankoopdatum">Aankoopdatum</option>
+            <option value="merk">Merk</option>
+            <option value="naam">Naam</option>
+        </select>
+        <select id="sortOrder" onchange="sortKnives()">
+            <option value="asc">Oplopend</option>
+            <option value="desc" selected>Aflopend</option>
+        </select>
+    </div>
+    <div id="summary">
+        <p id="totalKnives">Aantal mesjes:</p>
+        <p id="totalValue">Nieuwwaarde:</p>
+        <p id="totalPurchaseValue">Aankoopwaarde:</p>
+    </div>
 
+    <div class="container" id="knifeContainer"></div>
 </body>
 </html>
