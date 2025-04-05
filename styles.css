@@ -8,7 +8,7 @@ body {
 
 .container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 25px;
     width: 100%;
     box-sizing: border-box;
@@ -90,14 +90,14 @@ body {
     font-size: 14px;
     transition: all 0.4s ease;
     margin: 10px;
-    width: calc(100% - 120px); /* Past de breedte aan zodat er ruimte is voor de sorteeropties */
+    width: calc(100% - 120px);
 }
 
 .sort-options {
     display: flex;
     align-items: center;
     gap: 10px;
-    flex-shrink: 0; /* Voorkomt dat de sorteeropties krimpen */
+    flex-shrink: 0;
 }
 
 .sort-options select {
@@ -184,13 +184,13 @@ button:hover {
     }
 }
 
-@media (min-width: 1024px) and (max-width: 1919px) {
+@media (min-width: 1280px) and (max-width: 1919px) {
     .container {
         grid-template-columns: repeat(3, 1fr); /* Drie kaarten per rij op middelgrote schermen */
     }
 }
 
-@media (max-width: 1023px) {
+@media (min-width: 768px) and (max-width: 1279px) {
     .container {
         grid-template-columns: repeat(2, 1fr); /* Twee kaarten per rij op tablets */
     }
