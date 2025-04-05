@@ -17,6 +17,7 @@
     "nieuwwaarde": "€ 39,45",
     "aankoopwaarde": "€ 39,45",
     "afbeelding": "https://assets.katogroup.eu/i/katogroup/CIC18026C-1_01_civivi.webp",
+    "rotate": false,
     "link": "https://www.knivesandtools.nl/nl/pt/-civivi-mini-praxis-c18026c-1-green-g10-zakmes.htm"
   },
   {
@@ -37,6 +38,7 @@
     "nieuwwaarde": "€ 95,95",
     "aankoopwaarde": "€ 94,95",
     "afbeelding": "https://assets.katogroup.eu/i/katogroup/CIC20076-6_01_civivi.webp",
+    "rotate": false,
     "link": "https://www.knivesandtools.nl/nl/pt/-civivi-altus-c20076-6-stonewashed-aluminium-blue-zakmes.htm",
     "mods": "Unlocked Composites carbon scales"
   },
@@ -58,6 +60,7 @@
     "nieuwwaarde": "€ 88,49",
     "aankoopwaarde": "€ 84,95",
     "afbeelding": "https://assets.katogroup.eu/i/katogroup/CIC22030E-1_01_civivi.webp",
+    "rotate": false,
     "link": "https://www.knivesandtools.nl/nl/pt/-civivi-qubit-c22030e-1-black-aluminium-zakmes.htm"
   },
   {
@@ -78,6 +81,7 @@
     "nieuwwaarde": "€ 112,45",
     "aankoopwaarde": "€ 106,52",
     "afbeelding": "https://assets.katogroup.eu/i/katogroup/CIC2010DS-1_01_civivi.webp",
+    "rotate": false,
     "link": "https://www.knivesandtools.nl/nl/pt/-civivi-odium-c2010ds-1-damascus-cuibourtia-wood-zakmes-ferrum-forge-design.htm"
   },
   {
@@ -98,6 +102,7 @@
     "nieuwwaarde": "€ 129,45",
     "aankoopwaarde": "€ 122,95",
     "afbeelding": "https://assets.katogroup.eu/i/katogroup/CIC907C-DS1_01_civivi.webp",
+    "rotate": false,
     "link": "https://www.knivesandtools.nl/nl/pt/-civivi-elementum-c907c-ds1-damascus-shredded-gold-carbonfiber-zakmes.htm"
   },
   {
@@ -118,6 +123,7 @@
     "nieuwwaarde": "€ 54,95",
     "aankoopwaarde": "€ 54,95",
     "afbeelding": "https://assets.katogroup.eu/i/katogroup/SES22043B-3_01_sencut.webp",
+    "rotate": false,
     "link": "https://www.knivesandtools.nl/nl/pt/-sencut-arcblast-s22043b-3-bright-blue-aluminum-zakmes.htm"
   },
   {
@@ -138,6 +144,7 @@
     "nieuwwaarde": "€ 49,00",
     "aankoopwaarde": "€ 49,00",
     "afbeelding": "https://assets.katogroup.eu/i/katogroup/SES23068-4_01_sencut.webp",
+    "rotate": false,
     "link": "https://www.knivesandtools.nl/nl/pt/-sencut-excalis-s23068-4-satin-9cr18mov-guibourtia-wood-zakmes.htm"
   },
   {
@@ -158,12 +165,12 @@
     "nieuwwaarde": "€ 60,00",
     "aankoopwaarde": "€ 60,00",
     "afbeelding": "https://assets.katogroup.eu/i/katogroup/CIC907A-7_01_civivi.webp",
+    "rotate": false,
     "link": "https://www.knivesandtools.nl/nl/pt/-civivi-elementum-c907a-7-satin-d2-polished-clear-lexan-zakmes.htm"
   },
   {
     "merk": "Kershaw",
     "naam": "Mini Iridium 2051",
-    "afbeelding": "https://assets.katogroup.eu/i/katogroup/KE2051_01_kershaw.webp",
     "uitvoering": "Ice Blue Aluminium",
     "lemmetVorm": "Spearpoint",
     "afwerking": "Stonewashed",
@@ -178,12 +185,13 @@
     "lengteLemmet": "7,5 cm",
     "nieuwwaarde": "€ 94,95",
     "aankoopwaarde": "€ 94,95",
+    "afbeelding": "https://assets.katogroup.eu/i/katogroup/KE2051_01_kershaw.webp",
+    "rotate": false,
     "link": "https://www.knivesandtools.nl/nl/pt/-kershaw-mini-iridium-2051-duralock-stonewashed-d2-ice-blue-aluminum-zakmes.htm"
   },
   {
     "merk": "Benchmade",
     "naam": "Bugout 535FE-05",
-    "afbeelding": "https://assets.katogroup.eu/i/katogroup/BE535FE-05_01_benchmade.webp",
     "uitvoering": "Crater Blue Grivory",
     "lemmetVorm": "Droppoint",
     "afwerking": "Cerakote",
@@ -198,12 +206,13 @@
     "lengteLemmet": "8,2 cm",
     "nieuwwaarde": "€ 236,95",
     "aankoopwaarde": "€ 172,99",
+    "afbeelding": "https://assets.katogroup.eu/i/katogroup/BE535FE-05_01_benchmade.webp",
+    "rotate": false,
     "link": "https://www.knivesandtools.nl/nl/pt/-benchmade-bugout-535fe-05-crater-blue-grivory-flat-dark-earth-cerakote-zakmes.htm"
   },
   {
     "merk": "WE Knife",
     "naam": "Kitefin 2001B",
-    "afbeelding": "https://assets.katogroup.eu/i/katogroup/WK2001B_01_we-knife.webp",
     "uitvoering": "Titanium Shredded Carbonfiber",
     "lemmetVorm": "Droppoint",
     "afwerking": "Mat",
@@ -218,12 +227,13 @@
     "lengteLemmet": "8,2 cm",
     "nieuwwaarde": "€ 207,95",
     "aankoopwaarde": "€ 203,80",
+    "afbeelding": "https://assets.katogroup.eu/i/katogroup/WK2001B_01_we-knife.webp",
+    "rotate": false,
     "link": "https://www.knivesandtools.nl/nl/pt/-we-knife-kitefin-2001b-shredded-carbonfiber-zakmes.htm"
   },
   {
     "merk": "Benchmade",
     "naam": "Bugout 535BK-4",
-    "afbeelding": "https://assets.katogroup.eu/i/katogroup/BE535BK-4_01_benchmade.webp",
     "uitvoering": "Aluminium",
     "lemmetVorm": "Droppoint",
     "afwerking": "Cerakote",
@@ -238,6 +248,8 @@
     "lengteLemmet": "8,2 cm",
     "nieuwwaarde": "€ 355,95",
     "aankoopwaarde": "€ 227,99",
+    "afbeelding": "https://assets.katogroup.eu/i/katogroup/BE535BK-4_01_benchmade.webp",
+    "rotate": false,
     "link": "https://www.knivesandtools.nl/nl/pt/-benchmade-bugout-535bk-4-aluminium-cerakote-m390-zakmes.htm"
   },
   {
@@ -258,6 +270,7 @@
     "aankoopwaarde": "€ 266,10",
     "aankoopdatum": "14-11-2024",
     "afbeelding": "https://sharg.pl/hpeciai/a24cd98a6e3bf5e02318520085601ea0/eng_pl_Remette-Peregrine-Falcon-Knife-Thunder-Lightning-Titanium-Hand-Grinding-Pearlescent-M390-RTT1-T-122054_1.webp",
+    "rotate": true,
     "link": "https://www.lamnia.com/nl/p/91112/messen/remette-peregrine-falcon-rtt1-tx-vouwmes"
   },
   {
@@ -278,6 +291,7 @@
     "aankoopwaarde": "€ 209,49",
     "aankoopdatum": "27-01-2025",
     "afbeelding": "https://assets.katogroup.eu/i/katogroup/KZKI3634A2_01_kizer.webp",
+    "rotate": false,
     "link": "https://www.knivesandtools.nl/nl/pt/-kizer-militaw-ki3634a2-dlc-s45vn-black-titanium-en-purple-haze-fatcarbon-zakmes-jonathan-styles-design.htm"
   },
   {
@@ -298,6 +312,7 @@
     "aankoopwaarde": "€ 71,49",
     "aankoopdatum": "12-03-2025",
     "afbeelding": "https://assets.katogroup.eu/i/katogroup/KZV3549A2_01_kizer.webp",
+    "rotate": false,
     "link": "https://www.knivesandtools.nl/nl/pt/-kizer-vanguard-assassin-v3549a2-satin-nitro-v-denim-micarta-zakmes-azo-design.htm"
   },
   {
@@ -318,6 +333,7 @@
     "aankoopwaarde": "€ 313,35",
     "aankoopdatum": "24-03-2025",
     "afbeelding": "https://cdn11.bigcommerce.com/s-fedcb/images/stencil/640w/products/30527/105951/Kunwu_K706C-T401__22709.1.jpg",
+    "rotate": true,
     "link": "https://www.lamnia.com/nl/p/103263/messen/kunwu-knives-reverse-tux-compadre-diamond-texture-ti-dlc-vouwmes"
   }
 ]
