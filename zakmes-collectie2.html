@@ -136,9 +136,9 @@
                 if (!isNaN(numericPurchaseValue)) totalPurchaseValue += numericPurchaseValue;
             });
 
-            document.getElementById('totalKnives').textContent = `Aantal mesjes: ${totalKnives}`;
-            document.getElementById('totalValue').textContent = `Nieuwwaarde: € ${totalValue.toFixed(2)}`;
-            document.getElementById('totalPurchaseValue').textContent = `Aankoopwaarde: € ${totalPurchaseValue.toFixed(2)}`;
+            document.getElementById('totalKnives').textContent = `Aantal mesjes:<br>${totalKnives}`;
+            document.getElementById('totalValue').textContent = `Nieuwwaarde:<br>€ ${totalValue.toFixed(2)}`;
+            document.getElementById('totalPurchaseValue').textContent = `Aankoopwaarde:<br>€ ${totalPurchaseValue.toFixed(2)}`;
         }
 
         document.addEventListener('DOMContentLoaded', async () => {
@@ -155,7 +155,7 @@
         <div id="totalKnives"></div>
         <div id="totalValue"></div>
         <div id="totalPurchaseValue"></div>
-        <div>Laatst bijgewerkt: 05-04-2025</div>
+        <div>Laatst bijgewerkt:<br>05-04-2025</div>
     </div>
     <div class="search-sort-container">
         <div class="search-bar">
