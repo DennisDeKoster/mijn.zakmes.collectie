@@ -158,6 +158,15 @@ strong {
     transform: scale(2.0) translateY(-35px) translateX(15px);
 }
 
+.text-link {
+    text-decoration: none;
+    color: inherit;
+}
+    
+.text-link:hover {
+    color: #0288d1;
+}
+
 .rotated-image {
     transform: rotate(50deg);
 }
