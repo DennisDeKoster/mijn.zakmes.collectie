@@ -46,7 +46,7 @@
                                             <div class="mods">
                                                 <strong>Mods:</strong><br>
                                                 <div>
-                                                ${knife.mods.map(mod => `<li>${mod.link ? `<a href="${mod.link}" target="_blank">${mod.description}</a>` : mod.description}</li>`).join('')}
+                                                    ${knife.mods.map(mod => `<div>${mod.link ? `<a href="${mod.link}" target="_blank">${mod.description}</a>` : mod.description}</div>`).join('')}
                                                 </div>
                                             </div>` : ''}
                                     </div>
