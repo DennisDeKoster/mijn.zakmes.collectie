@@ -6,8 +6,6 @@
     <title>Mijn zakmes collectie</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="styles.css">
-</head>
-<body>
     <script>
         async function loadKnives() {
             try {
@@ -144,25 +142,47 @@
             updateSummary();
         });
     </script>
-    <div class="controls">
-        <input type="text" id="search" placeholder="Zoek..." oninput="searchKnives()">
-        <button onclick="clearSearch()">Reset</button>
-        <select id="sort" onchange="sortKnives()">
-            <option value="aankoopdatum">Aankoopdatum</option>
-            <option value="merk">Merk</option>
-            <option value="naam">Naam</option>
-        </select>
-        <select id="sortOrder" onchange="sortKnives()">
-            <option value="asc">Oplopend</option>
-            <option value="desc" selected>Aflopend</option>
-        </select>
+</head>
+<body>
+    <div class="header1"><h1>Mijn zakmes collectie</h1>
+        <div id="totalKnives"></div>
+        <div id="totalValue"></div>
+        <div id="totalPurchaseValue"></div>
+        <div>Laatst bijgewerkt: 05-04-2025</div>
     </div>
-    <div id="summary">
-        <p id="totalKnives">Aantal mesjes:</p>
-        <p id="totalValue">Nieuwwaarde:</p>
-        <p id="totalPurchaseValue">Aankoopwaarde:</p>
+    <div class="search-sort-container">
+        <div class="search-bar">
+            <input type="text" id="search" onkeyup="searchKnives()" placeholder="Zoeken..."><button id="clear-btn" onclick="clearSearch()">✕</button>
+        </div>
+        <div class="sort-options">Sorteren op:&nbsp;
+            <select id="sort" onchange="sortKnives()">
+                <option value="merk">Merk</option>
+                <option value="naam">Naam</option>
+                <option value="uitvoering">Uitvoering</option>
+                <option value="lemmet-vorm">Lemmet vorm</option>
+                <option value="staalsoort">Staalsoort</option>
+                <option value="hardheid">Hardheid</option>
+                <option value="afwerking">Afwerking</option>
+                <option value="openmethode">Openmethode</option>
+                <option value="vergrendeling">Vergrendeling</option>
+                <option value="lengte-gesloten">Lengte gesloten</option>
+                <option value="lengte-geopend">Lengte geopend</option>
+                <option value="lengte-lemmet">Lengte lemmet</option>
+                <option value="gewicht">Gewicht</option>
+                <option value="nieuwwaarde">Nieuwwaarde</option>
+                <option value="aankoopwaarde">Aankoopwaarde</option>
+                <option value="aankoopdatum">Aankoopdatum</option>
+            </select>
+            <select id="sortOrder" onchange="sortKnives()">
+                <option value="asc">Oplopend</option>
+                <option value="desc">Aflopend</option>
+            </select>
+        </div>
+        <div id="totalKnives"></div>
+        <div id="totalValue"></div>
+        <div id="totalPurchaseValue"></div>
+        <div id="lastModified"></div>
     </div>
-
     <div class="container" id="knifeContainer"></div>
 </body>
 </html>
