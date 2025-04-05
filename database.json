@@ -40,7 +40,16 @@
     "afbeelding": "https://assets.katogroup.eu/i/katogroup/CIC20076-6_01_civivi.webp",
     "rotate": false,
     "link": "https://www.knivesandtools.nl/nl/pt/-civivi-altus-c20076-6-stonewashed-aluminium-blue-zakmes.htm",
-    "mods": "Unlocked Composites carbon scales"
+    "mods": [
+      {
+        "description": "Unlocked Composites carbon scales",
+        "link": "https://unlockedcomposites.com"
+      },
+      {
+        "description": "Titanium pocketclip",
+        "link": "https://www.knivesandtools.nl/nl/pt/-civivi-pocketclip-plain-titanium-t001c-3x-schroevenset.htm"
+      }
+    ]
   },
   {
     "merk": "Civivi",
