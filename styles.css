@@ -77,7 +77,6 @@ body {
     align-items: center;
     gap: 10px;
     margin: 0px;
-    flex-wrap: wrap; /* Zorgt ervoor dat de elementen op één lijn blijven */
 }
 
 .search-bar {
@@ -92,14 +91,14 @@ body {
     font-size: 14px;
     transition: all 0.4s ease;
     margin: 10px;
-    width: 250px;
+    width: calc(100% - 120px); /* Past de breedte aan zodat er ruimte is voor de sorteeropties */
 }
 
 .sort-options {
-    margin-left: auto;
     display: flex;
     align-items: center;
     gap: 10px;
+    flex-shrink: 0; /* Voorkomt dat de sorteeropties krimpen */
 }
 
 .sort-options select {
