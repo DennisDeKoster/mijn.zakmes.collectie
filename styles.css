@@ -4,12 +4,11 @@ body {
     margin: 0;
     padding: 20px;
     font-family: 'Montserrat', sans-serif;
-    /* background: linear-gradient(120deg, #f5f7fa, #c3cfe2); */
 }
 
 .container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 25px;
     width: 100%;
     box-sizing: border-box;
@@ -125,8 +124,8 @@ h1 {
     color: #0288d1;
     text-align: center;
     font-size: 30px;
-    letter-spacing: 4px; /* Maakt de tekst luchtiger */
-    font-weight: 300; /* Lichtere tekst */
+    letter-spacing: 3px;
+    font-weight: 300; 
 }
 
 h2 {
@@ -135,8 +134,12 @@ h2 {
 }
 
 a {
-    color: inherit; /* Zorgt ervoor dat de link dezelfde kleur behoudt als de omringende tekst */
-    text-decoration: underline; /* Houdt de onderstreping */
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover {
+    color: #0288d1;
 }
 
 strong {
@@ -155,15 +158,6 @@ strong {
 
 .link-image:hover {
     transform: scale(2.0) translateY(-35px) translateX(15px);
-}
-
-.text-link {
-    text-decoration: none;
-    color: inherit;
-}
-    
-.text-link:hover {
-    color: #0288d1;
 }
 
 .rotated-image {
