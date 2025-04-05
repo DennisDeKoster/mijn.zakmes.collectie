@@ -14,7 +14,7 @@ This project is intended for my personal use only.
 
 - index.html - Main page
 - styles.css - Stylesheet
-- knife-database.json - All the knife data (not implemented yet)
+- knife-database.json - Contains all the knife data
 
 ## Acknowledgements
 
