@@ -183,6 +183,7 @@ strong {
     background-color: transparent;
     mix-blend-mode: multiply;
     transform-origin: right top;
+    image-rendering: crisp-edges;
 }
 
 .link-image:hover {
