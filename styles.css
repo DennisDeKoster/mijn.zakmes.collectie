@@ -248,4 +248,8 @@ button:hover {
         align-items: flex-start;
         padding: 0px 0px 10px 0px; /* Top, Rechts, Onder, Links */
     }
+
+    .logo-wrapper {
+        width: 50px;
+    }
 }
