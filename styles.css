@@ -81,13 +81,18 @@ body {
     align-items: center;
 }
 
-.left, .topleft {
+.left {
     width: 63%;
     margin-left: 10px;
 }
 
 .right {
     width: 37%;
+}
+
+.topleft {
+    width: 68%;
+    margin-left: 10px;
 }
 
 .topright {
