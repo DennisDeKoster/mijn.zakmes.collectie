@@ -36,7 +36,7 @@
                                 <div class="row">
                                     <div class="left">
                                         <div class="uitvoering"><strong>Uitvoering:</strong><br>${knife.uitvoering}</div>
-                                        <div class="lemmet-vorm"><strong>Lemmet vorm:</strong><br>${knife.lemmetVorm}</div>
+                                        <div class="lemmetVorm"><strong>Lemmet vorm:</strong><br>${knife.lemmetVorm}</div>
                                         <div class="afwerking"><strong>Afwerking:</strong><br>${knife.afwerking}</div>
                                         <div class="openmethode"><strong>Openmethode:</strong><br>${knife.openmethode}</div>
                                         <div class="vergrendeling"><strong>Vergrendeling:</strong><br>${knife.vergrendeling}</div>
@@ -53,9 +53,9 @@
                                     <div class="right">
                                         <div class="staalsoort"><strong>Staalsoort:</strong><br>${knife.staalsoort}</div>
                                         <div class="hardheid"><strong>Hardheid:</strong><br>${knife.hardheid}</div>
-                                        <div class="lengte-gesloten"><strong>Lengte gesloten:</strong><br>${knife.lengteGesloten}</div>
-                                        <div class="lengte-geopend"><strong>Lengte geopend:</strong><br>${knife.lengteGeopend}</div>
-                                        <div class="lengte-lemmet"><strong>Lengte lemmet:</strong><br>${knife.lengteLemmet}</div>
+                                        <div class="lengteGesloten"><strong>Lengte gesloten:</strong><br>${knife.lengteGesloten}</div>
+                                        <div class="lengteGeopend"><strong>Lengte geopend:</strong><br>${knife.lengteGeopend}</div>
+                                        <div class="lengteLemmet"><strong>Lengte lemmet:</strong><br>${knife.lengteLemmet}</div>
                                         <div class="nieuwwaarde"><strong>Nieuwwaarde:</strong><br>${knife.nieuwwaarde}</div>
                                         <div class="aankoopwaarde"><strong>Aankoopwaarde:</strong><br>${knife.aankoopwaarde}</div>
                                     </div>
@@ -66,8 +66,8 @@
                     container.appendChild(card);
                 });
             } catch (error) {
-                // console.error("Fout bij het laden van mesjes:", error);
-                // alert("Fout bij het laden van mesjes.");
+                console.error("Fout bij het laden van database:", error);
+                alert("Fout bij het laden van database.");
             }
         }
 
