@@ -20,6 +20,7 @@ body {
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    overflow: visible;
 }
 
 .card img {
@@ -188,6 +189,8 @@ strong {
 
 .link-image:hover {
     transform: scale(1.8) translateY(-35px) translateX(0px);
+    z-index: 10;
+    position: relative;
 }
 
 .rotated-image {
