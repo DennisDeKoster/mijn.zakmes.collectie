@@ -20,8 +20,6 @@ body {
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    position: relative; /* Zorg ervoor dat de kaart goed gepositioneerd is */
-    overflow: visible; /* Zorg dat de afbeelding niet wordt afgekapt */
 }
 
 .card img {
@@ -38,7 +36,6 @@ body {
     flex-grow: 1;
     font-family: 'Montserrat', sans-serif;
     font-size: 12px;
-/*     font-weight: 500; */
 }
 
 .brand-logos {
@@ -87,8 +84,6 @@ body {
 .left, .topleft {
     width: 63%;
     margin-left: 10px;
-    position: relative;
-    z-index: 1; /* Zet de tekst eronder */
 }
 
 .right {
@@ -101,8 +96,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    position: absolute; /* Zorg dat de afbeelding zich boven de tekst bevindt */
-    z-index: 0; /* Zet de afbeelding eerst in de stapelvolgorde */
 }
 
 .search-sort-container, .header1 {
@@ -183,7 +176,7 @@ strong {
 }
 
 .link-image {
-    position: absolute;
+    position: relative;
     display: inline-block;
     cursor: pointer;
     transition: transform 0.4s ease;
@@ -194,7 +187,6 @@ strong {
 
 .link-image:hover {
     transform: scale(1.8) translateY(-35px) translateX(0px);
-    z-index: 10; /* Verhoog z-index om boven de tekst te komen */
 }
 
 .rotated-image {
