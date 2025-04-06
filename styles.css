@@ -120,6 +120,28 @@ body {
     box-shadow: 0 0 5px rgba(0, 121, 107, 0.5);
 }
 
+.brand-logos {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 20px 10px;
+/*     background-color: #f7f7f7; */
+/*     border-top: 1px solid #ccc; */
+/*     border-bottom: 1px solid #ccc; */
+    gap: 20px;
+}
+
+.brand-logos img {
+    height: 40px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.brand-logos img:hover {
+    transform: scale(1.1);
+}
+
 h1 {
     color: #0288d1;
     text-align: center;
