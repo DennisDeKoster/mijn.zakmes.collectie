@@ -207,13 +207,13 @@ button:hover {
 }
 
 /* Media Queries */
-@media (min-width: 1920px) {
+@media (min-width: 1680px) {
     .container {
         grid-template-columns: repeat(4, 1fr); /* Vier kaarten per rij op grote schermen */
     }
 }
 
-@media (min-width: 1280px) and (max-width: 1919px) {
+@media (min-width: 1280px) and (max-width: 1679px) {
     .container {
         grid-template-columns: repeat(3, 1fr); /* Drie kaarten per rij op middelgrote schermen */
     }
