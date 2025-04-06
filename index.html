@@ -8,68 +8,62 @@
     <link rel="stylesheet" type="text/css" href="styles.css">
     <script>
         async function loadKnives() {
-            try {
-                const response = await fetch('database.json');
-                const text = await response.text();  // Verkrijg de inhoud als tekst
-                const knives = JSON.parse(text);     // Parse de tekst als JSON
-                // console.log(knives);  // Log de geladen messen om te controleren
+            const response = await fetch('database.json');
+            const text = await response.text();  // Verkrijg de inhoud als tekst
+            const knives = JSON.parse(text);     // Parse de tekst als JSON
         
-                const container = document.getElementById('knifeContainer');
-                container.innerHTML = '';
+            const container = document.getElementById('knifeContainer');
+            container.innerHTML = '';
         
-                knives.forEach(knife => {
-                    const card = document.createElement('div');
-                    card.classList.add('card');
-                    card.innerHTML = `
-                        <div class="card-content">
-                            <div class="specs">
-                                <div class="row">
-                                    <div class="topleft">
-                                        <h2><span class="merk">${knife.merk}</span> <span class="naam">${knife.naam}</span><br>
-                                        <span class="naam">${knife.model}</span></h2>
-                                    </div>
-                                    <div class="topright">
-                                        <a href="${knife.link}" class="link-image" target="_blank">
-                                            <img src="${knife.afbeelding}" alt="${knife.naam}" class="${knife.rotate ? 'rotated-image' : ''}">
-                                        </a>
-                                    </div>
+            knives.forEach(knife => {
+                const card = document.createElement('div');
+                card.classList.add('card');
+                card.innerHTML = `
+                    <div class="card-content">
+                        <div class="specs">
+                            <div class="row">
+                                <div class="topleft">
+                                    <h2><span class="merk">${knife.merk}</span> <span class="naam">${knife.naam}</span><br>
+                                    <span class="naam">${knife.model}</span></h2>
                                 </div>
-                                <div class="row">
-                                    <div class="left">
-                                        <div class="uitvoering"><strong>Uitvoering:</strong><br>${knife.uitvoering}</div>
-                                        <div class="lemmetVorm"><strong>Lemmet vorm:</strong><br>${knife.lemmetVorm}</div>
-                                        <div class="afwerking"><strong>Afwerking:</strong><br>${knife.afwerking}</div>
-                                        <div class="openmethode"><strong>Openmethode:</strong><br>${knife.openmethode}</div>
-                                        <div class="vergrendeling"><strong>Vergrendeling:</strong><br>${knife.vergrendeling}</div>
-                                        <div class="gewicht"><strong>Gewicht:</strong><br>${knife.gewicht} g</div>
-                                        <div class="aankoopdatum"><strong>Aankoopdatum:</strong><br>${knife.aankoopdatum}</div>
-                                        ${knife.mods ? `
-                                            <div class="mods">
-                                                <strong>Mods:</strong><br>
-                                                <div>
-                                                    ${knife.mods.map(mod => `<div>${mod.link ? `<a href="${mod.link}" target="_blank">${mod.description}</a>` : mod.description}</div>`).join('')}
-                                                </div>
-                                            </div>` : ''}
-                                    </div>
-                                    <div class="right">
-                                        <div class="staalsoort"><strong>Staalsoort:</strong><br>${knife.staalsoort}</div>
-                                        <div class="hardheid"><strong>Hardheid:</strong><br>${knife.hardheid} HRC</div>
-                                        <div class="lengteGesloten"><strong>Lengte gesloten:</strong><br>${knife.lengteGesloten} cm</div>
-                                        <div class="lengteGeopend"><strong>Lengte geopend:</strong><br>${knife.lengteGeopend} cm</div>
-                                        <div class="lengteLemmet"><strong>Lengte lemmet:</strong><br>${knife.lengteLemmet} cm</div>
-                                        <div class="nieuwwaarde"><strong>Nieuwwaarde:</strong><br>€ ${knife.nieuwwaarde}</div>
-                                        <div class="aankoopwaarde"><strong>Aankoopwaarde:</strong><br>€ ${knife.aankoopwaarde}</div>
-                                    </div>
+                                <div class="topright">
+                                    <a href="${knife.link}" class="link-image" target="_blank">
+                                        <img src="${knife.afbeelding}" alt="${knife.naam}" class="${knife.rotate ? 'rotated-image' : ''}">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="left">
+                                    <div class="uitvoering"><strong>Uitvoering:</strong><br>${knife.uitvoering}</div>
+                                    <div class="lemmetVorm"><strong>Lemmet vorm:</strong><br>${knife.lemmetVorm}</div>
+                                    <div class="afwerking"><strong>Afwerking:</strong><br>${knife.afwerking}</div>
+                                    <div class="openmethode"><strong>Openmethode:</strong><br>${knife.openmethode}</div>
+                                    <div class="vergrendeling"><strong>Vergrendeling:</strong><br>${knife.vergrendeling}</div>
+                                    <div class="gewicht"><strong>Gewicht:</strong><br>${knife.gewicht} g</div>
+                                    <div class="aankoopdatum"><strong>Aankoopdatum:</strong><br>${knife.aankoopdatum}</div>
+                                    ${knife.mods ? `
+                                        <div class="mods">
+                                            <strong>Mods:</strong><br>
+                                            <div>
+                                                ${knife.mods.map(mod => `<div>${mod.link ? `<a href="${mod.link}" target="_blank">${mod.description}</a>` : mod.description}</div>`).join('')}
+                                            </div>
+                                        </div>` : ''}
+                                </div>
+                                <div class="right">
+                                    <div class="staalsoort"><strong>Staalsoort:</strong><br>${knife.staalsoort}</div>
+                                    <div class="hardheid"><strong>Hardheid:</strong><br>${knife.hardheid} HRC</div>
+                                    <div class="lengteGesloten"><strong>Lengte gesloten:</strong><br>${knife.lengteGesloten} cm</div>
+                                    <div class="lengteGeopend"><strong>Lengte geopend:</strong><br>${knife.lengteGeopend} cm</div>
+                                    <div class="lengteLemmet"><strong>Lengte lemmet:</strong><br>${knife.lengteLemmet} cm</div>
+                                    <div class="nieuwwaarde"><strong>Nieuwwaarde:</strong><br>€ ${knife.nieuwwaarde}</div>
+                                    <div class="aankoopwaarde"><strong>Aankoopwaarde:</strong><br>€ ${knife.aankoopwaarde}</div>
                                 </div>
                             </div>
                         </div>
-                    `;
-                    container.appendChild(card);
-                });
-            } catch (error) {
-                //console.error("Fout bij het laden van database:", error);
-                alert("Fout bij het laden van database.");
-            }
+                    </div>
+                `;
+                container.appendChild(card);
+            });
         }
 
         function searchKnives() {
@@ -156,7 +150,7 @@
         <div id="totalKnives"></div>
         <div id="totalValue"></div>
         <div id="totalPurchaseValue"></div>
-        <div>Laatst bijgewerkt: 05-04-2025</div>
+        <div>Laatst bijgewerkt: 06-04-2025</div>
     </div>
     <div class="brand-logos">
         <div class="logo-wrapper"><a href="https://kunwuknives.com" target="_blank"><img src="https://images.squarespace-cdn.com/content/v1/614c5f59875eea0c5085ed67/cf653c9a-839a-4cc3-9657-10b5287cb32e/kunwukniveslogo.png" alt="Kunwu Knives" /></a></div>
