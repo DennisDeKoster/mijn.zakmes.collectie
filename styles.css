@@ -132,13 +132,26 @@ body {
     gap: 20px;
 }
 
-.brand-logos img {
-    height: 40px;
+.logo-wrapper {
+    width: 100px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.logo-wrapper img {
+    max-width: 100%;
+    max-height: 100%;
     object-fit: contain;
     transition: transform 0.3s ease;
 }
 
-.brand-logos img:hover {
+.logo-wrapper img:hover {
     transform: scale(1.1);
 }
 
