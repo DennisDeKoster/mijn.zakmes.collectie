@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mijn zakmes collectie</title>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Sora:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Space+Grotesk:wght@400;700&family=Sora:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="styles.css">
     <script>
         async function loadKnives() {
@@ -12,7 +12,7 @@
                 const response = await fetch('database.json');
                 const text = await response.text();  // Verkrijg de inhoud als tekst
                 const knives = JSON.parse(text);     // Parse de tekst als JSON
-                console.log(knives);  // Log de geladen messen om te controleren
+                // console.log(knives);  // Log de geladen messen om te controleren
         
                 const container = document.getElementById('knifeContainer');
                 container.innerHTML = '';
@@ -66,7 +66,7 @@
                     container.appendChild(card);
                 });
             } catch (error) {
-                console.error("Fout bij het laden van database:", error);
+                //console.error("Fout bij het laden van database:", error);
                 alert("Fout bij het laden van database.");
             }
         }
