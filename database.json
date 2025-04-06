@@ -1,7 +1,8 @@
 [
   {
     "merk": "Civivi",
-    "naam": "Mini Praxis C18026C-1",
+    "naam": "Mini Praxis",
+    "model": "C18026C-1",
     "uitvoering": "Green G10",
     "lemmetVorm": "Droppoint",
     "afwerking": "Blackwashed",
@@ -21,7 +22,8 @@
   },
   {
     "merk": "Civivi",
-    "naam": "Altus C20076-6",
+    "naam": "Altus",
+    "model": "C20076-6",
     "uitvoering": "Blue Stonewashed Aluminium",
     "lemmetVorm": "Droppoint",
     "afwerking": "Stonewashed",
@@ -51,7 +53,8 @@
   },
   {
     "merk": "Civivi",
-    "naam": "Qubit C22030E-1",
+    "naam": "Qubit",
+    "model": "C22030E-1",
     "uitvoering": "Black Aluminium",
     "lemmetVorm": "Droppoint",
     "afwerking": "Blackwashed",
@@ -71,7 +74,8 @@
   },
   {
     "merk": "Civivi",
-    "naam": "Odium C2010DS-1",
+    "naam": "Odium",
+    "model": "C2010DS-1",
     "uitvoering": "Guibourtia Wood",
     "lemmetVorm": "Droppoint",
     "afwerking": "Damascus",
@@ -91,7 +95,8 @@
   },
   {
     "merk": "Civivi",
-    "naam": "Elementum C907C-DS1",
+    "naam": "Elementum",
+    "model": "C907C-DS1",
     "uitvoering": "Shredded Gold Carbonfiber",
     "lemmetVorm": "Droppoint",
     "afwerking": "Damascus",
@@ -111,7 +116,8 @@
   },
   {
     "merk": "Sencut",
-    "naam": "ArcBlast S22043B-3",
+    "naam": "ArcBlast",
+    "model": "S22043B-3",
     "uitvoering": "Bright Blue Aluminium",
     "lemmetVorm": "Droppoint",
     "afwerking": "Mat",
@@ -131,7 +137,8 @@
   },
   {
     "merk": "Sencut",
-    "naam": "Excalis S23068-4",
+    "naam": "Excalis",
+    "model": "S23068-4",
     "uitvoering": "Guibourtia Wood",
     "lemmetVorm": "Reverse tanto",
     "afwerking": "Satin",
@@ -152,7 +159,8 @@
   },
   {
     "merk": "Civivi",
-    "naam": "Elementum C907A-7",
+    "naam": "Elementum",
+    "model": "C907A-7",
     "uitvoering": "Polished Clear Lexan",
     "lemmetVorm": "Droppoint",
     "afwerking": "Satin",
@@ -172,7 +180,8 @@
   },
   {
     "merk": "Kershaw",
-    "naam": "Mini Iridium 2051",
+    "naam": "Mini Iridium",
+    "model": "2051",
     "uitvoering": "Ice Blue Aluminium",
     "lemmetVorm": "Spearpoint",
     "afwerking": "Stonewashed",
@@ -192,7 +201,8 @@
   },
   {
     "merk": "Benchmade",
-    "naam": "Bugout 535FE-05",
+    "naam": "Bugout",
+    "model": "535FE-05",
     "uitvoering": "Crater Blue Grivory",
     "lemmetVorm": "Droppoint",
     "afwerking": "Cerakote",
@@ -212,7 +222,8 @@
   },
   {
     "merk": "WE Knife",
-    "naam": "Kitefin 2001B",
+    "naam": "Kitefin",
+    "model": "2001B",
     "uitvoering": "Titanium Shredded Carbonfiber",
     "lemmetVorm": "Droppoint",
     "afwerking": "Mat",
@@ -232,7 +243,8 @@
   },
   {
     "merk": "Benchmade",
-    "naam": "Bugout 535BK-4",
+    "naam": "Bugout",
+    "model": "535BK-4",
     "uitvoering": "Aluminium",
     "lemmetVorm": "Droppoint",
     "afwerking": "Cerakote",
@@ -252,7 +264,8 @@
   },
   {
     "merk": "Remette",
-    "naam": "Peregrine Falcon RTT1-TX",
+    "naam": "Peregrine Falcon",
+    "model": "RTT1-TX",
     "uitvoering": "Thunder Lightning Titanium",
     "lemmetVorm": "Reverse tanto",
     "afwerking": "Manual Grind Pearlescent",
@@ -273,7 +286,8 @@
   },
   {
     "merk": "Kizer",
-    "naam": "Militaw KI3634A2",
+    "naam": "Militaw",
+    "model": "KI3634A2",
     "uitvoering": "Black Titanium & Purple Haze Fatcarbon",
     "lemmetVorm": "Droppoint",
     "afwerking": "Satin DLC",
@@ -293,7 +307,8 @@
   },
   {
     "merk": "Kizer Vanguard",
-    "naam": "Assasin V3549A2",
+    "naam": "Assassin",
+    "model": "V3549A2",
     "uitvoering": "Denim Micarta",
     "lemmetVorm": "Droppoint",
     "afwerking": "Satin",
@@ -312,8 +327,9 @@
     "link": "https://www.knivesandtools.nl/nl/pt/-kizer-vanguard-assassin-v3549a2-satin-nitro-v-denim-micarta-zakmes-azo-design.htm"
   },
   {
-    "merk": "Kunwu Knives",
+    "merk": "Kunwu",
     "naam": "Compadre",
+    "model": "",
     "uitvoering": "Reverse Tux Diamond Texture Titanium",
     "lemmetVorm": "Clippoint",
     "afwerking": "Satin DLC",
