@@ -20,7 +20,8 @@ body {
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    overflow: visible;
+    position: relative; /* Zorg ervoor dat de kaart goed gepositioneerd is */
+    overflow: visible; /* Zorg dat de afbeelding niet wordt afgekapt */
 }
 
 .card img {
@@ -86,6 +87,8 @@ body {
 .left, .topleft {
     width: 63%;
     margin-left: 10px;
+    position: relative;
+    z-index: 0; /* Zet de tekst eronder */
 }
 
 .right {
@@ -98,6 +101,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative; /* Zorg dat de afbeelding zich boven de tekst bevindt */
+    z-index: 1; /* Zet de afbeelding eerst in de stapelvolgorde */
 }
 
 .search-sort-container, .header1 {
@@ -189,8 +194,7 @@ strong {
 
 .link-image:hover {
     transform: scale(1.8) translateY(-35px) translateX(0px);
-    z-index: 10;
-    position: relative;
+    z-index: 10; /* Verhoog z-index om boven de tekst te komen */
 }
 
 .rotated-image {
