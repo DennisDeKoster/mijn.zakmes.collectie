@@ -11,10 +11,8 @@
             const response = await fetch('database.json');
             const text = await response.text();  // Verkrijg de inhoud als tekst
             const knives = JSON.parse(text);     // Parse de tekst als JSON
-        
             const container = document.getElementById('knifeContainer');
             container.innerHTML = '';
-        
             knives.forEach(knife => {
                 const card = document.createElement('div');
                 card.classList.add('card');
@@ -66,7 +64,6 @@
                 container.appendChild(card);
             });
         }
-
         function searchKnives() {
             const query = document.getElementById('search').value.toLowerCase();
             const cards = document.querySelectorAll('.card');
@@ -76,27 +73,22 @@
             });
             updateSummary();
         }
-
         function clearSearch() {
             document.getElementById('search').value = '';
             searchKnives();
         }
-
         function sortKnives() {
             const sortBy = document.getElementById('sort').value;
             const sortOrder = document.getElementById('sortOrder').value;
             const container = document.getElementById('knifeContainer');
             const cards = Array.from(container.children);
-        
             cards.sort((a, b) => {
                 let aValue = a.querySelector(`.${sortBy}`).textContent.trim();
                 let bValue = b.querySelector(`.${sortBy}`).textContent.trim();
-        
                 if (sortBy === 'aankoopdatum') {
                     // Controleer of de datum het juiste formaat heeft (dd-mm-jjjj)
                     aValue = aValue.match(/\d{2}-\d{2}-\d{4}/);
                     bValue = bValue.match(/\d{2}-\d{2}-\d{4}/);
-                    
                     if (aValue && bValue) {
                         aValue = new Date(aValue[0].split('-').reverse().join('-'));
                         bValue = new Date(bValue[0].split('-').reverse().join('-'));
@@ -111,18 +103,15 @@
                         : bValue.localeCompare(aValue, undefined, { numeric: true });
                 }
             });
-        
             container.innerHTML = '';
             cards.forEach(card => container.appendChild(card));
             updateSummary();
         }
-
         function updateSummary() {
             const cards = document.querySelectorAll('.card');
             const totalKnives = cards.length;
             let totalValue = 0;
             let totalPurchaseValue = 0;
-
             cards.forEach(card => {
                 const valueText = card.querySelector('.nieuwwaarde').textContent;
                 const purchaseValueText = card.querySelector('.aankoopwaarde').textContent;
@@ -131,12 +120,10 @@
                 if (!isNaN(numericValue)) totalValue += numericValue;
                 if (!isNaN(numericPurchaseValue)) totalPurchaseValue += numericPurchaseValue;
             });
-
             document.getElementById('totalKnives').textContent = `Aantal mesjes: ${totalKnives}`;
             document.getElementById('totalValue').textContent = `Nieuwwaarde: € ${totalValue.toLocaleString('nl-NL', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
             document.getElementById('totalPurchaseValue').textContent = `Aankoopwaarde: € ${totalPurchaseValue.toLocaleString('nl-NL', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
         }
-
         document.addEventListener('DOMContentLoaded', async () => {
             await loadKnives();
             document.getElementById('sort').value = 'aankoopdatum';
