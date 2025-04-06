@@ -39,6 +39,34 @@ body {
     font-size: 12px;
 }
 
+.brand-logos {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 10px 10px;
+    gap: 10px;
+    background-color: inherit;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.logo-wrapper {
+    width: 100px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.logo-wrapper img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    mix-blend-mode: multiply;
+}
+
 .specs {
     display: flex;
     flex-direction: column;
@@ -74,7 +102,6 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 10px;
     margin: 0px;
 }
 
@@ -90,7 +117,7 @@ body {
     font-size: 14px;
     transition: all 0.4s ease;
     margin: 10px;
-    width: calc(100% - 120px);
+    width: calc(400px - 120px);
 }
 
 .sort-options {
@@ -118,41 +145,6 @@ body {
 .sort-options select:focus {
     outline: none;
     box-shadow: 0 0 5px rgba(0, 121, 107, 0.5);
-}
-
-.brand-logos {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    flex-wrap: wrap;
-    padding: 20px 10px;
-    background-color: #f7f7f7;
-    border-top: 1px solid #ccc;
-    border-bottom: 1px solid #ccc;
-    gap: 20px;
-}
-
-.logo-wrapper {
-    width: 100px;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-.logo-wrapper img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-    transition: transform 0.3s ease;
-}
-
-.logo-wrapper img:hover {
-    transform: scale(1.1);
 }
 
 h1 {
@@ -236,7 +228,7 @@ button:hover {
     }
 
     .search-bar input {
-        width: 100%; /* Zorgt ervoor dat het zoekveld de volledige breedte inneemt */
+        width: 300px;
     }
 }
 
@@ -251,9 +243,15 @@ button:hover {
 
     .search-bar input {
         font-size: 12px; /* Verkleint de tekstgrootte van het zoekveld op mobiele apparaten */
+        /* width: calc(100% - 120px); */
     }
 
     .sort-options select {
         font-size: 12px; /* Verkleint de tekstgrootte van de sorteeropties op mobiele apparaten */
     }
-]
+
+    .search-sort-container, .header1 {
+        flex-direction: column; /* Zet de elementen onder elkaar op kleinere schermen */
+        align-items: flex-start;
+    }
+}
