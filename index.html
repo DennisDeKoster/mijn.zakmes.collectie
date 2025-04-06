@@ -137,8 +137,8 @@
             });
 
             document.getElementById('totalKnives').textContent = `Aantal mesjes: ${totalKnives}`;
-            document.getElementById('totalValue').textContent = `Nieuwwaarde: € ${totalValue.toFixed(2)}`;
-            document.getElementById('totalPurchaseValue').textContent = `Aankoopwaarde: € ${totalPurchaseValue.toFixed(2)}`;
+            document.getElementById('totalValue').textContent = `Nieuwwaarde: € ${totalValue.toLocaleString('nl-NL', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+            document.getElementById('totalPurchaseValue').textContent = `Aankoopwaarde: € ${totalPurchaseValue.toLocaleString('nl-NL', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
         }
 
         document.addEventListener('DOMContentLoaded', async () => {
