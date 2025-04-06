@@ -187,7 +187,7 @@ strong {
 }
 
 .link-image:hover {
-    transform: scale(2.0) translateY(-35px) translateX(15px);
+    transform: scale(1.8) translateY(-35px) translateX(10px);
 }
 
 .rotated-image {
