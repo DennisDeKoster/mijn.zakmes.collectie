@@ -104,7 +104,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 0px;
+    margin: 10px;
 }
 
 .search-bar {
@@ -116,7 +116,7 @@ body {
     padding: 10px;
     border: 1px solid #00796b;
     border-radius: 10px;
-    font-size: 14px;
+    font-size: 12px;
     transition: all 0.4s ease;
     margin: 10px;
     width: calc(400px - 120px);
@@ -133,7 +133,7 @@ body {
     padding: 10px;
     border: 1px solid #00796b;
     border-radius: 4px;
-    font-size: 14px;
+    font-size: 12px;
     transition: all 0.4s ease;
     background-color: #ffffff;
     color: #0288d1;
@@ -241,15 +241,6 @@ button:hover {
 
     h1 {
         font-size: 24px; /* Verkleint de tekstgrootte van de header op mobiele apparaten */
-    }
-
-    .search-bar input {
-        font-size: 12px; /* Verkleint de tekstgrootte van het zoekveld op mobiele apparaten */
-        /* width: calc(100% - 120px); */
-    }
-
-    .sort-options select {
-        font-size: 12px; /* Verkleint de tekstgrootte van de sorteeropties op mobiele apparaten */
     }
 
     .search-sort-container, .header1 {
