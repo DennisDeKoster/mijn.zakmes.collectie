@@ -12,8 +12,6 @@ body {
 }
 .card {
     background-color: #ffffff;
-/*     background: url('img/...') no-repeat center center;
-    background-size: cover; */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     border-radius: 20px;
     overflow: hidden;
@@ -57,7 +55,7 @@ body {
     transition: transform 0.3s ease;
 }
 .logo-wrapper img:hover {
-    transform: scale(1.2);
+    transform: scale(1.1);
 }
 .specs {
     display: flex;
@@ -158,7 +156,7 @@ strong {
     transform-origin: right top;
 }
 .link-image:hover {
-    transform: scale(1.8) translateY(-45px) translateX(0px); /* Was Y-35 */
+    transform: scale(1.9) translateY(-45px) translateX(0px);
 }
 button {
     background: transparent;
