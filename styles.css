@@ -134,7 +134,10 @@ h1 {
 h2 {
     font-family: 'Space Grotesk', sans-serif;
     font-size: 20px;
+    color: black; /* Zwarte tekst */
     text-shadow: 2px 2px 10px white;
+    -webkit-text-stroke: 1px white; /* Witte rand om de letters */
+    text-stroke: 1px white; /* Voor niet-WebKit browsers (soms ondersteund) */
 }
 a {
     text-decoration: none;
