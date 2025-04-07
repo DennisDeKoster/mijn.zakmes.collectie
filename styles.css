@@ -79,7 +79,7 @@ body {
     width: 100px;
     height: 75px;
     display: flex;
-    align-items: top; /* Was center */
+    align-items: center;
     justify-content: center;
 }
 .search-sort-container, .header1 {
@@ -156,7 +156,7 @@ strong {
     transform-origin: right top;
 }
 .link-image:hover {
-    transform: scale(1.8) translateY(0px) translateX(0px); /* Was Y-35 */
+    transform: scale(1.8) translateY(-45px) translateX(0px); /* Was Y-35 */
 }
 button {
     background: transparent;
