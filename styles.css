@@ -89,9 +89,10 @@ body {
     justify-content: space-between;
     align-items: center;
     font-family: 'Space Grotesk', sans-serif;
-    padding: 10px 0px 10px 0px; /* Top, Rechts, Onder, Links */
+    padding: 10px 0px 10px 0px; 
 }
 .search-bar {
+    padding: 10px 0px 10px 0px;
     display: flex;
     flex: 1;
 }
@@ -101,7 +102,8 @@ body {
     border-radius: 10px;
     font-size: 12px;
     transition: all 0.4s ease;
-    width: calc(400px - 120px);
+/*     width: calc(400px - 120px); */
+    width: 220px;
 }
 .sort-options {
     display: flex;
@@ -196,9 +198,6 @@ button:hover {
         flex-direction: column; /* Zet de elementen onder elkaar op kleinere schermen */
         align-items: flex-start;
     }
-    .search-bar input {
-        width: 300px;
-    }
 }
 @media (max-width: 767px) {
     .container {
@@ -216,7 +215,7 @@ button:hover {
     .search-sort-container, .header1 {
         flex-direction: column; /* Zet de elementen onder elkaar op kleinere schermen */
         align-items: flex-start;
-        padding: 0px 0px 10px 0px; /* Top, Rechts, Onder, Links */
+        padding: 0px 0px 10px 0px; 
     }
     .logo-wrapper {
         width: 50px;
