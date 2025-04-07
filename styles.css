@@ -134,13 +134,15 @@ h1 {
 h2 {
     font-family: 'Space Grotesk', sans-serif;
     font-size: 20px;
-    color: black;
     text-shadow: 
-        -1px -1px 0 white,
-        1px -1px 0 white,
-        -1px 1px 0 white,
-        1px 1px 0 white,
-        0 0 10px white; /* optioneel voor gloed-effect */
+        -2px -2px 0 white,
+         2px -2px 0 white,
+        -2px  2px 0 white,
+         2px  2px 0 white,
+         0   -2px 0 white,
+         0    2px 0 white,
+        -2px  0px 0 white,
+         2px  0px 0 white;
 }
 a {
     text-decoration: none;
