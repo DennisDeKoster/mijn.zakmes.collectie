@@ -39,7 +39,7 @@ body {
     justify-content: space-evenly;
     align-items: center;
     flex-wrap: wrap;
-    padding: 25px 0px 25px 0px;
+    padding: 25px 0px 25px 0px; /* Top, Rechts, Onder, Links */
     gap: 10px;
 }
 .logo-wrapper {
@@ -103,7 +103,7 @@ body {
     font-size: 12px;
     transition: all 0.4s ease;
 /*     width: calc(400px - 120px); */
-    width: 220px;
+    width: 200px;
 }
 .sort-options {
     display: flex;
@@ -194,7 +194,7 @@ button:hover {
     .container {
         grid-template-columns: repeat(2, 1fr); /* Twee kaarten per rij op tablets */
     }
-    .search-sort-container, .header1 {
+    .header1 {
         flex-direction: column; /* Zet de elementen onder elkaar op kleinere schermen */
         align-items: flex-start;
     }
@@ -213,11 +213,17 @@ button:hover {
         font-size: 18px; /* Verkleint de tekstgrootte van de header op mobiele apparaten */
     }
     .search-sort-container, .header1 {
+        display: flex;
         flex-direction: column; /* Zet de elementen onder elkaar op kleinere schermen */
-        align-items: flex-start;
+        align-items: stretch;
+    }
+    .sort-options {
+        display: flex;
+        justify-content: center; /* Centreert horizontaal */
+        align-items: center;
     }
     .brand-logos{
-        padding: 0px 0px 0px 0px;
+        padding: 5px 0px 0px 0px;
     }
     .logo-wrapper {
         width: 50px;
