@@ -20,7 +20,7 @@ body {
 }
 .card img {
     width: 200px !important;
-    height: 150px !important;
+    height: 80px !important;
     object-fit: scale-down;
     margin-top: 10px;
 }
@@ -163,7 +163,7 @@ strong {
     transform-origin: right top;
 }
 .link-image:hover {
-    transform: scale(1.9) translateY(-45px) translateX(0px);
+    transform: scale(1.9) translateY(-25px) translateX(0px);
 }
 button {
     background: transparent;
