@@ -22,7 +22,7 @@ body {
     width: 200px !important;
     height: 150px !important;
     object-fit: scale-down;
-    margin-top: 15px;
+    margin-top: 10px;
 }
 .card-content {
     padding: 15px;
@@ -132,17 +132,16 @@ h1 {
     font-weight: 200; 
 }
 h2 {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 20px;
-    text-shadow: 
-        -2px -2px 0 white,
-         2px -2px 0 white,
-        -2px  2px 0 white,
-         2px  2px 0 white,
-         0   -2px 0 white,
-         0    2px 0 white,
-        -2px  0px 0 white,
-         2px  0px 0 white;
+    position: relative;
+    z-index: 2;
+    font-family: 'Sora', sans-serif;
+    font-size: 22px;
+    color: black;
+    text-shadow:
+        -1px -1px 0 white,
+        1px -1px 0 white,
+        -1px  1px 0 white,
+        1px  1px 0 white;
 }
 a {
     text-decoration: none;
