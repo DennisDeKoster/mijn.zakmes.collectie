@@ -1,7 +1,7 @@
 body {
     background-color: #e0f7fa;
     margin: 0;
-    padding: 20px;
+    padding: 25px;
 }
 .container {
     display: grid;
@@ -33,11 +33,14 @@ body {
     font-size: 14px;
 }
 .brand-logos {
+    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     flex-wrap: wrap;
-    padding: 10px 10px 20px 10px; /* Top, Rechts, Onder, Links */
+    padding: 25px 0px 25px 0px;
     gap: 10px;
 }
 .logo-wrapper {
@@ -87,6 +90,7 @@ body {
     justify-content: space-between;
     align-items: center;
     font-family: 'Space Grotesk', sans-serif;
+    padding: 10px 0px 10px 0px; /* Top, Rechts, Onder, Links */
 }
 .search-bar {
     display: flex;
