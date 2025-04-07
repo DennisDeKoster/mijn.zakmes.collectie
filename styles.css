@@ -12,7 +12,7 @@ body {
 }
 .card {
     background-color: #ffffff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
     border-radius: 20px;
     overflow: hidden;
     display: flex;
@@ -33,8 +33,7 @@ body {
     font-size: 14px;
 }
 .brand-logos {
-    background-color: rgba(255, 255, 255, 0.1);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     display: flex;
     justify-content: space-evenly;
@@ -102,7 +101,6 @@ body {
     border-radius: 10px;
     font-size: 12px;
     transition: all 0.4s ease;
-    margin: 10px;
     width: calc(400px - 120px);
 }
 .sort-options {
