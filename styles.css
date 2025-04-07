@@ -198,6 +198,12 @@ button:hover {
         flex-direction: column; /* Zet de elementen onder elkaar op kleinere schermen */
         align-items: flex-start;
     }
+    .brand-logos{
+        padding: 10px 0px 10px 0px;
+    }
+    .logo-wrapper {
+        width: 75px;
+    }
 }
 @media (max-width: 767px) {
     .container {
