@@ -39,11 +39,11 @@
                                     <div class="nieuwwaarde"><strong>Nieuwwaarde:</strong><br>€ ${knife.nieuwwaarde}</div>
                                     <div class="aankoopwaarde"><strong>Aankoopwaarde:</strong><br>€ ${knife.aankoopwaarde}</div>
                                     <div class="aankoopdatum"><strong>Aankoopdatum:</strong><br>${knife.aankoopdatum}</div>
-                                    ${knife.mods ? `
-                                        <div class="mods">
-                                            <strong>Mods:</strong><br>
+                                    ${knife.specials ? `
+                                        <div class="specials">
+                                            <strong>Bijzonderheden:</strong><br>
                                             <div>
-                                                ${knife.mods.map(mod => `<div>${mod.link ? `<a href="${mod.link}" target="_blank">${mod.description}</a>` : mod.description}</div>`).join('')}
+                                                ${knife.specials.map(special => `<div>${special.link ? `<a href="${special.link}" target="_blank">${special.description}</a>` : special.description}</div>`).join('')}
                                             </div>
                                         </div>` : ''}
                                 </div>
