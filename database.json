@@ -357,7 +357,7 @@
     "gewicht": "70",
     "aankoopdatum": "29-04-2025",
     "staalsoort": "CPM S35VN",
-    "hardheid": "61",
+    "hardheid": "59-61",
     "lengteGesloten": "9,6",
     "lengteGeopend": "17,3",
     "lengteLemmet": "7,6",
@@ -371,6 +371,9 @@
       },
       {
         "description": "Serienummer .... van 2014"
+      },
+      {
+        "description": "Blue 6AL4V titanium pocketclip"
       }
     ]
   }
