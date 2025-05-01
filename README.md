@@ -14,7 +14,8 @@ This project is intended for my personal use only.
 
 - index.html - Main page
 - styles.css - Stylesheet
-- database.json - Contains knife data, links and images
+- database.json - Contains knife data and links
+- img/ - Contains all the logos and images
 
 ## Acknowledgements
 
