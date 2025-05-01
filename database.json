@@ -40,7 +40,7 @@
     "aankoopwaarde": "94,95",
     "afbeelding": "img/CIC20076-6_01_civivi.webp",
     "link": "https://www.knivesandtools.nl/nl/pt/-civivi-altus-c20076-6-stonewashed-aluminium-blue-zakmes.htm",
-    "mods": [
+    "specials": [
       {
         "description": "Unlocked Composites carbon scales",
         "link": "https://unlockedcomposites.com"
@@ -344,5 +344,34 @@
     "aankoopdatum": "24-03-2025",
     "afbeelding": "img/Kunwu_K706C-T401.webp",
     "link": "https://www.lamnia.com/nl/p/103263/messen/kunwu-knives-reverse-tux-compadre-diamond-texture-ti-dlc-vouwmes"
+  },
+  {
+    "merk": "Civivi",
+    "naam": "Mini Praxis",
+    "model": "C18026CB-1",
+    "uitvoering": "Arctic Storm Fat Carbon Fiber",
+    "lemmetVorm": "Droppoint",
+    "afwerking": "Sarin",
+    "openmethode": "Flipper",
+    "vergrendeling": "Linerlock",
+    "gewicht": "70",
+    "aankoopdatum": "29-04-2025",
+    "staalsoort": "CPM S35VN",
+    "hardheid": "61",
+    "lengteGesloten": "9,6",
+    "lengteGeopend": "17,3",
+    "lengteLemmet": "7,6",
+    "nieuwwaarde": "99,70",
+    "aankoopwaarde": "99,70",
+    "afbeelding": "img/CIC18026CB-1_01.webp",
+    "link": "https://www.knivesandtools.nl/nl/pt/-civivi-mini-praxis-c18026cb-1-satin-cpm-s35vn-arctic-storm-fat-carbon-fiber-11th-anniversary-limited-edition-zakmes.htm",
+    "specials": [
+      {
+        "description": "11th Anniversary Limited Edition"
+      },
+      {
+        "description": "Serienummer .... van 2014"
+      }
+    ]
   }
 ]
