@@ -33,6 +33,7 @@
                                 <div class="left">
                                     <div class="uitvoering"><strong>Uitvoering:</strong><br>${knife.uitvoering}</div>
                                     <div class="model"><strong>Modelnummer:</strong><br>${knife.model}</div>
+                                    <div class="lemmetVorm"><strong>Lemmet vorm:</strong><br>${knife.lemmetVorm}</div>
                                     <div class="openmethode"><strong>Openmethode:</strong><br>${knife.openmethode}</div>
                                     <div class="vergrendeling"><strong>Vergrendeling:</strong><br>${knife.vergrendeling}</div>
                                     <div class="nieuwwaarde"><strong>Nieuwwaarde:</strong><br>€ ${knife.nieuwwaarde}</div>
@@ -44,10 +45,10 @@
                                             <div>
                                                 ${knife.specials.map(special => `<div>${special.link ? `<a href="${special.link}" target="_blank">${special.description}</a>` : special.description}</div>`).join('')}
                                             </div>
-                                        </div>` : ''}
+                                        </div>` : `
+                                            <div class="empty-space"> <br> <br></div>`}
                                 </div>
                                 <div class="right">
-                                    <div class="lemmetVorm"><strong>Lemmet vorm:</strong><br>${knife.lemmetVorm}</div>
                                     <div class="staalsoort"><strong>Staalsoort:</strong><br>${knife.staalsoort}</div>
                                     <div class="afwerking"><strong>Afwerking:</strong><br>${knife.afwerking}</div>
                                     <div class="hardheid"><strong>Hardheid:</strong><br>${knife.hardheid} HRC</div>
