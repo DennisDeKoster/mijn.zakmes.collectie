@@ -68,7 +68,7 @@ body {
 }
 .row {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
 }
 .left, .topleft {
     width: 63%;
