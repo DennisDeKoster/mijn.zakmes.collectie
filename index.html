@@ -56,6 +56,9 @@
                                     <div class="lengteLemmet"><strong>Lengte lemmet:</strong><br>${knife.lengteLemmet} mm</div>
                                     <div class="dikteLemmet"><strong>Dikte lemmet:</strong><br>${knife.lengteLemmet} mm</div>
                                     <div class="gewicht"><strong>Gewicht:</strong><br>${knife.gewicht} g</div>
+                                    ${knife.specials ? `
+                                        <div class="empty-space"><br><br>
+                                        </div>` : ``}
                                 </div>
                             </div>
                         </div>
