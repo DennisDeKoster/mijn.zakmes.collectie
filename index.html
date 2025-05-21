@@ -108,21 +108,39 @@
             updateSummary();
         }
         function updateSummary() {
-            const cards = document.querySelectorAll('.card');
-            const totalKnives = cards.length;
+            const response = await fetch('database.json');
+            const knives = await response.json();
+        
+            let totalKnives = knives.length;
             let totalValue = 0;
             let totalPurchaseValue = 0;
-            cards.forEach(card => {
-                const valueText = card.querySelector('.nieuwwaarde').textContent;
-                const purchaseValueText = card.querySelector('.aankoopwaarde').textContent;
-                const numericValue = parseFloat(valueText.replace(/[^\d,.-]/g, '').replace(',', '.'));
-                const numericPurchaseValue = parseFloat(purchaseValueText.replace(/[^\d,.-]/g, '').replace(',', '.'));
-                if (!isNaN(numericValue)) totalValue += numericValue;
-                if (!isNaN(numericPurchaseValue)) totalPurchaseValue += numericPurchaseValue;
+        
+            let longestKnife = knives[0];
+            let shortestKnife = knives[0];
+            let heaviestKnife = knives[0];
+            let lightestKnife = knives[0];
+        
+            knives.forEach(knife => {
+                const newValue = parseFloat(knife.nieuwwaarde.replace(',', '.'));
+                const purchaseValue = parseFloat(knife.aankoopwaarde.replace(',', '.'));
+        
+                if (!isNaN(newValue)) totalValue += newValue;
+                if (!isNaN(purchaseValue)) totalPurchaseValue += purchaseValue;
+        
+                if (knife.lengteGeopend > longestKnife.lengteGeopend) longestKnife = knife;
+                if (knife.lengteGeopend < shortestKnife.lengteGeopend) shortestKnife = knife;
+                if (knife.gewicht > heaviestKnife.gewicht) heaviestKnife = knife;
+                if (knife.gewicht < lightestKnife.gewicht) lightestKnife = knife;
             });
+        
             document.getElementById('totalKnives').textContent = `Aantal mesjes: ${totalKnives}`;
             document.getElementById('totalValue').textContent = `Nieuwwaarde: € ${totalValue.toLocaleString('nl-NL', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
             document.getElementById('totalPurchaseValue').textContent = `Aankoopwaarde: € ${totalPurchaseValue.toLocaleString('nl-NL', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+        
+            document.getElementById('longestKnife').textContent = `Langste mes: ${longestKnife.merk} ${longestKnife.naam} (${longestKnife.lengteGeopend} mm)`;
+            document.getElementById('shortestKnife').textContent = `Kortste mes: ${shortestKnife.merk} ${shortestKnife.naam} (${shortestKnife.lengteGeopend} mm)`;
+            document.getElementById('heaviestKnife').textContent = `Zwaarste mes: ${heaviestKnife.merk} ${heaviestKnife.naam} (${heaviestKnife.gewicht} g)`;
+            document.getElementById('lightestKnife').textContent = `Lichtste mes: ${lightestKnife.merk} ${lightestKnife.naam} (${lightestKnife.gewicht} g)`;
         }
         document.addEventListener('DOMContentLoaded', async () => {
             await loadKnives();
@@ -138,7 +156,12 @@
         <div id="totalKnives"></div>
         <div id="totalValue"></div>
         <div id="totalPurchaseValue"></div>
-        <div>Laatst bijgewerkt: 04-05-2025</div>
+        <br>
+        <div id="longestKnife"></div>
+        <div id="shortestKnife"></div>
+        <div id="heaviestKnife"></div>
+        <div id="lightestKnife"></div>
+        <div>Laatst bijgewerkt: 21-05-2025</div>
     </div>
     <div class="brand-logos">
         <div class="logo-wrapper"><a href="https://kunwuknives.com" target="_blank"><img src="img/Kunwu-logo.webp" alt="Kunwu Knives" /></a></div>
