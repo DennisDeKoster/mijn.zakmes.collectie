@@ -8,9 +8,6 @@ body {
     justify-content: space-around; /* Ruimte tussen items */
     align-items: center; /* Centreert items verticaal */
     gap: 15px; /* Ruimte tussen de details */
-    font-family: 'Montserrat', sans-serif;
-    font-size: 14px;
-    color: #004d40;
     margin-top: 10px; /* Ruimte boven de summary */
     text-align: center;
     flex-wrap: wrap; /* Zorgt dat ze op kleinere schermen naar een nieuwe regel gaan */
