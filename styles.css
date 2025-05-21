@@ -4,14 +4,20 @@ body {
     padding: 25px;
 }
 .summary {
-    margin-top: 15px; /* Geeft wat ruimte tussen de header en de samenvatting */
-    display: flex;
-    flex-direction: column;
-    gap: 5px; /* Zorgt voor gelijkmatige ruimte tussen de gegevensregels */
+    display: flex; /* Flexbox voor horizontale layout */
+    justify-content: space-around; /* Ruimte tussen items */
+    align-items: center; /* Centreert items verticaal */
+    gap: 15px; /* Ruimte tussen de details */
     font-family: 'Montserrat', sans-serif;
     font-size: 14px;
-    color: #004d40; /* Geeft een rustige groene kleur aan de tekst */
-    text-align: left; /* Zorgt ervoor dat de gegevens links uitgelijnd zijn */
+    color: #004d40;
+    margin-top: 10px; /* Ruimte boven de summary */
+    text-align: center;
+    flex-wrap: wrap; /* Zorgt dat ze op kleinere schermen naar een nieuwe regel gaan */
+}
+.summary span {
+    flex-shrink: 0; /* Voorkomt dat items te klein worden */
+    white-space: nowrap; /* Houdt tekst op één regel */
 }
 .container {
     display: grid;
