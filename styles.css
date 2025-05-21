@@ -3,6 +3,16 @@ body {
     margin: 0;
     padding: 25px;
 }
+.summary {
+    margin-top: 15px; /* Geeft wat ruimte tussen de header en de samenvatting */
+    display: flex;
+    flex-direction: column;
+    gap: 5px; /* Zorgt voor gelijkmatige ruimte tussen de gegevensregels */
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    color: #004d40; /* Geeft een rustige groene kleur aan de tekst */
+    text-align: left; /* Zorgt ervoor dat de gegevens links uitgelijnd zijn */
+}
 .container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
