@@ -107,53 +107,22 @@
             cards.forEach(card => container.appendChild(card));
             updateSummary();
         }
-        async function updateSummary() {
-            const response = await fetch('database.json');
-            const knives = await response.json();
-        
-            if (!knives || knives.length === 0) {
-                console.error("Geen messen gevonden in de database.");
-                return;
-            }
-        
-            let totalKnives = knives.length;
+        function updateSummary() {
+            const cards = document.querySelectorAll('.card');
+            const totalKnives = cards.length;
             let totalValue = 0;
             let totalPurchaseValue = 0;
-        
-            let longestKnife = knives[0];
-            let shortestKnife = knives[0];
-            let heaviestKnife = knives[0];
-            let lightestKnife = knives[0];
-        
-            knives.forEach(knife => {
-                const newValue = parseFloat((knife.nieuwwaarde || "0").replace(',', '.'));
-                const purchaseValue = parseFloat((knife.aankoopwaarde || "0").replace(',', '.'));
-        
-                if (!isNaN(newValue)) totalValue += newValue;
-                if (!isNaN(purchaseValue)) totalPurchaseValue += purchaseValue;
-        
-                if (knife.lengteGeopend && knife.lengteGeopend > (longestKnife.lengteGeopend || 0)) longestKnife = knife;
-                if (knife.lengteGeopend && knife.lengteGeopend < (shortestKnife.lengteGeopend || Infinity)) shortestKnife = knife;
-                if (knife.gewicht && knife.gewicht > (heaviestKnife.gewicht || 0)) heaviestKnife = knife;
-                if (knife.gewicht && knife.gewicht < (lightestKnife.gewicht || Infinity)) lightestKnife = knife;
+            cards.forEach(card => {
+                const valueText = card.querySelector('.nieuwwaarde').textContent;
+                const purchaseValueText = card.querySelector('.aankoopwaarde').textContent;
+                const numericValue = parseFloat(valueText.replace(/[^\d,.-]/g, '').replace(',', '.'));
+                const numericPurchaseValue = parseFloat(purchaseValueText.replace(/[^\d,.-]/g, '').replace(',', '.'));
+                if (!isNaN(numericValue)) totalValue += numericValue;
+                if (!isNaN(numericPurchaseValue)) totalPurchaseValue += numericPurchaseValue;
             });
-        
-            // Controleer of de elementen bestaan voordat je ze probeert te updaten
-            const totalKnivesElem = document.getElementById('totalKnives');
-            const totalValueElem = document.getElementById('totalValue');
-            const totalPurchaseValueElem = document.getElementById('totalPurchaseValue');
-            const longestKnifeElem = document.getElementById('longestKnife');
-            const shortestKnifeElem = document.getElementById('shortestKnife');
-            const heaviestKnifeElem = document.getElementById('heaviestKnife');
-            const lightestKnifeElem = document.getElementById('lightestKnife');
-        
-            if (totalKnivesElem) totalKnivesElem.textContent = `Aantal mesjes: ${totalKnives}`;
-            if (totalValueElem) totalValueElem.textContent = `Nieuwwaarde: € ${totalValue.toLocaleString('nl-NL', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
-            if (totalPurchaseValueElem) totalPurchaseValueElem.textContent = `Aankoopwaarde: € ${totalPurchaseValue.toLocaleString('nl-NL', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
-            if (longestKnifeElem) longestKnifeElem.textContent = `Langste mes: ${longestKnife.merk} ${longestKnife.naam} (${longestKnife.lengteGeopend} mm)`;
-            if (shortestKnifeElem) shortestKnifeElem.textContent = `Kortste mes: ${shortestKnife.merk} ${shortestKnife.naam} (${shortestKnife.lengteGeopend} mm)`;
-            if (heaviestKnifeElem) heaviestKnifeElem.textContent = `Zwaarste mes: ${heaviestKnife.merk} ${heaviestKnife.naam} (${heaviestKnife.gewicht} g)`;
-            if (lightestKnifeElem) lightestKnifeElem.textContent = `Lichtste mes: ${lightestKnife.merk} ${lightestKnife.naam} (${lightestKnife.gewicht} g)`;
+            document.getElementById('totalKnives').textContent = Aantal mesjes: ${totalKnives};
+            document.getElementById('totalValue').textContent = Nieuwwaarde: € ${totalValue.toLocaleString('nl-NL', { minimumFractionDigits: 2, maximumFractionDigits: 2 })};
+            document.getElementById('totalPurchaseValue').textContent = Aankoopwaarde: € ${totalPurchaseValue.toLocaleString('nl-NL', { minimumFractionDigits: 2, maximumFractionDigits: 2 })};
         }
         document.addEventListener('DOMContentLoaded', async () => {
             await loadKnives();
@@ -172,13 +141,6 @@
             <span id="totalKnives"></span>
             <span id="totalValue"></span>
             <span id="totalPurchaseValue"></span>
-        </div>
-        <div class="summary">
-            <span id="longestKnife"></span>
-            <span id="shortestKnife"></span>
-            <span id="heaviestKnife"></span>
-            <span id="lightestKnife"></span>
-            
         </div>
     </div>
     <div class="brand-logos">
