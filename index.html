@@ -147,13 +147,13 @@
             const heaviestKnifeElem = document.getElementById('heaviestKnife');
             const lightestKnifeElem = document.getElementById('lightestKnife');
         
-            if (totalKnivesElem) totalKnivesElem.textContent = `Aantal mesjes:<br>${totalKnives}`;
-            if (totalValueElem) totalValueElem.textContent = `Nieuwwaarde:<br>€ ${totalValue.toLocaleString('nl-NL', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
-            if (totalPurchaseValueElem) totalPurchaseValueElem.textContent = `Aankoopwaarde:<br>€ ${totalPurchaseValue.toLocaleString('nl-NL', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
-            if (longestKnifeElem) longestKnifeElem.textContent = `Langste mes:<br>${longestKnife.merk} ${longestKnife.naam} (${longestKnife.lengteGeopend} mm)`;
-            if (shortestKnifeElem) shortestKnifeElem.textContent = `Kortste mes:<br>${shortestKnife.merk} ${shortestKnife.naam} (${shortestKnife.lengteGeopend} mm)`;
-            if (heaviestKnifeElem) heaviestKnifeElem.textContent = `Zwaarste mes:<br>${heaviestKnife.merk} ${heaviestKnife.naam} (${heaviestKnife.gewicht} g)`;
-            if (lightestKnifeElem) lightestKnifeElem.textContent = `Lichtste mes:<br>${lightestKnife.merk} ${lightestKnife.naam} (${lightestKnife.gewicht} g)`;
+            if (totalKnivesElem) totalKnivesElem.textContent = `Aantal mesjes: ${totalKnives}`;
+            if (totalValueElem) totalValueElem.textContent = `Nieuwwaarde: € ${totalValue.toLocaleString('nl-NL', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+            if (totalPurchaseValueElem) totalPurchaseValueElem.textContent = `Aankoopwaarde: € ${totalPurchaseValue.toLocaleString('nl-NL', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+            if (longestKnifeElem) longestKnifeElem.textContent = `Langste mes: ${longestKnife.merk} ${longestKnife.naam} (${longestKnife.lengteGeopend} mm)`;
+            if (shortestKnifeElem) shortestKnifeElem.textContent = `Kortste mes: ${shortestKnife.merk} ${shortestKnife.naam} (${shortestKnife.lengteGeopend} mm)`;
+            if (heaviestKnifeElem) heaviestKnifeElem.textContent = `Zwaarste mes: ${heaviestKnife.merk} ${heaviestKnife.naam} (${heaviestKnife.gewicht} g)`;
+            if (lightestKnifeElem) lightestKnifeElem.textContent = `Lichtste mes: ${lightestKnife.merk} ${lightestKnife.naam} (${lightestKnife.gewicht} g)`;
         }
         document.addEventListener('DOMContentLoaded', async () => {
             await loadKnives();
@@ -165,7 +165,10 @@
     </script>
 </head>
 <body>
-    <div class="header1"><h1>Mijn zakmes collectie</h1><br>
+    <div class="header1">
+        <h1>Mijn zakmes collectie</h1>
+    </div>
+    <div class="summary">
         <div id="totalKnives"></div>
         <div id="totalValue"></div>
         <div id="totalPurchaseValue"></div>
@@ -173,7 +176,7 @@
         <div id="shortestKnife"></div>
         <div id="heaviestKnife"></div>
         <div id="lightestKnife"></div>
-        <div>Laatst bijgewerkt:<br>21-05-2025</div>
+        <div>Laatst bijgewerkt: 21-05-2025</div>
     </div>
     <div class="brand-logos">
         <div class="logo-wrapper"><a href="https://kunwuknives.com" target="_blank"><img src="img/Kunwu-logo.webp" alt="Kunwu Knives" /></a></div>
