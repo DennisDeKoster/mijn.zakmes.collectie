@@ -393,5 +393,32 @@
         "description": "Blue 6AL4V titanium pocketclip"
       }
     ]
-  }
+  },
+  {
+    "merk": "Kizer",
+    "naam": "Invictus",
+    "model": "V3602C1",
+    "uitvoering": "Black Micarta",
+    "lemmetVorm": "Droppoint",
+    "afwerking": "Stonewashed",
+    "openmethode": "Flipper",
+    "vergrendeling": "Buttonlock",
+    "gewicht": "111,3",
+    "staalsoort": "154CM",
+    "hardheid": "59-60",
+    "lengteGesloten": "114,3",
+    "lengteGeopend": "201",
+    "lengteLemmet": "86,7",
+    "dikteLemmet": "3,2",
+    "nieuwwaarde": "83,88",
+    "aankoopwaarde": "83,88",
+    "aankoopdatum": "10-06-2025",
+    "afbeelding": "img/Kizer_KIV3602C1.webp",
+    "link": "https://www.kizerknives.com/products/invictus-v3602c1",
+    "specials": [
+      {
+        "description": "Designer: Damned Designs"
+      }
+    ]
+  },
 ]
