@@ -95,7 +95,12 @@
     "nieuwwaarde": "112,45",
     "aankoopwaarde": "106,52",
     "afbeelding": "img/CIC2010DS-1_01_civivi.webp",
-    "link": "https://www.civivi.com/products/civivi-odium-c2010ds-1"
+    "link": "https://www.civivi.com/products/civivi-odium-c2010ds-1",
+    "specials": [
+      {
+        "description": "Designer: Ferrum Forge Knife Works"
+      }
+    ]
   },
   {
     "merk": "Civivi",
@@ -315,7 +320,12 @@
     "aankoopwaarde": "209,49",
     "aankoopdatum": "27-01-2025",
     "afbeelding": "img/KZKI3634A2_01_kizer.webp",
-    "link": "https://www.kizerknives.com/collections/militaw/products/militaw-ki3634a2"
+    "link": "https://www.kizerknives.com/collections/militaw/products/militaw-ki3634a2",
+    "specials": [
+      {
+        "description": "Designer: Jonathan Style"Designer: Ferrum Forge Knife Works
+      }
+    ]
   },
   {
     "merk": "Kizer",
@@ -337,7 +347,12 @@
     "aankoopwaarde": "71,49",
     "aankoopdatum": "12-03-2025",
     "afbeelding": "img/KZV3549A2_01_kizer.webp",
-    "link": "https://www.kizerknives.com/products/assassin-v3549a2"
+    "link": "https://www.kizerknives.com/products/assassin-v3549a2",
+    "specials": [
+      {
+        "description": "Designer: Carlos Elstner"
+      }
+    ]
   },
   {
     "merk": "Kunwu",
@@ -417,7 +432,7 @@
     "link": "https://www.kizerknives.com/products/invictus-v3602c1",
     "specials": [
       {
-        "description": "Designer: Damned Designs"
+        "description": "Designer: Damned Designs"Designer: Carlos Elstner
       }
     ]
   }
