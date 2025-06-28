@@ -18,6 +18,10 @@
                 card.classList.add('card');
                 card.innerHTML = `
                     <div class="card-content">
+                    <label class="select-checkbox">
+                        <input type="checkbox" class="daily-carry-checkbox" data-id="${knife.id}">
+                        Vandaag op zak
+                    </label>
                         <div class="specs">
                             <div class="row">
                                 <div class="topleft">
@@ -126,11 +130,60 @@
         }
         document.addEventListener('DOMContentLoaded', async () => {
             await loadKnives();
+            setupCheckboxListeners();
             document.getElementById('sort').value = 'aankoopdatum';
             document.getElementById('sortOrder').value = 'desc';
             sortKnives();
             updateSummary();
         });
+        function getTodayKey() {
+            const today = new Date();
+            return `selectedKnife-${today.getFullYear()}-${today.getMonth()}-${today.getDate()}`;
+        }
+        function saveSelectedKnife(knifeId) {
+            localStorage.setItem(getTodayKey(), knifeId);
+        }
+        function getSelectedKnife() {
+            return localStorage.getItem(getTodayKey());
+        }
+        function setupCheckboxListeners() {
+            const checkboxes = document.querySelectorAll('.daily-carry-checkbox');
+            const selectedId = getSelectedKnife();
+            checkboxes.forEach(checkbox => {
+                const card = checkbox.closest('.card');
+                const thisId = checkbox.dataset.id;
+                // Zet de juiste checkbox aan
+                checkbox.checked = thisId === selectedId;
+                checkbox.addEventListener('change', () => {
+                    if (checkbox.checked) {
+                        // Uncheck alle andere
+                        checkboxes.forEach(cb => {
+                            if (cb !== checkbox) cb.checked = false;
+                        });
+                        saveSelectedKnife(thisId);
+                        moveCardToTop(thisId);
+                    } else {
+                        // Deselecteren betekent verwijderen uit storage
+                        localStorage.removeItem(getTodayKey());
+                    }
+                });
+            });
+            // Zet huidige bovenaan
+            if (selectedId) {
+                moveCardToTop(selectedId);
+            }
+        }
+        function moveCardToTop(knifeId) {
+            const container = document.getElementById('knifeContainer');
+            const cards = Array.from(container.children);
+            const selectedCard = cards.find(card => {
+                const checkbox = card.querySelector('.daily-carry-checkbox');
+                return checkbox && checkbox.dataset.id === knifeId;
+            });
+            if (selectedCard) {
+                container.prepend(selectedCard);
+            }
+        }
     </script>
 </head>
 <body>
