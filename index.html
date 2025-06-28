@@ -9,8 +9,7 @@
     <script>
         async function loadKnives() {
             const response = await fetch('database.json');
-            const text = await response.text();  // Verkrijg de inhoud als tekst
-            const knives = JSON.parse(text);     // Parse de tekst als JSON
+            const knives = await response.json();
             const container = document.getElementById('knifeContainer');
             container.innerHTML = '';
             knives.forEach(knife => {
@@ -88,31 +87,32 @@
             const sortBy = document.getElementById('sort').value;
             const sortOrder = document.getElementById('sortOrder').value;
             const container = document.getElementById('knifeContainer');
+            const selectedIds = getSelectedIds(); // Ophalen van geselecteerde IDs
+        
             const cards = Array.from(container.children);
             cards.sort((a, b) => {
+                const aSelected = selectedIds.includes(a.dataset.id);
+                const bSelected = selectedIds.includes(b.dataset.id);
+        
+                if (aSelected !== bSelected) {
+                    return aSelected ? -1 : 1; // Geselecteerde items bovenaan
+                }
+        
                 let aValue = a.querySelector(`.${sortBy}`).textContent.trim();
                 let bValue = b.querySelector(`.${sortBy}`).textContent.trim();
+        
                 if (sortBy === 'aankoopdatum') {
-                    // Controleer of de datum het juiste formaat heeft (dd-mm-jjjj)
-                    aValue = aValue.match(/\d{2}-\d{2}-\d{4}/);
-                    bValue = bValue.match(/\d{2}-\d{2}-\d{4}/);
-                    if (aValue && bValue) {
-                        aValue = new Date(aValue[0].split('-').reverse().join('-'));
-                        bValue = new Date(bValue[0].split('-').reverse().join('-'));
-                    } else {
-                        aValue = new Date(0); // Foutieve datum krijgt een lage waarde
-                        bValue = new Date(0);
-                    }
-                    return sortOrder === 'asc' ? aValue - bValue : bValue - aValue;
-                } else {
-                    return sortOrder === 'asc'
-                        ? aValue.localeCompare(bValue, undefined, { numeric: true })
-                        : bValue.localeCompare(aValue, undefined, { numeric: true });
+                    aValue = new Date(aValue.split('-').reverse().join('-'));
+                    bValue = new Date(bValue.split('-').reverse().join('-'));
                 }
+        
+                return sortOrder === 'asc'
+                    ? aValue.localeCompare(bValue, undefined, { numeric: true })
+                    : bValue.localeCompare(aValue, undefined, { numeric: true });
             });
+        
             container.innerHTML = '';
             cards.forEach(card => container.appendChild(card));
-            updateSummary();
         }
         function updateSummary() {
             const cards = document.querySelectorAll('.card');
@@ -133,7 +133,9 @@
         }
         document.addEventListener('DOMContentLoaded', async () => {
             await loadKnives();
-            resetAtMidnight();
+            checkMidnightReset(); // Controleer of een reset nodig is
+            loadSelection();
+            setupCheckboxListeners();
             document.getElementById('sort').value = 'aankoopdatum';
             document.getElementById('sortOrder').value = 'desc';
             sortKnives();
@@ -151,26 +153,23 @@
             return `selectedKnife-${today.getFullYear()}-${today.getMonth()}-${today.getDate()}`;
         }
         function setupCheckboxListeners() {
-            const checkboxes = document.querySelectorAll('.daily-carry-checkbox');
-            const selectedId = getCookie(getTodayKey());
-            checkboxes.forEach(checkbox => {
-                const thisId = checkbox.dataset.id;
-                checkbox.checked = thisId === selectedId;
-                checkbox.addEventListener('change', () => {
-                    if (checkbox.checked) {
-                        checkboxes.forEach(cb => {
-                            if (cb !== checkbox) cb.checked = false;
+            const container = document.getElementById('knifeContainer');
+            container.addEventListener('change', event => {
+                if (event.target.classList.contains('daily-carry-checkbox')) {
+                    const selectedId = event.target.dataset.id;
+        
+                    // Controleer of de checkbox is aangevinkt
+                    if (event.target.checked) {
+                        document.querySelectorAll('.daily-carry-checkbox').forEach(cb => {
+                            if (cb !== event.target) cb.checked = false; // Deselecteer andere checkboxes
                         });
-                        setCookie(getTodayKey(), thisId, 1);
-                        moveCardToTop(thisId);
+                        setCookie(getTodayKey(), selectedId, 1); // Sla selectie op
+                        moveCardToTop(selectedId); // Verplaats het geselecteerde mes naar boven
                     } else {
-                        setCookie(getTodayKey(), '', 1);
+                        setCookie(getTodayKey(), '', 1); // Verwijder selectie
                     }
-                });
+                }
             });
-            if (selectedId) {
-                moveCardToTop(selectedId);
-            }
         }
         function moveCardToTop(knifeId) {
             const container = document.getElementById('knifeContainer');
@@ -183,15 +182,34 @@
                 container.prepend(selectedCard);
             }
         }
-        function resetAtMidnight() {
-            const now = new Date();
-            const millisTillMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 0, 0, 0) - now;
-            setTimeout(() => {
-                setCookie(getTodayKey(), '', 1);
-                document.querySelectorAll('.daily-carry-checkbox').forEach(cb => cb.checked = false);
-                resetAtMidnight();
-            }, millisTillMidnight);
+        function saveSelection() {
+            const checkboxes = document.querySelectorAll('.daily-carry-checkbox');
+            const selectedIds = Array.from(checkboxes)
+                .filter(checkbox => checkbox.checked)
+                .map(checkbox => checkbox.dataset.id);
+        
+            localStorage.setItem('selectedKnives', JSON.stringify(selectedIds));
         }
+        function getSelectedIds() {
+            return JSON.parse(localStorage.getItem('selectedKnives')) || [];
+        }
+        function loadSelection() {
+            const selectedIds = getSelectedIds();
+            const checkboxes = document.querySelectorAll('.daily-carry-checkbox');
+        
+            checkboxes.forEach(checkbox => {
+                if (selectedIds.includes(checkbox.dataset.id)) {
+                    checkbox.checked = true;
+                }
+            });
+        }
+        function checkMidnightReset() {
+            const todayKey = getTodayKey();
+            if (!getCookie(todayKey)) {
+                document.querySelectorAll('.daily-carry-checkbox').forEach(cb => cb.checked = false);
+            }
+        }
+
     </script>
 </head>
 <body>
