@@ -45,6 +45,18 @@ body {
     font-family: 'Montserrat', sans-serif;
     font-size: 14px;
 }
+.select-checkbox {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.9rem;
+    margin-top: 8px;
+    gap: 6px;
+}
+
+.select-checkbox input[type="checkbox"] {
+    transform: scale(1.2);
+}
+
 .brand-logos {
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
