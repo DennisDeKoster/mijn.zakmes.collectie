@@ -435,5 +435,32 @@
         "description": "Designer: Damned Designs"
       }
     ]
+  },
+  {
+    "merk": "Kizer Vanguard",
+    "naam": "Mini Militaw",
+    "model": "V3634SA3",
+    "uitvoering": "Black G10 & Acrylic inlay",
+    "lemmetVorm": "Droppoint",
+    "afwerking": "Satin",
+    "openmethode": "Duimgat",
+    "vergrendeling": "Linerlock",
+    "gewicht": "71",
+    "staalsoort": "Nitro-V",
+    "hardheid": "60-61",
+    "lengteGesloten": "100",
+    "lengteGeopend": "170.1",
+    "lengteLemmet": "71.57",
+    "dikteLemmet": "2.5",
+    "nieuwwaarde": "69,99",
+    "aankoopwaarde": "59,99",
+    "aankoopdatum": "28-07-2025",
+    "afbeelding": "img/KZV3634SA3_01_kizer.webp",
+    "link": "https://www.kizerknives.com/products/mini-militaw-nitro-v-g10-acrylic-v3634sa3",
+    "specials": [
+      {
+        "description": "Designer: Jonathan Style"
+      }
+    ]
   }
 ]
