@@ -106,7 +106,7 @@
     "merk": "Civivi",
     "naam": "Elementum",
     "model": "C907C-DS1",
-    "uitvoering": "Shredded Gold Carbonfiber",
+    "uitvoering": "Shredded Carbon Fiber & Golden Shred",
     "lemmetVorm": "Drop point",
     "afwerking": "Damascus",
     "openmethode": "Flipper",
@@ -194,7 +194,7 @@
     "merk": "Kershaw",
     "naam": "Mini Iridium",
     "model": "2051",
-    "uitvoering": "Ice Blue Aluminium",
+    "uitvoering": "Ice Blue Aluminium & Gold PVD",
     "lemmetVorm": "Spearpoint",
     "afwerking": "Stonewashed",
     "openmethode": "Duimsteun",
@@ -238,7 +238,7 @@
     "merk": "WE Knife",
     "naam": "Kitefin",
     "model": "2001B",
-    "uitvoering": "Titanium Shredded Carbonfiber",
+    "uitvoering": "Titanium & Shredded Carbonfiber",
     "lemmetVorm": "Drop point",
     "afwerking": "Mat",
     "openmethode": "Flipper",
@@ -260,7 +260,7 @@
     "merk": "Benchmade",
     "naam": "Bugout",
     "model": "535BK-4",
-    "uitvoering": "Aluminium",
+    "uitvoering": "Gray Aluminium",
     "lemmetVorm": "Drop point",
     "afwerking": "Cerakote",
     "openmethode": "Duimsteun",
@@ -323,13 +323,13 @@
     "link": "https://www.kizerknives.com/collections/militaw/products/militaw-ki3634a2",
     "specials": [
       {
-        "description": "Designer: Jonathan Styles"
+        "description": "Designer: Jonathan Style"
       }
     ]
   },
   {
-    "merk": "Kizer Vanguard",
-    "naam": "Assassin",
+    "merk": "Kizer",
+    "naam": "Vanguard Assassin",
     "model": "V3549A2",
     "uitvoering": "Denim Micarta",
     "lemmetVorm": "Drop point",
@@ -437,8 +437,8 @@
     ]
   },
   {
-    "merk": "Kizer Vanguard",
-    "naam": "Mini Militaw",
+    "merk": "Kizer",
+    "naam": "Vanguard Mini Militaw",
     "model": "V3634SA3",
     "uitvoering": "Black G10 & Acrylic inlay",
     "lemmetVorm": "Drop point",
@@ -459,13 +459,13 @@
     "link": "https://www.kizerknives.com/products/mini-militaw-nitro-v-g10-acrylic-v3634sa3",
     "specials": [
       {
-        "description": "Designer: Jonathan Styles"
+        "description": "Designer: Jonathan Style"
       }
     ]
   },
 {
-    "merk": "Kizer Vanguard",
-    "naam": "Seagull",
+    "merk": "Kizer",
+    "naam": "Vanguard Seagull",
     "model": "V3770A1",
     "uitvoering": "Gray Micarta",
     "lemmetVorm": "Drop point",
