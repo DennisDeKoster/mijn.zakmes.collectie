@@ -61,8 +61,8 @@ body {
     margin-right: 15px; /* was 15 */
 }
 .brand-logos {
-    box-shadow: 0 0 18px rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
+    /* box-shadow: 0 0 18px rgba(0, 0, 0, 0.2); */
+    border-radius: 20px;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -89,7 +89,7 @@ body {
     transition: transform 0.3s ease;
 }
 .logo-wrapper img:hover {
-    transform: scale(1.1);
+    transform: scale(1.2);
 }
 .specs {
     display: flex;
@@ -107,7 +107,7 @@ body {
     justify-content: space-between;
     align-items: center;
     font-family: 'Space Grotesk', sans-serif;
-    padding: 10px 0px 10px 0px; 
+    padding: 0px 0px 0px 0px; 
 }
 .search-bar {
     padding: 10px 0px 10px 0px;
@@ -117,7 +117,7 @@ body {
 .search-bar input {
     padding: 10px;
     border: 1px solid #00796b;
-    border-radius: 10px;
+    border-radius: 4px;
     font-size: 12px;
     transition: all 0.4s ease;
     width: 200px;
@@ -149,7 +149,7 @@ h1 {
     color: #0288d1;
     text-align: center;
     font-size: 30px;
-    letter-spacing: 3px;
+    letter-spacing: 13px;
     font-weight: 200; 
 }
 h2 {
