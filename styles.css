@@ -25,15 +25,15 @@ body {
 }
 .card {
     background-color: #ffffff;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 18px rgba(0, 0, 0, 0.2);
     border-radius: 20px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
 }
 .card img {
-    width: 200px !important;
-    height: 80px !important;
+    width: 300px !important;
+    height: 120px !important;
     object-fit: scale-down;
     margin-top: 10px;
 }
@@ -45,14 +45,29 @@ body {
     font-family: 'Montserrat', sans-serif;
     font-size: 14px;
 }
+.left, .topleft {
+    width: 63%;
+    margin-left: 10px;
+}
+.right {
+    width: 37%;
+}
+.topright {
+    width: 100px;
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px; /* was 15 */
+}
 .brand-logos {
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 18px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     flex-wrap: wrap;
-    padding: 25px 0px 25px 0px; /* Top, Rechts, Onder, Links */
+    padding: 15px 0px 15px 0px; /* Top, Rechts, Onder, Links */
     gap: 10px;
 }
 .brand-filter {
@@ -61,7 +76,7 @@ body {
 }
 .logo-wrapper {
     width: 100px;
-    height: 40px;
+    height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -81,25 +96,11 @@ body {
     flex-direction: column;
 }
 .specs div {
-    margin-bottom: 5px;
+    margin-bottom: 4px;
 }
 .row {
     display: flex;
     align-items: flex-start;
-}
-.left, .topleft {
-    width: 63%;
-    margin-left: 10px;
-}
-.right {
-    width: 37%;
-}
-.topright {
-    width: 100px;
-    height: 75px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 .search-sort-container, .header1 {
     display: flex;
@@ -119,7 +120,6 @@ body {
     border-radius: 10px;
     font-size: 12px;
     transition: all 0.4s ease;
-/*     width: calc(400px - 120px); */
     width: 200px;
 }
 .sort-options {
@@ -184,7 +184,7 @@ strong {
     transform-origin: right top;
 }
 .link-image:hover {
-    transform: scale(1.9) translateY(-25px) translateX(0px);
+    transform: scale(1.4) translateY(-15px) translateX(-30px);
 }
 button {
     background: transparent;
