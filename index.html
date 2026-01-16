@@ -7,152 +7,217 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Space+Grotesk:wght@400;700&family=Sora:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="styles.css">
     <script>
-        async function loadKnives() {
-            const response = await fetch('database.json');
-            const text = await response.text();  // Verkrijg de inhoud als tekst
-            const knives = JSON.parse(text);     // Parse de tekst als JSON
-            const container = document.getElementById('knifeContainer');
-            container.innerHTML = '';
-            knives.forEach(knife => {
-                const card = document.createElement('div');
-                card.classList.add('card');
-                card.innerHTML = `
-                    <div class="card-content">
-                        <div class="specs">
-                            <div class="row">
-                                <div class="topleft">
-                                    <h2><span class="merk">${knife.merk}</span><br><span class="naam">${knife.naam}</span></h2>
-                                </div>
-                                <div class="topright">
-                                    <a href="${knife.link}" class="link-image" target="_blank">
-                                        <img src="${knife.afbeelding}" alt="${knife.naam}">
-                                    </a>
-                                </div>
+    let activeBrand = null;
+
+    async function loadKnives() {
+        const response = await fetch('database.json');
+        const text = await response.text();
+        const knives = JSON.parse(text);
+
+        const container = document.getElementById('knifeContainer');
+        container.innerHTML = '';
+
+        knives.forEach(knife => {
+            const card = document.createElement('div');
+            card.classList.add('card');
+            
+            card.dataset.merk = knife.merk
+                .toLowerCase()
+                .trim()
+                .replace(/\s+/g, ' ');
+
+            card.innerHTML = `
+                <div class="card-content">
+                    <div class="specs">
+                        <div class="row">
+                            <div class="topleft">
+                                <h2>
+                                    <span class="merk">${knife.merk}</span><br>
+                                    <span class="naam">${knife.naam}</span>
+                                </h2>
                             </div>
-                            <div class="row">
-                                <div class="left">
-                                    <div class="uitvoering"><strong>Uitvoering:</strong><br>${knife.uitvoering}</div>
-                                    <div class="model"><strong>Modelnummer:</strong><br>${knife.model}</div>
-                                    <div class="lemmetVorm"><strong>Lemmet vorm:</strong><br>${knife.lemmetVorm}</div>
-                                    <div class="openmethode"><strong>Openmethode:</strong><br>${knife.openmethode}</div>
-                                    <div class="vergrendeling"><strong>Vergrendeling:</strong><br>${knife.vergrendeling}</div>
-                                    <div class="nieuwwaarde"><strong>Nieuwwaarde:</strong><br>€ ${knife.nieuwwaarde}</div>
-                                    <div class="aankoopwaarde"><strong>Aankoopwaarde:</strong><br>€ ${knife.aankoopwaarde}</div>
-                                    <div class="aankoopdatum"><strong>Aankoopdatum:</strong><br>${knife.aankoopdatum}</div>
-                                    ${knife.specials ? `
-                                        <div class="specials">
-                                            <strong>Bijzonderheden:</strong><br>
-                                            <div>
-                                                ${knife.specials.map(special => `<div>${special.link ? `<a href="${special.link}" target="_blank">${special.description}</a>` : special.description}</div>`).join('')}
-                                            </div>
-                                        </div>` : ``}
-                                </div>
-                                <div class="right">
-                                    <div class="staalsoort"><strong>Staalsoort:</strong><br>${knife.staalsoort}</div>
-                                    <div class="afwerking"><strong>Afwerking:</strong><br>${knife.afwerking}</div>
-                                    <div class="hardheid"><strong>Hardheid:</strong><br>${knife.hardheid} HRC</div>
-                                    <div class="lengteGesloten"><strong>Lengte gesloten:</strong><br>${knife.lengteGesloten} mm</div>
-                                    <div class="lengteGeopend"><strong>Lengte geopend:</strong><br>${knife.lengteGeopend} mm</div>
-                                    <div class="lengteLemmet"><strong>Lengte lemmet:</strong><br>${knife.lengteLemmet} mm</div>
-                                    <div class="dikteLemmet"><strong>Dikte lemmet:</strong><br>${knife.dikteLemmet} mm</div>
-                                    <div class="gewicht"><strong>Gewicht:</strong><br>${knife.gewicht} g</div>
-                                </div>
+                            <div class="topright">
+                                <a href="${knife.link}" class="link-image" target="_blank">
+                                    <img src="${knife.afbeelding}" alt="${knife.naam}">
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="left">
+                                <div class="uitvoering"><strong>Uitvoering:</strong><br>${knife.uitvoering}</div>
+                                <div class="model"><strong>Modelnummer:</strong><br>${knife.model}</div>
+                                <div class="lemmetVorm"><strong>Lemmet vorm:</strong><br>${knife.lemmetVorm}</div>
+                                <div class="openmethode"><strong>Openmethode:</strong><br>${knife.openmethode}</div>
+                                <div class="vergrendeling"><strong>Vergrendeling:</strong><br>${knife.vergrendeling}</div>
+                                <div class="nieuwwaarde"><strong>Nieuwwaarde:</strong><br>€ ${knife.nieuwwaarde}</div>
+                                <div class="aankoopwaarde"><strong>Aankoopwaarde:</strong><br>€ ${knife.aankoopwaarde}</div>
+                                <div class="aankoopdatum"><strong>Aankoopdatum:</strong><br>${knife.aankoopdatum}</div>
+
+                                ${knife.specials ? `
+                                    <div class="specials">
+                                        <strong>Bijzonderheden:</strong><br>
+                                        ${knife.specials.map(s =>
+                                            `<div>${s.link ? `<a href="${s.link}" target="_blank">${s.description}</a>` : s.description}</div>`
+                                        ).join('')}
+                                    </div>
+                                ` : ``}
+                            </div>
+
+                            <div class="right">
+                                <div class="staalsoort"><strong>Staalsoort:</strong><br>${knife.staalsoort}</div>
+                                <div class="afwerking"><strong>Afwerking:</strong><br>${knife.afwerking}</div>
+                                <div class="hardheid"><strong>Hardheid:</strong><br>${knife.hardheid} HRC</div>
+                                <div class="lengteGesloten"><strong>Lengte gesloten:</strong><br>${knife.lengteGesloten} mm</div>
+                                <div class="lengteGeopend"><strong>Lengte geopend:</strong><br>${knife.lengteGeopend} mm</div>
+                                <div class="lengteLemmet"><strong>Lengte lemmet:</strong><br>${knife.lengteLemmet} mm</div>
+                                <div class="dikteLemmet"><strong>Dikte lemmet:</strong><br>${knife.dikteLemmet} mm</div>
+                                <div class="gewicht"><strong>Gewicht:</strong><br>${knife.gewicht} g</div>
                             </div>
                         </div>
                     </div>
-                `;
-                container.appendChild(card);
-            });
-        }
-        function searchKnives() {
-            const query = document.getElementById('search').value.toLowerCase();
-            const cards = document.querySelectorAll('.card');
-            cards.forEach(card => {
-                const content = card.textContent.toLowerCase();
-                card.style.display = content.includes(query) ? 'block' : 'none';
-            });
-            updateSummary();
-        }
-        function clearSearch() {
-            document.getElementById('search').value = '';
-            searchKnives();
-        }
-        function sortKnives() {
-            const sortBy = document.getElementById('sort').value;
-            const sortOrder = document.getElementById('sortOrder').value;
-            const container = document.getElementById('knifeContainer');
-            const cards = Array.from(container.children);
-            cards.sort((a, b) => {
-                let aValue = a.querySelector(`.${sortBy}`).textContent.trim();
-                let bValue = b.querySelector(`.${sortBy}`).textContent.trim();
-                if (sortBy === 'aankoopdatum') {
-                    // Controleer of de datum het juiste formaat heeft (dd-mm-jjjj)
-                    aValue = aValue.match(/\d{2}-\d{2}-\d{4}/);
-                    bValue = bValue.match(/\d{2}-\d{2}-\d{4}/);
-                    if (aValue && bValue) {
-                        aValue = new Date(aValue[0].split('-').reverse().join('-'));
-                        bValue = new Date(bValue[0].split('-').reverse().join('-'));
-                    } else {
-                        aValue = new Date(0); // Foutieve datum krijgt een lage waarde
-                        bValue = new Date(0);
-                    }
-                    return sortOrder === 'asc' ? aValue - bValue : bValue - aValue;
-                } else {
-                    return sortOrder === 'asc'
-                        ? aValue.localeCompare(bValue, undefined, { numeric: true })
-                        : bValue.localeCompare(aValue, undefined, { numeric: true });
-                }
-            });
-            container.innerHTML = '';
-            cards.forEach(card => container.appendChild(card));
-            updateSummary();
-        }
-        function updateSummary() {
-            const cards = document.querySelectorAll('.card');
-            const totalKnives = cards.length;
-            let totalValue = 0;
-            let totalPurchaseValue = 0;
-            cards.forEach(card => {
-                const valueText = card.querySelector('.nieuwwaarde').textContent;
-                const purchaseValueText = card.querySelector('.aankoopwaarde').textContent;
-                const numericValue = parseFloat(valueText.replace(/[^\d,.-]/g, '').replace(',', '.'));
-                const numericPurchaseValue = parseFloat(purchaseValueText.replace(/[^\d,.-]/g, '').replace(',', '.'));
-                if (!isNaN(numericValue)) totalValue += numericValue;
-                if (!isNaN(numericPurchaseValue)) totalPurchaseValue += numericPurchaseValue;
-            });
-            document.getElementById('totalKnives').textContent = `Aantal mesjes: ${totalKnives}`;
-            document.getElementById('totalValue').textContent = `Nieuwwaarde: € ${totalValue.toLocaleString('nl-NL', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
-            document.getElementById('totalPurchaseValue').textContent = `Aankoopwaarde: € ${totalPurchaseValue.toLocaleString('nl-NL', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
-        }
-        document.addEventListener('DOMContentLoaded', async () => {
-            await loadKnives();
-            document.getElementById('sort').value = 'aankoopdatum';
-            document.getElementById('sortOrder').value = 'desc';
-            sortKnives();
-            updateSummary();
+                </div>
+            `;
+            container.appendChild(card);
         });
-    </script>
+    }
+
+    function searchKnives() {
+        const query = document.getElementById('search').value.toLowerCase().trim();
+        const cards = document.querySelectorAll('.card');
+
+        cards.forEach(card => {
+            const fullText = card.textContent.toLowerCase();
+            const cardMerk = card.dataset.merk; // exact merk
+            const textMatch = query === '' || fullText.includes(query);
+            const brandMatch = !activeBrand || cardMerk === activeBrand;
+
+            card.style.display = (textMatch && brandMatch) ? 'block' : 'none';
+        });
+
+        updateSummary();
+    }
+
+    function clearSearch() {
+        document.getElementById('search').value = '';
+        activeBrand = null;
+
+        document.querySelectorAll('.brand-filter').forEach(el =>
+            el.classList.remove('active')
+        );
+
+        searchKnives();
+    }
+
+    function sortKnives() {
+        const sortBy = document.getElementById('sort').value;
+        const sortOrder = document.getElementById('sortOrder').value;
+        const container = document.getElementById('knifeContainer');
+        const cards = Array.from(container.children);
+
+        cards.sort((a, b) => {
+            let aValue = a.querySelector(`.${sortBy}`).textContent.trim();
+            let bValue = b.querySelector(`.${sortBy}`).textContent.trim();
+
+            if (sortBy === 'aankoopdatum') {
+                aValue = aValue.match(/\d{2}-\d{2}-\d{4}/);
+                bValue = bValue.match(/\d{2}-\d{2}-\d{4}/);
+
+                aValue = aValue ? new Date(aValue[0].split('-').reverse().join('-')) : new Date(0);
+                bValue = bValue ? new Date(bValue[0].split('-').reverse().join('-')) : new Date(0);
+
+                return sortOrder === 'asc' ? aValue - bValue : bValue - aValue;
+            }
+
+            return sortOrder === 'asc'
+                ? aValue.localeCompare(bValue, undefined, { numeric: true })
+                : bValue.localeCompare(aValue, undefined, { numeric: true });
+        });
+
+        container.innerHTML = '';
+        cards.forEach(card => container.appendChild(card));
+        updateSummary();
+    }
+
+    function updateSummary() {
+        const cards = document.querySelectorAll('.card');
+        let totalValue = 0;
+        let totalPurchaseValue = 0;
+
+        cards.forEach(card => {
+            const value = parseFloat(
+                card.querySelector('.nieuwwaarde').textContent.replace(/[^\d,.-]/g, '').replace(',', '.')
+            );
+            const purchase = parseFloat(
+                card.querySelector('.aankoopwaarde').textContent.replace(/[^\d,.-]/g, '').replace(',', '.')
+            );
+
+            if (!isNaN(value)) totalValue += value;
+            if (!isNaN(purchase)) totalPurchaseValue += purchase;
+        });
+
+        document.getElementById('totalKnives').textContent = `Aantal mesjes: ${cards.length}`;
+        document.getElementById('totalValue').textContent =
+            `Nieuwwaarde: € ${totalValue.toLocaleString('nl-NL', { minimumFractionDigits: 2 })}`;
+        document.getElementById('totalPurchaseValue').textContent =
+            `Aankoopwaarde: € ${totalPurchaseValue.toLocaleString('nl-NL', { minimumFractionDigits: 2 })}`;
+    }
+
+    // 🔥 BRAND LOGO TOGGLE FILTER
+    document.addEventListener('click', function (e) {
+        const link = e.target.closest('.brand-filter');
+        if (!link) return;
+
+        e.preventDefault();
+
+        const merk = link.dataset.merk.toLowerCase();
+        const searchInput = document.getElementById('search');
+
+        if (activeBrand === merk) {
+            activeBrand = null;
+            searchInput.value = '';
+            document.querySelectorAll('.brand-filter').forEach(el => el.classList.remove('active'));
+        } else {
+            activeBrand = merk;
+            searchInput.value = merk;
+            document.querySelectorAll('.brand-filter').forEach(el => el.classList.remove('active'));
+            link.classList.add('active');
+        }
+
+        searchKnives();
+    });
+
+    document.addEventListener('DOMContentLoaded', async () => {
+        await loadKnives();
+        document.getElementById('sort').value = 'aankoopdatum';
+        document.getElementById('sortOrder').value = 'desc';
+        sortKnives();
+        updateSummary();
+    });
+</script>
+
 </head>
 <body>
     <div class="header1">
         <h1>Mijn zakmes collectie</h1>
-        <div>Laatst bijgewerkt: 12-01-2026</div>
+        <div>Laatst bijgewerkt: 13-01-2026</div>
         <div id="totalKnives"></div>
         <div id="totalValue"></div>
         <div id="totalPurchaseValue"></div>
     </div>
     <div class="brand-logos">
-        <div class="logo-wrapper"><a href="https://kunwuknives.com" target="_blank"><img src="img/Kunwu-logo.webp" alt="Kunwu Knives" /></a></div>
-        <div class="logo-wrapper"><a href="https://www.remetteknife.com" target="_blank"><img src="img/Remette-logo.webp" alt="Remette Knife" /></a></div>
-        <div class="logo-wrapper"><a href="https://www.benchmade.com" target="_blank"><img src="img/Benchmade-logo.webp" alt="Benchmade" /></a></div>
-        <div class="logo-wrapper"><a href="https://www.vosteed.com/" target="_blank"><img src="img/Vosteed-logo.webp" alt="Vosteed" /></a></div>
-        <div class="logo-wrapper"><a href="https://www.kizerknives.com" target="_blank"><img src="img/Kizer-logo.webp" alt="Kizer Knives" /></a></div>
-        <div class="logo-wrapper"><a href="https://www.weknife.com" target="_blank"><img src="img/WE-logo.webp" alt="WE Knife" /></a></div>
-        <div class="logo-wrapper"><a href="https://www.civivi.com" target="_blank"><img src="img/Civivi-logo.webp" alt="Civivi" /></a></div>
-        <div class="logo-wrapper"><a href="https://www.sencut.com" target="_blank"><img src="img/Sencut-logo.webp" alt="Sencut" /></a></div>
-        <div class="logo-wrapper"><a href="https://kershaw.kaiusa.com" target="_blank"><img src="img/Kershaw-logo.webp" alt="Kershaw" /></a></div>
+        <div class="logo-wrapper brand-filter" data-merk="Kunwu"><img src="img/Kunwu-logo.webp" alt="Kunwu Knives"></div>
+        <div class="logo-wrapper brand-filter" data-merk="Remette"><img src="img/Remette-logo.webp" alt="Remette Knife"></div>
+        <div class="logo-wrapper brand-filter" data-merk="Benchmade"><img src="img/Benchmade-logo.webp" alt="Benchmade"></div>
+        <div class="logo-wrapper brand-filter" data-merk="Vosteed"><img src="img/Vosteed-logo.webp" alt="Vosteed"></div>
+        <div class="logo-wrapper brand-filter" data-merk="Kizer"><img src="img/Kizer-logo.webp" alt="Kizer Knives"></div>
+        <div class="logo-wrapper brand-filter" data-merk="WE Knife"><img src="img/WE-logo.webp" alt="WE Knife"></div>
+        <div class="logo-wrapper brand-filter" data-merk="Civivi"><img src="img/Civivi-logo.webp" alt="Civivi"></div>
+        <div class="logo-wrapper brand-filter" data-merk="Sencut"><img src="img/Sencut-logo.webp" alt="Sencut"></div>
+        <div class="logo-wrapper brand-filter" data-merk="Kershaw"><img src="img/Kershaw-logo.webp" alt="Kershaw"></div>
         <div class="logo-wrapper"><a href="https://unlockedcomposites.com" target="_blank"><img src="img/UC-logo.webp" alt="Unlocked Composites" /></a></div>        
-        // <div class="logo-wrapper"><a href="https://knivesandtools.nl" target="_blank"><img src="img/KATO-logo.webp" alt="Knives and Tools" /></a></div>
+        <div class="logo-wrapper"><a href="https://knivesandtools.nl" target="_blank"><img src="img/KATO-logo.webp" alt="Knives and Tools" /></a></div>
+        <div class="logo-wrapper"><a href="https://lamnia.com/nl" target="_blank"><img src="img/Lamnia-logo.webp" alt="Lamnia" /></a></div>
     </div>
     <div class="search-sort-container">
         <div class="search-bar">
