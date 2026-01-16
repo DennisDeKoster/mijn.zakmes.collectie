@@ -8,24 +8,19 @@
     <link rel="stylesheet" type="text/css" href="styles.css">
     <script>
     let activeBrand = null;
-
     async function loadKnives() {
         const response = await fetch('database.json');
         const text = await response.text();
         const knives = JSON.parse(text);
-
         const container = document.getElementById('knifeContainer');
         container.innerHTML = '';
-
         knives.forEach(knife => {
             const card = document.createElement('div');
             card.classList.add('card');
-            
             card.dataset.merk = knife.merk
                 .toLowerCase()
                 .trim()
                 .replace(/\s+/g, ' ');
-
             card.innerHTML = `
                 <div class="card-content">
                     <div class="specs">
@@ -33,7 +28,8 @@
                             <div class="topleft">
                                 <h2>
                                     <span class="merk">${knife.merk}</span><br>
-                                    <span class="naam">${knife.naam}</span>
+                                    <span class="naam">${knife.naam}</span><br>
+                                    <div class="uitvoering" style="font-size: 0.8em; white-space: nowrap; display: inline-block;"><strong><b>${knife.uitvoering}</b></strong></div>
                                 </h2>
                             </div>
                             <div class="topright">
@@ -42,10 +38,8 @@
                                 </a>
                             </div>
                         </div>
-
                         <div class="row">
                             <div class="left">
-                                <div class="uitvoering"><strong>Uitvoering:</strong><br>${knife.uitvoering}</div>
                                 <div class="model"><strong>Modelnummer:</strong><br>${knife.model}</div>
                                 <div class="lemmetVorm"><strong>Lemmet vorm:</strong><br>${knife.lemmetVorm}</div>
                                 <div class="openmethode"><strong>Openmethode:</strong><br>${knife.openmethode}</div>
@@ -53,7 +47,6 @@
                                 <div class="nieuwwaarde"><strong>Nieuwwaarde:</strong><br>€ ${knife.nieuwwaarde}</div>
                                 <div class="aankoopwaarde"><strong>Aankoopwaarde:</strong><br>€ ${knife.aankoopwaarde}</div>
                                 <div class="aankoopdatum"><strong>Aankoopdatum:</strong><br>${knife.aankoopdatum}</div>
-
                                 ${knife.specials ? `
                                     <div class="specials">
                                         <strong>Bijzonderheden:</strong><br>
@@ -63,7 +56,6 @@
                                     </div>
                                 ` : ``}
                             </div>
-
                             <div class="right">
                                 <div class="staalsoort"><strong>Staalsoort:</strong><br>${knife.staalsoort}</div>
                                 <div class="afwerking"><strong>Afwerking:</strong><br>${knife.afwerking}</div>
@@ -81,69 +73,53 @@
             container.appendChild(card);
         });
     }
-
     function searchKnives() {
         const query = document.getElementById('search').value.toLowerCase().trim();
         const cards = document.querySelectorAll('.card');
-
         cards.forEach(card => {
             const fullText = card.textContent.toLowerCase();
             const cardMerk = card.dataset.merk; // exact merk
             const textMatch = query === '' || fullText.includes(query);
             const brandMatch = !activeBrand || cardMerk === activeBrand;
-
             card.style.display = (textMatch && brandMatch) ? 'block' : 'none';
         });
-
         updateSummary();
     }
-
     function clearSearch() {
         document.getElementById('search').value = '';
         activeBrand = null;
-
         document.querySelectorAll('.brand-filter').forEach(el =>
             el.classList.remove('active')
         );
-
         searchKnives();
     }
-
     function sortKnives() {
         const sortBy = document.getElementById('sort').value;
         const sortOrder = document.getElementById('sortOrder').value;
         const container = document.getElementById('knifeContainer');
         const cards = Array.from(container.children);
-
         cards.sort((a, b) => {
             let aValue = a.querySelector(`.${sortBy}`).textContent.trim();
             let bValue = b.querySelector(`.${sortBy}`).textContent.trim();
-
             if (sortBy === 'aankoopdatum') {
                 aValue = aValue.match(/\d{2}-\d{2}-\d{4}/);
                 bValue = bValue.match(/\d{2}-\d{2}-\d{4}/);
-
                 aValue = aValue ? new Date(aValue[0].split('-').reverse().join('-')) : new Date(0);
                 bValue = bValue ? new Date(bValue[0].split('-').reverse().join('-')) : new Date(0);
-
                 return sortOrder === 'asc' ? aValue - bValue : bValue - aValue;
             }
-
             return sortOrder === 'asc'
                 ? aValue.localeCompare(bValue, undefined, { numeric: true })
                 : bValue.localeCompare(aValue, undefined, { numeric: true });
         });
-
         container.innerHTML = '';
         cards.forEach(card => container.appendChild(card));
         updateSummary();
     }
-
     function updateSummary() {
         const cards = document.querySelectorAll('.card');
         let totalValue = 0;
         let totalPurchaseValue = 0;
-
         cards.forEach(card => {
             const value = parseFloat(
                 card.querySelector('.nieuwwaarde').textContent.replace(/[^\d,.-]/g, '').replace(',', '.')
@@ -151,28 +127,21 @@
             const purchase = parseFloat(
                 card.querySelector('.aankoopwaarde').textContent.replace(/[^\d,.-]/g, '').replace(',', '.')
             );
-
             if (!isNaN(value)) totalValue += value;
             if (!isNaN(purchase)) totalPurchaseValue += purchase;
         });
-
         document.getElementById('totalKnives').textContent = `Aantal mesjes: ${cards.length}`;
         document.getElementById('totalValue').textContent =
             `Nieuwwaarde: € ${totalValue.toLocaleString('nl-NL', { minimumFractionDigits: 2 })}`;
         document.getElementById('totalPurchaseValue').textContent =
             `Aankoopwaarde: € ${totalPurchaseValue.toLocaleString('nl-NL', { minimumFractionDigits: 2 })}`;
     }
-
-    // 🔥 BRAND LOGO TOGGLE FILTER
     document.addEventListener('click', function (e) {
         const link = e.target.closest('.brand-filter');
         if (!link) return;
-
         e.preventDefault();
-
         const merk = link.dataset.merk.toLowerCase();
         const searchInput = document.getElementById('search');
-
         if (activeBrand === merk) {
             activeBrand = null;
             searchInput.value = '';
@@ -183,10 +152,8 @@
             document.querySelectorAll('.brand-filter').forEach(el => el.classList.remove('active'));
             link.classList.add('active');
         }
-
         searchKnives();
     });
-
     document.addEventListener('DOMContentLoaded', async () => {
         await loadKnives();
         document.getElementById('sort').value = 'aankoopdatum';
@@ -195,16 +162,8 @@
         updateSummary();
     });
 </script>
-
 </head>
 <body>
-    <div class="header1">
-        <h1>Mijn zakmes collectie</h1>
-        <div>Laatst bijgewerkt: 13-01-2026</div>
-        <div id="totalKnives"></div>
-        <div id="totalValue"></div>
-        <div id="totalPurchaseValue"></div>
-    </div>
     <div class="brand-logos">
         <div class="logo-wrapper brand-filter" data-merk="Kunwu"><img src="img/Kunwu-logo.webp" alt="Kunwu Knives"></div>
         <div class="logo-wrapper brand-filter" data-merk="Remette"><img src="img/Remette-logo.webp" alt="Remette Knife"></div>
@@ -219,11 +178,18 @@
         <div class="logo-wrapper"><a href="https://knivesandtools.nl" target="_blank"><img src="img/KATO-logo.webp" alt="Knives and Tools" /></a></div>
         <div class="logo-wrapper"><a href="https://lamnia.com/nl" target="_blank"><img src="img/Lamnia-logo.webp" alt="Lamnia" /></a></div>
     </div>
+    <div class="header1">
+        <h1>Mijn zakmes collectie</h1>
+        <div>Laatst bijgewerkt: 16-01-2026</div>
+        <div id="totalKnives"></div>
+        <div id="totalValue"></div>
+        <div id="totalPurchaseValue"></div>
+    </div>
     <div class="search-sort-container">
         <div class="search-bar">
             <input type="text" id="search" onkeyup="searchKnives()" placeholder="Zoeken..."><button id="clear-btn" onclick="clearSearch()">✕</button>
         </div>
-        <div class="sort-options">Sorteren op:&nbsp;
+        <div class="sort-options">Sorteren:&nbsp;
             <select id="sort" onchange="sortKnives()">
                 <option value="aankoopdatum">Aankoopdatum</option>
                 <option value="aankoopwaarde">Aankoopwaarde</option>
