@@ -3,6 +3,14 @@ body {
     margin: 0;
     padding: 25px;
 }
+.header1 {
+    text-shadow:
+        -1px -1px 1px white,
+        1px -1px 1px white,
+        -1px  1px 1px white,
+        1px  1px 1px white,
+        2px 2px 2px rgba(0, 0, 0, 0.35);
+}
 .container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -12,7 +20,7 @@ body {
 }
 .card {
     background-color: #ffffff;
-    box-shadow: 0 0 18px rgba(0, 0, 0, 0.2);
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
     border-radius: 15px;
     overflow: hidden;
     display: flex;
@@ -154,7 +162,8 @@ h2 {
         -1px -1px 0 white,
         1px -1px 0 white,
         -1px  1px 0 white,
-        1px  1px 0 white;
+        1px  1px 0 white,
+        3px 3px 3px rgba(0, 0, 0, 0.25);
 }
 a {
     text-decoration: none;
