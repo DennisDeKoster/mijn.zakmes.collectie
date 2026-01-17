@@ -3,19 +3,6 @@ body {
     margin: 0;
     padding: 25px;
 }
-.summary {
-    display: flex; /* Flexbox voor horizontale layout */
-    justify-content: space-around; /* Ruimte tussen items */
-    align-items: center; /* Centreert items verticaal */
-    gap: 15px; /* Ruimte tussen de details */
-    margin-top: 10px; /* Ruimte boven de summary */
-    text-align: center;
-    flex-wrap: wrap; /* Zorgt dat ze op kleinere schermen naar een nieuwe regel gaan */
-}
-.summary span {
-    flex-shrink: 0; /* Voorkomt dat items te klein worden */
-    white-space: nowrap; /* Houdt tekst op één regel */
-}
 .container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -58,10 +45,9 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-right: 15px; /* was 15 */
+    margin-right: 15px;
 }
 .brand-logos {
-    /* box-shadow: 0 0 18px rgba(0, 0, 0, 0.2); */
     border-radius: 20px;
     display: flex;
     justify-content: space-evenly;
@@ -102,7 +88,7 @@ body {
     display: flex;
     align-items: flex-start;
 }
-.search-sort-container, .header1 {
+.search-sort-container, .header1, .summary{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -112,15 +98,21 @@ body {
 .search-bar {
     padding: 10px 0px 10px 0px;
     display: flex;
-    flex: 1;
+    flex: 0 0 auto;
+    width: 220px;
+    transition: max-width 0.35s ease;
 }
 .search-bar input {
-    padding: 10px;
+    padding: 4px;
     border: 1px solid #00796b;
-    border-radius: 4px;
+    border-radius: 6px;
     font-size: 12px;
     transition: all 0.4s ease;
-    width: 200px;
+    width: 100%;
+}
+.search-toggle {
+    display: none;
+    font-size: 20px;
 }
 .sort-options {
     display: flex;
@@ -129,9 +121,9 @@ body {
     flex-shrink: 0;
 }
 .sort-options select {
-    padding: 10px;
+    padding: 4px;
     border: 1px solid #00796b;
-    border-radius: 4px;
+    border-radius: 6px;
     font-size: 12px;
     transition: all 0.4s ease;
     background-color: #ffffff;
@@ -199,20 +191,20 @@ button:hover {
 }
 @media (min-width: 1680px) {
     .container {
-        grid-template-columns: repeat(4, 1fr); /* Vier kaarten per rij op grote schermen */
+        grid-template-columns: repeat(4, 1fr);
     }
 }
 @media (min-width: 1280px) and (max-width: 1679px) {
     .container {
-        grid-template-columns: repeat(3, 1fr); /* Drie kaarten per rij op middelgrote schermen */
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 @media (min-width: 768px) and (max-width: 1279px) {
     .container {
-        grid-template-columns: repeat(2, 1fr); /* Twee kaarten per rij op tablets */
+        grid-template-columns: repeat(2, 1fr);
     }
     .header1 {
-        flex-direction: column; /* Zet de elementen onder elkaar op kleinere schermen */
+        flex-direction: column;
         align-items: flex-start;
     }
     .brand-logos{
@@ -224,31 +216,57 @@ button:hover {
 }
 @media (max-width: 767px) {
     .container {
-        grid-template-columns: 1fr; /* Eén kaart per rij op mobiele apparaten */
+        grid-template-columns: 1fr;
     }
     .card-content {
-        font-size: 12px; /* Verkleint de tekstgrootte van de header op mobiele apparaten */
+        font-size: 12px;
     }
     h1 {
-        font-size: 24px; /* Verkleint de tekstgrootte van de header op mobiele apparaten */
+        font-size: 24px;
     }
     h2 {
-        font-size: 18px; /* Verkleint de tekstgrootte van de header op mobiele apparaten */
+        font-size: 18px;
     }
     .search-sort-container, .header1 {
         display: flex;
-        flex-direction: column; /* Zet de elementen onder elkaar op kleinere schermen */
         align-items: stretch;
+        flex-direction: row; 
+        padding: 10px 0px 10px 0px;
     }
     .sort-options {
         display: flex;
-        justify-content: center; /* Centreert horizontaal */
+        justify-content: center;
         align-items: center;
+        flex-shrink: 0;
     }
     .brand-logos{
         padding: 5px 0px 0px 0px;
     }
     .logo-wrapper {
         width: 50px;
+    }
+    .search-toggle {
+        display: block;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+    .search-bar {
+        display: none;
+        flex: 1;
+    }
+    .search-bar input{
+        width: 60%;
+    }
+    .search-bar.active {
+        display: flex;
+        padding: 0px 0px 0px 0px;
+    }
+    .header1, .summary {
+        align-items: center;
+        text-align: center;
+        flex-direction: column;
+        align-items: flex-start;
+        font-size: 12px;
     }
 }
