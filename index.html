@@ -162,15 +162,24 @@
         sortKnives();
         updateSummary();
     });
+    function toggleSearch() {
+        const bar = document.getElementById('searchBar');
+        bar.classList.toggle('active');
+        if (bar.classList.contains('active')) {
+            document.getElementById('search').focus();
+        }
+    }
 </script>
 </head>
 <body>
     <div class="header1">
         <h1>Mijn zakmes collectie</h1>
-        <div id="totalKnives"></div>
-        <div id="totalValue"></div>
-        <div id="totalPurchaseValue"></div>
-        <div>Laatst bijgewerkt: 16-01-2026</div>
+    </div>
+    <div class="summary">
+        <span id="totalKnives"></span>
+        <span id="totalValue"></span>
+        <span id="totalPurchaseValue"></span>
+        <div class="last-update">Laatst bijgewerkt: 17-01-2026</div>
     </div>
     <div class="brand-logos">
         <div class="logo-wrapper brand-filter" data-merk="Kunwu"><img src="img/Kunwu-logo.webp" alt="Kunwu Knives"></div>
@@ -187,10 +196,12 @@
         <div class="logo-wrapper"><a href="https://unlockedcomposites.com" target="_blank"><img src="img/UC-logo.webp" alt="Unlocked Composites" /></a></div>      
     </div>
     <div class="search-sort-container">
-        <div class="search-bar">
-            <input type="text" id="search" onkeyup="searchKnives()" placeholder="Zoeken..."><button id="clear-btn" onclick="clearSearch()">✕</button>
+        <button class="search-toggle" onclick="toggleSearch()">🔍</button>
+        <div class="search-bar" id="searchBar">
+            <input type="text" id="search" onkeyup="searchKnives()" placeholder="Zoeken...">
+            <button id="clear-btn" onclick="clearSearch()">✕</button>
         </div>
-        <div class="sort-options">Sorteren:&nbsp;
+        <div class="sort-options">
             <select id="sort" onchange="sortKnives()">
                 <option value="aankoopdatum">Aankoopdatum</option>
                 <option value="aankoopwaarde">Aankoopwaarde</option>
