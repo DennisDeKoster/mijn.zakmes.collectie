@@ -392,5 +392,6 @@ button:hover {
     .card:hover h2,
     .card.is-active h2 {
         transform: scale(1.1) translateY(0%) translateX(0%);
+        opacity: 0.1;
     }
 }
