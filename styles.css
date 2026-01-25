@@ -80,7 +80,7 @@ h2 {
 
 .card:hover h2,
 .card.is-active h2 {
-    opacity: 0;
+    opacity: 0.2;
 }
 
 .link-image {
@@ -118,8 +118,8 @@ h2 {
 
 .shine-hover:hover::after,
 .card.is-active .shine-hover::after {
-    animation: shine 1.4s ease forwards;
-    animation-delay: 0.3s;
+    animation: shine 2.0s ease forwards;
+    animation-delay: 0.8s;
 }
 
 @keyframes shine {
@@ -396,6 +396,6 @@ button:hover {
     .card:hover h2,
     .card.is-active h2 {
         transform: scale(1.1) translateY(0%) translateX(0%);
-        opacity: 0;
+        opacity: 0.2;
     }
 }
