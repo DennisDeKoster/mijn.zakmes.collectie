@@ -115,7 +115,7 @@ h2 {
 .shine-hover:hover::after,
 .card.is-active .shine-hover::after {
     animation: shine 1.4s ease forwards;
-    animation-delay: 0.3s;
+    animation-delay: 0.5s;
 }
 
 @keyframes shine {
