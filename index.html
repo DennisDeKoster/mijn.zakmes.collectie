@@ -7,168 +7,192 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Space+Grotesk:wght@400;700&family=Sora:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="styles.css">
     <script>
-    let activeBrand = null;
-    async function loadKnives() {
-        const response = await fetch('database.json');
-        const text = await response.text();
-        const knives = JSON.parse(text);
-        const container = document.getElementById('knifeContainer');
-        container.innerHTML = '';
-        knives.forEach(knife => {
-            const card = document.createElement('div');
-            card.classList.add('card');
-            card.dataset.merk = knife.merk
-                .toLowerCase()
-                .trim()
-                .replace(/\s+/g, ' ');
-            card.innerHTML = `
-                <div class="card-content shine-hover">
-                    <div class="specs">
-                        <div class="row">
-                            <div class="topleft">
-                                <h2>
-                                    <span class="merk">${knife.merk}</span><br>
-                                    <span class="naam">${knife.naam}</span><br>
-                                    <div class="uitvoering" style="font-size: 0.8em; white-space: nowrap; display: inline-block;"><strong><b>${knife.uitvoering}</b></strong></div>
-                                </h2>
+        let activeBrand = null;
+        async function loadKnives() {
+            const response = await fetch('database.json');
+            const text = await response.text();
+            const knives = JSON.parse(text);
+            const container = document.getElementById('knifeContainer');
+            container.innerHTML = '';
+            knives.forEach(knife => {
+                const card = document.createElement('div');
+                card.classList.add('card');
+                card.dataset.merk = knife.merk
+                    .toLowerCase()
+                    .trim()
+                    .replace(/\s+/g, ' ');
+                card.innerHTML = `
+                    <div class="card-content shine-hover">
+                        <div class="specs">
+                            <div class="row">
+                                <div class="topleft">
+                                    <h2>
+                                        <span class="merk">${knife.merk}</span><br>
+                                        <span class="naam">${knife.naam}</span><br>
+                                        <div class="uitvoering" style="font-size: 0.8em; white-space: nowrap; display: inline-block;"><strong><b>${knife.uitvoering}</b></strong></div>
+                                    </h2>
+                                </div>
+                                <div class="topright">
+                                    <a href="${knife.link}" class="link-image" target="_blank">
+                                        <img src="${knife.afbeelding}" alt="${knife.naam}">
+                                    </a>
+                                </div>
                             </div>
-                            <div class="topright">
-                                <a href="${knife.link}" class="link-image" target="_blank">
-                                    <img src="${knife.afbeelding}" alt="${knife.naam}">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="left">
-                                <div class="staalsoort"><strong>Staalsoort:</strong><br>${knife.staalsoort}</div>
-                                <div class="lemmetVorm"><strong>Lemmet vorm:</strong><br>${knife.lemmetVorm}</div>
-                                <div class="openmethode"><strong>Openmethode:</strong><br>${knife.openmethode}</div>
-                                <div class="vergrendeling"><strong>Vergrendeling:</strong><br>${knife.vergrendeling}</div>
-                                <div class="nieuwwaarde"><strong>Nieuwwaarde:</strong><br>€ ${knife.nieuwwaarde}</div>
-                                <div class="aankoopwaarde"><strong>Aankoopwaarde:</strong><br>€ ${knife.aankoopwaarde}</div>
-                                <div class="aankoopdatum"><strong>Aankoopdatum:</strong><br>${knife.aankoopdatum}</div>
-                                ${knife.specials ? `
-                                    <div class="specials">
-                                        <strong>Bijzonderheden:</strong><br>
-                                        ${knife.specials.map(s =>
-                                            `<div>${s.link ? `<a href="${s.link}" target="_blank">${s.description}</a>` : s.description}</div>`
-                                        ).join('')}
-                                    </div>
-                                ` : ``}
-                            </div>
-                            <div class="right">
-                                <div class="afwerking"><strong>Afwerking:</strong><br>${knife.afwerking}</div>
-                                <div class="hardheid"><strong>Hardheid:</strong><br>${knife.hardheid} HRC</div>
-                                <div class="lengteGesloten"><strong>Lengte gesloten:</strong><br>${knife.lengteGesloten} mm</div>
-                                <div class="lengteGeopend"><strong>Lengte geopend:</strong><br>${knife.lengteGeopend} mm</div>
-                                <div class="lengteLemmet"><strong>Lengte lemmet:</strong><br>${knife.lengteLemmet} mm</div>
-                                <div class="dikteLemmet"><strong>Dikte lemmet:</strong><br>${knife.dikteLemmet} mm</div>
-                                <div class="gewicht"><strong>Gewicht:</strong><br>${knife.gewicht} g</div>
-                                <div class="model"><strong>Modelnummer:</strong><br>${knife.model}</div>
+                            <div class="row">
+                                <div class="left">
+                                    <div class="staalsoort"><strong>Staalsoort:</strong><br>${knife.staalsoort}</div>
+                                    <div class="lemmetVorm"><strong>Lemmet vorm:</strong><br>${knife.lemmetVorm}</div>
+                                    <div class="openmethode"><strong>Openmethode:</strong><br>${knife.openmethode}</div>
+                                    <div class="vergrendeling"><strong>Vergrendeling:</strong><br>${knife.vergrendeling}</div>
+                                    <div class="nieuwwaarde"><strong>Nieuwwaarde:</strong><br>€ ${knife.nieuwwaarde}</div>
+                                    <div class="aankoopwaarde"><strong>Aankoopwaarde:</strong><br>€ ${knife.aankoopwaarde}</div>
+                                    <div class="aankoopdatum"><strong>Aankoopdatum:</strong><br>${knife.aankoopdatum}</div>
+                                    ${knife.specials ? `
+                                        <div class="specials">
+                                            <strong>Bijzonderheden:</strong><br>
+                                            ${knife.specials.map(s =>
+                                                `<div>${s.link ? `<a href="${s.link}" target="_blank">${s.description}</a>` : s.description}</div>`
+                                            ).join('')}
+                                        </div>
+                                    ` : ``}
+                                </div>
+                                <div class="right">
+                                    <div class="afwerking"><strong>Afwerking:</strong><br>${knife.afwerking}</div>
+                                    <div class="hardheid"><strong>Hardheid:</strong><br>${knife.hardheid} HRC</div>
+                                    <div class="lengteGesloten"><strong>Lengte gesloten:</strong><br>${knife.lengteGesloten} mm</div>
+                                    <div class="lengteGeopend"><strong>Lengte geopend:</strong><br>${knife.lengteGeopend} mm</div>
+                                    <div class="lengteLemmet"><strong>Lengte lemmet:</strong><br>${knife.lengteLemmet} mm</div>
+                                    <div class="dikteLemmet"><strong>Dikte lemmet:</strong><br>${knife.dikteLemmet} mm</div>
+                                    <div class="gewicht"><strong>Gewicht:</strong><br>${knife.gewicht} g</div>
+                                    <div class="model"><strong>Modelnummer:</strong><br>${knife.model}</div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            `;
-            container.appendChild(card);
-        });
-    }
-    function searchKnives() {
-        const query = document.getElementById('search').value.toLowerCase().trim();
-        const cards = document.querySelectorAll('.card');
-        cards.forEach(card => {
-            const fullText = card.textContent.toLowerCase();
-            const cardMerk = card.dataset.merk; // exact merk
-            const textMatch = query === '' || fullText.includes(query);
-            const brandMatch = !activeBrand || cardMerk === activeBrand;
-            card.style.display = (textMatch && brandMatch) ? 'block' : 'none';
-        });
-        updateSummary();
-    }
-    function clearSearch() {
-        document.getElementById('search').value = '';
-        activeBrand = null;
-        document.querySelectorAll('.brand-filter').forEach(el =>
-            el.classList.remove('active')
-        );
-        searchKnives();
-    }
-    function sortKnives() {
-        const sortBy = document.getElementById('sort').value;
-        const sortOrder = document.getElementById('sortOrder').value;
-        const container = document.getElementById('knifeContainer');
-        const cards = Array.from(container.children);
-        cards.sort((a, b) => {
-            let aValue = a.querySelector(`.${sortBy}`).textContent.trim();
-            let bValue = b.querySelector(`.${sortBy}`).textContent.trim();
-            if (sortBy === 'aankoopdatum') {
-                aValue = aValue.match(/\d{2}-\d{2}-\d{4}/);
-                bValue = bValue.match(/\d{2}-\d{2}-\d{4}/);
-                aValue = aValue ? new Date(aValue[0].split('-').reverse().join('-')) : new Date(0);
-                bValue = bValue ? new Date(bValue[0].split('-').reverse().join('-')) : new Date(0);
-                return sortOrder === 'asc' ? aValue - bValue : bValue - aValue;
-            }
-            return sortOrder === 'asc'
-                ? aValue.localeCompare(bValue, undefined, { numeric: true })
-                : bValue.localeCompare(aValue, undefined, { numeric: true });
-        });
-        container.innerHTML = '';
-        cards.forEach(card => container.appendChild(card));
-        updateSummary();
-    }
-    function updateSummary() {
-        const cards = document.querySelectorAll('.card');
-        let totalValue = 0;
-        let totalPurchaseValue = 0;
-        cards.forEach(card => {
-            const value = parseFloat(
-                card.querySelector('.nieuwwaarde').textContent.replace(/[^\d,.-]/g, '').replace(',', '.')
-            );
-            const purchase = parseFloat(
-                card.querySelector('.aankoopwaarde').textContent.replace(/[^\d,.-]/g, '').replace(',', '.')
-            );
-            if (!isNaN(value)) totalValue += value;
-            if (!isNaN(purchase)) totalPurchaseValue += purchase;
-        });
-        document.getElementById('totalKnives').textContent = `Aantal mesjes: ${cards.length}`;
-        document.getElementById('totalValue').textContent =
-            `Nieuwwaarde: € ${totalValue.toLocaleString('nl-NL', { minimumFractionDigits: 2 })}`;
-        document.getElementById('totalPurchaseValue').textContent =
-            `Aankoopwaarde: € ${totalPurchaseValue.toLocaleString('nl-NL', { minimumFractionDigits: 2 })}`;
-    }
-    document.addEventListener('click', function (e) {
-        const link = e.target.closest('.brand-filter');
-        if (!link) return;
-        e.preventDefault();
-        const merk = link.dataset.merk.toLowerCase();
-        const searchInput = document.getElementById('search');
-        if (activeBrand === merk) {
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function searchKnives() {
+            const query = document.getElementById('search').value.toLowerCase().trim();
+            const cards = document.querySelectorAll('.card');
+            cards.forEach(card => {
+                const fullText = card.textContent.toLowerCase();
+                const cardMerk = card.dataset.merk; // exact merk
+                const textMatch = query === '' || fullText.includes(query);
+                const brandMatch = !activeBrand || cardMerk === activeBrand;
+                card.style.display = (textMatch && brandMatch) ? 'block' : 'none';
+            });
+            updateSummary();
+        }
+
+        function clearSearch() {
+            document.getElementById('search').value = '';
             activeBrand = null;
-            searchInput.value = '';
-            document.querySelectorAll('.brand-filter').forEach(el => el.classList.remove('active'));
-        } else {
-            activeBrand = merk;
-            searchInput.value = merk;
-            document.querySelectorAll('.brand-filter').forEach(el => el.classList.remove('active'));
-            link.classList.add('active');
+            document.querySelectorAll('.brand-filter').forEach(el =>
+                el.classList.remove('active')
+            );
+            searchKnives();
         }
-        searchKnives();
-    });
-    document.addEventListener('DOMContentLoaded', async () => {
-        await loadKnives();
-        document.getElementById('sort').value = 'aankoopdatum';
-        document.getElementById('sortOrder').value = 'desc';
-        sortKnives();
-        updateSummary();
-    });
-    function toggleSearch() {
-        const bar = document.getElementById('searchBar');
-        bar.classList.toggle('active');
-        if (bar.classList.contains('active')) {
-            document.getElementById('search').focus();
+
+        function sortKnives() {
+            const sortBy = document.getElementById('sort').value;
+            const sortOrder = document.getElementById('sortOrder').value;
+            const container = document.getElementById('knifeContainer');
+            const cards = Array.from(container.children);
+            cards.sort((a, b) => {
+                let aValue = a.querySelector(`.${sortBy}`).textContent.trim();
+                let bValue = b.querySelector(`.${sortBy}`).textContent.trim();
+                if (sortBy === 'aankoopdatum') {
+                    aValue = aValue.match(/\d{2}-\d{2}-\d{4}/);
+                    bValue = bValue.match(/\d{2}-\d{2}-\d{4}/);
+                    aValue = aValue ? new Date(aValue[0].split('-').reverse().join('-')) : new Date(0);
+                    bValue = bValue ? new Date(bValue[0].split('-').reverse().join('-')) : new Date(0);
+                    return sortOrder === 'asc' ? aValue - bValue : bValue - aValue;
+                }
+                return sortOrder === 'asc'
+                    ? aValue.localeCompare(bValue, undefined, { numeric: true })
+                    : bValue.localeCompare(aValue, undefined, { numeric: true });
+            });
+            container.innerHTML = '';
+            cards.forEach(card => container.appendChild(card));
+            updateSummary();
         }
-    }
-</script>
+
+        function updateSummary() {
+            const cards = document.querySelectorAll('.card');
+            let totalValue = 0;
+            let totalPurchaseValue = 0;
+            cards.forEach(card => {
+                const value = parseFloat(
+                    card.querySelector('.nieuwwaarde').textContent.replace(/[^\d,.-]/g, '').replace(',', '.')
+                );
+                const purchase = parseFloat(
+                    card.querySelector('.aankoopwaarde').textContent.replace(/[^\d,.-]/g, '').replace(',', '.')
+                );
+                if (!isNaN(value)) totalValue += value;
+                if (!isNaN(purchase)) totalPurchaseValue += purchase;
+            });
+            document.getElementById('totalKnives').textContent = `Aantal mesjes: ${cards.length}`;
+            document.getElementById('totalValue').textContent =
+                `Nieuwwaarde: € ${totalValue.toLocaleString('nl-NL', { minimumFractionDigits: 2 })}`;
+            document.getElementById('totalPurchaseValue').textContent =
+                `Aankoopwaarde: € ${totalPurchaseValue.toLocaleString('nl-NL', { minimumFractionDigits: 2 })}`;
+        }
+
+        document.addEventListener('click', function (e) {
+            const link = e.target.closest('.brand-filter');
+            if (!link) return;
+            e.preventDefault();
+            const merk = link.dataset.merk.toLowerCase();
+            const searchInput = document.getElementById('search');
+            if (activeBrand === merk) {
+                activeBrand = null;
+                searchInput.value = '';
+                document.querySelectorAll('.brand-filter').forEach(el => el.classList.remove('active'));
+            } else {
+                activeBrand = merk;
+                searchInput.value = merk;
+                document.querySelectorAll('.brand-filter').forEach(el => el.classList.remove('active'));
+                link.classList.add('active');
+            }
+            searchKnives();
+        });
+
+        function toggleSearch() {
+            const bar = document.getElementById('searchBar');
+            bar.classList.toggle('active');
+            if (bar.classList.contains('active')) {
+                document.getElementById('search').focus();
+            }
+        }
+
+        function highlightCardOnScroll() {
+            const cards = document.querySelectorAll('.card');
+
+            window.addEventListener('scroll', () => {
+                const viewportMiddle = window.innerHeight / 2;
+
+                cards.forEach(card => {
+                    const rect = card.getBoundingClientRect();
+                    const cardMiddle = rect.top + rect.height / 2;
+
+                    card.classList.toggle('is-active', Math.abs(cardMiddle - viewportMiddle) < 220);
+                });
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            await loadKnives();
+            document.getElementById('sort').value = 'aankoopdatum';
+            document.getElementById('sortOrder').value = 'desc';
+            sortKnives();
+            updateSummary();
+            highlightCardOnScroll();
+        });
+
+    </script>
 </head>
 <body>
     <div class="header1">
@@ -178,7 +202,7 @@
         <span id="totalKnives"></span>
         <span id="totalValue"></span>
         <span id="totalPurchaseValue"></span>
-        <div class="last-update">Laatst bijgewerkt: 24-01-2026</div>
+        <div class="last-update">Laatst bijgewerkt: 25-01-2026</div>
     </div>
     <div class="brand-logos">
         <div class="logo-wrapper brand-filter" data-merk="Kunwu"><img src="img/Kunwu-logo.webp" alt="Kunwu Knives"></div>
