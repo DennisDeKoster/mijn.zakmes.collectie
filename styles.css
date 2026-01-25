@@ -383,10 +383,12 @@ button:hover {
         font-size: 12px;
     }
 
+    .card:hover .link-image,
     .card.is-active .link-image {
         transform: scale(1.125) translateY(-5%) translateX(-22%);
     }
     
+    .card:hover h2,
     .card.is-active h2 {
         transform: scale(1.1) translateY(0%) translateX(0%);
     }
