@@ -76,7 +76,11 @@ h2 {
 
 .card:hover h2{
     transform: scale(1.15) translateY(0%) translateX(5%);
-    opacity: 0.1;
+}
+
+.card:hover h2,
+.card.is-active h2 {
+    opacity: 0;
 }
 
 .link-image {
@@ -392,6 +396,6 @@ button:hover {
     .card:hover h2,
     .card.is-active h2 {
         transform: scale(1.1) translateY(0%) translateX(0%);
-        opacity: 0.1;
+        opacity: 0;
     }
 }
