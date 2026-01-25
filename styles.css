@@ -74,7 +74,7 @@ h2 {
     transform: scale(1.45) translateY(-5%) translateX(-9%);
 }
 
-.card:hover h2 {
+.card:hover h2{
     transform: scale(1.15) translateY(0%) translateX(5%);
 }
 
@@ -111,7 +111,8 @@ h2 {
     transform: skewX(-20deg);
 }
 
-.shine-hover:hover::after {
+.shine-hover:hover::after,
+.card.is-active .shine-hover::after {
     animation: shine 1.4s ease forwards;
     animation-delay: 0.4s;
 }
@@ -285,6 +286,7 @@ button:hover {
     .container {
         grid-template-columns: repeat(3, 1fr);
     }
+
     .card:hover .link-image {
         transform: scale(1.22) translateY(-10%) translateX(-22%);
     }
@@ -294,16 +296,20 @@ button:hover {
     .container {
         grid-template-columns: repeat(2, 1fr);
     }
+
     .card:hover .link-image {
         transform: scale(1.12) translateY(-10%) translateX(-22%);
     }
+
     .header1 {
         flex-direction: column;
         align-items: flex-start;
     }
+
     .brand-logos{
         padding: 10px 0px 10px 0px;
     }
+
     .logo-wrapper {
         width: 75px;
     }
@@ -313,50 +319,62 @@ button:hover {
     .container {
         grid-template-columns: 1fr;
     }
+
     .card-content {
         font-size: 12px;
     }
+
     h1 {
         font-size: 24px;
     }
+
     h2 {
         font-size: 18px;
     }
+
     .search-sort-container, .header1 {
         display: flex;
         align-items: stretch;
         flex-direction: row; 
         padding: 10px 0px 10px 0px;
     }
+
     .sort-options {
         display: flex;
         justify-content: center;
         align-items: center;
         flex-shrink: 0;
     }
+
     .brand-logos{
         padding: 5px 0px 0px 0px;
     }
+
     .logo-wrapper {
         width: 50px;
     }
+
     .search-toggle {
         display: block;
         background: none;
         border: none;
         cursor: pointer;
     }
+
     .search-bar {
         display: none;
         flex: 1;
     }
+
     .search-bar input{
         width: 60%;
     }
+
     .search-bar.active {
         display: flex;
         padding: 0px 0px 0px 0px;
     }
+
     .header1, .summary {
         align-items: center;
         text-align: center;
@@ -364,7 +382,12 @@ button:hover {
         align-items: flex-start;
         font-size: 12px;
     }
-    .card:hover .link-image {
+
+    .card.is-active .link-image {
         transform: scale(1.125) translateY(-5%) translateX(-22%);
+    }
+    
+    .card.is-active h2 {
+        transform: scale(1.1) translateY(0%) translateX(0%);
     }
 }
