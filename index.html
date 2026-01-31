@@ -146,12 +146,16 @@
                 const fullText = card.textContent.toLowerCase();
                 const cardMerk = card.dataset.merk;
                 const cardType = card.dataset.type;
-                const textMatch = query === '' || fullText.includes(query);
-                const brandMatch = !activeBrand || cardMerk === activeBrand;
-                const typeMatch = selectedType === 'all' || cardType === selectedType;
-                card.style.display = (textMatch && brandMatch && typeMatch)
-                    ? 'block'
-                    : 'none';
+                const textMatch   = query === '' || fullText.includes(query);
+                const brandMatch  = activeBrand === null || cardMerk === activeBrand;
+                let typeMatch = selectedType === 'all' || cardType === selectedType;
+                if (query !== '') {
+                    typeMatch = true;
+                }
+                else if (activeBrand !== null) {
+                    typeMatch = true;
+                }
+                card.style.display = (textMatch && brandMatch && typeMatch) ? 'block' : 'none';
             });
             updateSummary();
         }
