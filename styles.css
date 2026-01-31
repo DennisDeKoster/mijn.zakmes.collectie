@@ -71,15 +71,11 @@ h2 {
 }
 
 .card:hover .link-image {
-    transform: scale(1.45) translateY(-15%) translateX(-9%);
+    transform: scale(1.45) translateY(-6%) translateX(-9%);
 }
 
 .card:hover h2{
     transform: scale(1.15) translateY(0%) translateX(5%);
-}
-
-.card:hover h2,
-.card.is-active h2 {
     opacity: 0.2;
 }
 
