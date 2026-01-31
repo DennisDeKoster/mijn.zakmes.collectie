@@ -1,5 +1,6 @@
 [
   {
+    "type": "mes",
     "merk": "Civivi",
     "naam": "Mini Praxis",
     "model": "C18026C-1",
@@ -13,15 +14,17 @@
     "staalsoort": "D2",
     "hardheid": "58-60",
     "lengteGesloten": "96,9",
-    "lengteGeopend": "172,5",
+    "lengte": "172,5",
     "lengteLemmet": "75,6",
     "dikteLemmet": "2,5",
     "nieuwwaarde": "39,45",
     "aankoopwaarde": "39,45",
-    "afbeelding": "img/CIC18026C-1_01_civivi.webp",
+    "afbeelding": "img/knives/CIC18026C-1_01_civivi.webp",
     "link": "https://www.civivi.com/products/civivi-mini-praxis-c18026c-1"
   },
+  
   {
+    "type": "mes",
     "merk": "Civivi",
     "naam": "Altus",
     "model": "C20076-6",
@@ -35,12 +38,12 @@
     "staalsoort": "Nitro-V",
     "hardheid": "59-61",
     "lengteGesloten": "105,3",
-    "lengteGeopend": "180,8",
+    "lengte": "180,8",
     "lengteLemmet": "75,5",
     "dikteLemmet": "3",
     "nieuwwaarde": "95,95",
     "aankoopwaarde": "94,95",
-    "afbeelding": "img/CIC20076-6_01_civivi.webp",
+    "afbeelding": "img/knives/CIC20076-6_01_civivi.webp",
     "link": "https://www.civivi.com/products/civivi-altus-c20076-6",
     "specials": [
       {
@@ -53,7 +56,9 @@
       }
     ]
   },
+  
   {
+    "type": "mes",
     "merk": "Civivi",
     "naam": "Qubit",
     "model": "C22030E-1",
@@ -67,15 +72,17 @@
     "staalsoort": "Sandvik 14C28N",
     "hardheid": "57-59",
     "lengteGesloten": "106,9",
-    "lengteGeopend": "182,6",
+    "lengte": "182,6",
     "lengteLemmet": "75,7",
     "dikteLemmet": "2,3",
     "nieuwwaarde": "88,49",
     "aankoopwaarde": "84,95",
-    "afbeelding": "img/CIC22030E-1_01_civivi.webp",
+    "afbeelding": "img/knives/CIC22030E-1_01_civivi.webp",
     "link": "https://www.civivi.com/products/civivi-qubit-c22030e-1"
   },
+  
   {
+    "type": "mes",
     "merk": "Civivi",
     "naam": "Odium",
     "model": "C2010DS-1",
@@ -89,12 +96,12 @@
     "staalsoort": "Roestvast Damast",
     "hardheid": "58-60",
     "lengteGesloten": "90",
-    "lengteGeopend": "157,2",
+    "lengte": "157,2",
     "lengteLemmet": "67,2",
     "dikteLemmet": "3",
     "nieuwwaarde": "112,45",
     "aankoopwaarde": "106,52",
-    "afbeelding": "img/CIC2010DS-1_01_civivi.webp",
+    "afbeelding": "img/knives/CIC2010DS-1_01_civivi.webp",
     "link": "https://www.civivi.com/products/civivi-odium-c2010ds-1",
     "specials": [
       {
@@ -102,7 +109,9 @@
       }
     ]
   },
+  
   {
+    "type": "mes",
     "merk": "Civivi",
     "naam": "Elementum",
     "model": "C907C-DS1",
@@ -116,15 +125,17 @@
     "staalsoort": "Roestvast Damast",
     "hardheid": "58-60",
     "lengteGesloten": "102,4",
-    "lengteGeopend": "177,6",
+    "lengte": "177,6",
     "lengteLemmet": "75,2",
     "dikteLemmet": "3",
     "nieuwwaarde": "129,45",
     "aankoopwaarde": "122,95",
-    "afbeelding": "img/CIC907C-DS1_01_civivi.webp",
+    "afbeelding": "img/knives/CIC907C-DS1_01_civivi.webp",
     "link": "https://www.civivi.com/products/civivi-elementum-c907c-ds1"
   },
+  
   {
+    "type": "mes",
     "merk": "Sencut",
     "naam": "ArcBlast",
     "model": "S22043B-3",
@@ -138,15 +149,17 @@
     "staalsoort": "9Cr18MoV",
     "hardheid": "58-60",
     "lengteGesloten": "103,8",
-    "lengteGeopend": "179,5",
+    "lengte": "179,5",
     "lengteLemmet": "75,7",
     "dikteLemmet": "2,6",
     "nieuwwaarde": "54,95",
     "aankoopwaarde": "54,95",
-    "afbeelding": "img/SES22043B-3_01_sencut.webp",
+    "afbeelding": "img/knives/SES22043B-3_01_sencut.webp",
     "link": "https://www.sencut.com/products/sencut-arcblast-s22043b-3"
   },
+  
   {
+    "type": "mes",
     "merk": "Sencut",
     "naam": "Excalis",
     "model": "S23068-4",
@@ -160,15 +173,17 @@
     "staalsoort": "9Cr18Mov",
     "hardheid": "58-60",
     "lengteGesloten": "99,1",
-    "lengteGeopend": "174,5",
+    "lengte": "174,5",
     "lengteLemmet": "75,5",
     "dikteLemmet": "3",
     "nieuwwaarde": "49,00",
     "aankoopwaarde": "49,00",
-    "afbeelding": "img/SES23068-4_01_sencut.webp",
+    "afbeelding": "img/knives/SES23068-4_01_sencut.webp",
     "link": "https://www.sencut.com/products/sencut-excalis-s23068-4"
   },
+  
   {
+    "type": "mes",
     "merk": "Civivi",
     "naam": "Elementum",
     "model": "C907A-7",
@@ -182,15 +197,17 @@
     "staalsoort": "D2",
     "hardheid": "59-61",
     "lengteGesloten": "102,4",
-    "lengteGeopend": "177,6",
+    "lengte": "177,6",
     "lengteLemmet": "75,2",
     "dikteLemmet": "3",
     "nieuwwaarde": "60,00",
     "aankoopwaarde": "60,00",
-    "afbeelding": "img/CIC907A-7_01_civivi.webp",
+    "afbeelding": "img/knives/CIC907A-7_01_civivi.webp",
     "link": "https://www.civivi.com/products/civivi-elementum-c907a-7"
   },
+  
   {
+    "type": "mes",
     "merk": "Kershaw",
     "naam": "Mini Iridium",
     "model": "2051",
@@ -204,15 +221,17 @@
     "staalsoort": "D2",
     "hardheid": "59-60",
     "lengteGesloten": "99",
-    "lengteGeopend": "175",
+    "lengte": "175",
     "lengteLemmet": "76",
     "dikteLemmet": "2,3",
     "nieuwwaarde": "94,95",
     "aankoopwaarde": "94,95",
-    "afbeelding": "img/KE2051_01_kershaw.webp",
+    "afbeelding": "img/knives/KE2051_01_kershaw.webp",
     "link": "https://kershaw.kaiusa.com/iridium-mini.html"
   },
+  
   {
+    "type": "mes",
     "merk": "Benchmade",
     "naam": "Bugout",
     "model": "535FE-05",
@@ -226,15 +245,17 @@
     "staalsoort": "CPM S30V",
     "hardheid": "58-60",
     "lengteGesloten": "107,2",
-    "lengteGeopend": "189,5",
+    "lengte": "189,5",
     "lengteLemmet": "82,3",
     "dikteLemmet": "2,29",
     "nieuwwaarde": "236,95",
     "aankoopwaarde": "172,99",
-    "afbeelding": "img/BE535FE-05_01_benchmade.webp",
+    "afbeelding": "img/knives/BE535FE-05_01_benchmade.webp",
     "link": "https://www.benchmade.com/products/535fe-05"
   },
+  
   {
+    "type": "mes",
     "merk": "WE Knife",
     "naam": "Kitefin",
     "model": "2001B",
@@ -248,15 +269,17 @@
     "staalsoort": "CPM S35VN",
     "hardheid": "59-61",
     "lengteGesloten": "108",
-    "lengteGeopend": "190,2",
+    "lengte": "190,2",
     "lengteLemmet": "82,2",
     "dikteLemmet": "2,6",
     "nieuwwaarde": "207,95",
     "aankoopwaarde": "203,80",
-    "afbeelding": "img/WK2001B_01_we-knife.webp",
+    "afbeelding": "img/knives/WK2001B_01_we-knife.webp",
     "link": "https://www.weknife.com/products/weknife-kitefin-2001b"
   },
+  
   {
+    "type": "mes",
     "merk": "Benchmade",
     "naam": "Bugout",
     "model": "535BK-4",
@@ -270,15 +293,17 @@
     "staalsoort": "Böhler M390",
     "hardheid": "58-61",
     "lengteGesloten": "107,2",
-    "lengteGeopend": "189,5",
+    "lengte": "189,5",
     "lengteLemmet": "82,3",
     "dikteLemmet": "2,29",
     "nieuwwaarde": "355,95",
     "aankoopwaarde": "227,99",
-    "afbeelding": "img/BE535BK-4_01_benchmade.webp",
+    "afbeelding": "img/knives/BE535BK-4_01_benchmade.webp",
     "link": "https://www.benchmade.com/products/535bk-4-the-bugout"
   },
+  
   {
+    "type": "mes",
     "merk": "Remette",
     "naam": "Peregrine Falcon",
     "model": "RTT1-TX",
@@ -291,16 +316,18 @@
     "staalsoort": "Böhler M390",
     "hardheid": "59-61",
     "lengteGesloten": "122",
-    "lengteGeopend": "198",
+    "lengte": "198",
     "lengteLemmet": "8,2",
     "dikteLemmet": "3,5",
     "nieuwwaarde": "282,49",
     "aankoopwaarde": "266,10",
     "aankoopdatum": "14-11-2024",
-    "afbeelding": "img/Remette-RTT1-TX.webp",
+    "afbeelding": "img/knives/Remette-RTT1-TX.webp",
     "link": "https://www.remetteknife.com/products/remette-rt-peregrine-falcon-knife-innovative-button-lock-structure-design-rtt1-tx"
   },
+  
   {
+    "type": "mes",
     "merk": "Kizer",
     "naam": "Militaw",
     "model": "KI3634A2",
@@ -313,21 +340,23 @@
     "staalsoort": "CPM S45VN",
     "hardheid": "58-61",
     "lengteGesloten": "118",
-    "lengteGeopend": "203",
+    "lengte": "203",
     "lengteLemmet": "85",
     "dikteLemmet": "3",
     "nieuwwaarde": "299,00",
     "aankoopwaarde": "209,49",
     "aankoopdatum": "27-01-2025",
-    "afbeelding": "img/KZKI3634A2_01_kizer.webp",
+    "afbeelding": "img/knives/KZKI3634A2_01_kizer.webp",
     "link": "https://www.kizerknives.com/collections/militaw/products/militaw-ki3634a2",
     "specials": [
       {
-        "description": "Designer: Jonathan Style"
+        "description": "Designer: Jonathan Styles"
       }
     ]
   },
+  
   {
+    "type": "mes",
     "merk": "Kizer",
     "naam": "Vanguard Assassin",
     "model": "V3549A2",
@@ -340,13 +369,13 @@
     "staalsoort": "Nitro-V",
     "hardheid": "61-62",
     "lengteGesloten": "107",
-    "lengteGeopend": "182,6",
+    "lengte": "182,6",
     "lengteLemmet": "75,9",
     "dikteLemmet": "2,5",
     "nieuwwaarde": "79,00",
     "aankoopwaarde": "71,49",
     "aankoopdatum": "12-03-2025",
-    "afbeelding": "img/KZV3549A2_01_kizer.webp",
+    "afbeelding": "img/knives/KZV3549A2_01_kizer.webp",
     "link": "https://www.kizerknives.com/products/assassin-v3549a2",
     "specials": [
       {
@@ -354,7 +383,9 @@
       }
     ]
   },
+  
   {
+    "type": "mes",
     "merk": "Kunwu",
     "naam": "Compadre",
     "model": "-",
@@ -367,16 +398,18 @@
     "staalsoort": "Vanax",
     "hardheid": "60-62",
     "lengteGesloten": "105",
-    "lengteGeopend": "180",
+    "lengte": "180",
     "lengteLemmet": "75",
     "dikteLemmet": "3,2",
     "nieuwwaarde": "313,35",
     "aankoopwaarde": "313,35",
     "aankoopdatum": "24-03-2025",
-    "afbeelding": "img/Kunwu_K706C-T401.webp",
+    "afbeelding": "img/knives/Kunwu_K706C-T401.webp",
     "link": "https://kunwuknives.com/shop/p/padre-diamond-ti-nksh5-zxp4n"
   },
+  
   {
+    "type": "mes",
     "merk": "Civivi",
     "naam": "Mini Praxis",
     "model": "C18026CB-1",
@@ -390,12 +423,12 @@
     "staalsoort": "CPM S35VN",
     "hardheid": "59-61",
     "lengteGesloten": "96,9",
-    "lengteGeopend": "172,5",
+    "lengte": "172,5",
     "lengteLemmet": "75,6",
     "dikteLemmet": "2,5",
     "nieuwwaarde": "99,70",
     "aankoopwaarde": "99,70",
-    "afbeelding": "img/CIC18026CB-1_01_civivi.webp",
+    "afbeelding": "img/knives/CIC18026CB-1_01_civivi.webp",
     "link": "https://www.civivi.com/products/civivi-mini-praxis-c18026cb-1?_pos=1&_sid=1e5990ee7&_ss=r",
     "specials": [
       {
@@ -409,7 +442,9 @@
       }
     ]
   },
+  
   {
+    "type": "mes",
     "merk": "Kizer",
     "naam": "Invictus",
     "model": "V3602C1",
@@ -422,13 +457,13 @@
     "staalsoort": "154CM",
     "hardheid": "59-60",
     "lengteGesloten": "114,3",
-    "lengteGeopend": "201",
+    "lengte": "201",
     "lengteLemmet": "86,7",
     "dikteLemmet": "3,2",
     "nieuwwaarde": "83,88",
     "aankoopwaarde": "83,88",
     "aankoopdatum": "10-06-2025",
-    "afbeelding": "img/KIV3602C1_01_kizer.webp",
+    "afbeelding": "img/knives/KIV3602C1_01_kizer.webp",
     "link": "https://www.kizerknives.com/products/invictus-v3602c1",
     "specials": [
       {
@@ -436,7 +471,9 @@
       }
     ]
   },
+  
   {
+    "type": "mes",
     "merk": "Kizer",
     "naam": "Vanguard Mini Militaw",
     "model": "V3634SA3",
@@ -449,21 +486,23 @@
     "staalsoort": "Nitro-V",
     "hardheid": "60-61",
     "lengteGesloten": "100",
-    "lengteGeopend": "170,1",
+    "lengte": "170.1",
     "lengteLemmet": "71,57",
     "dikteLemmet": "2,5",
     "nieuwwaarde": "69,99",
     "aankoopwaarde": "59,99",
     "aankoopdatum": "28-07-2025",
-    "afbeelding": "img/KZV3634SA3_01_kizer.webp",
+    "afbeelding": "img/knives/KZV3634SA3_01_kizer.webp",
     "link": "https://www.kizerknives.com/products/mini-militaw-nitro-v-g10-acrylic-v3634sa3",
     "specials": [
       {
-        "description": "Designer: Jonathan Style"
+        "description": "Designer: Jonathan Styles"
       }
     ]
   },
-{
+  
+  {
+    "type": "mes",
     "merk": "Kizer",
     "naam": "Vanguard Seagull",
     "model": "V3770A1",
@@ -476,16 +515,18 @@
     "staalsoort": "Sandvik 14C28N",
     "hardheid": "58-59",
     "lengteGesloten": "104",
-    "lengteGeopend": "180",
+    "lengte": "180",
     "lengteLemmet": "74,9",
     "dikteLemmet": "2,8",
     "nieuwwaarde": "74,99",
     "aankoopwaarde": "57,49",
     "aankoopdatum": "26-12-2025",
-    "afbeelding": "img/KZV3770A1_01_kizer.webp",
+    "afbeelding": "img/knives/KZV3770A1_01_kizer.webp",
     "link": "https://www.kizerknives.eu/products/seagull-14c28n-micarta-v3770a1"
   },
+  
   {
+    "type": "mes",
     "merk": "Vosteed",
     "naam": "Marten 330",
     "model": "A1615",
@@ -498,16 +539,18 @@
     "staalsoort": "154CM",
     "hardheid": "60-62",
     "lengteGesloten": "108,45",
-    "lengteGeopend": "191",
+    "lengte": "191",
     "lengteLemmet": "83,82",
     "dikteLemmet": "3",
     "nieuwwaarde": "154,26",
     "aankoopwaarde": "154,26",
     "aankoopdatum": "11-01-2026",
-    "afbeelding": "img/Marten330-A1615.webp",
+    "afbeelding": "img/knives/Marten330-A1615.webp",
     "link": "https://www.vosteed.com/collections/marten-330/products/marten330-a1615"
   },
+  
   {
+    "type": "mes",
     "merk": "Kizer",
     "naam": "Mini Momo",
     "model": "Ki3663A4",
@@ -520,18 +563,166 @@
     "staalsoort": "Böhler M390",
     "hardheid": "59-60",
     "lengteGesloten": "105,4",
-    "lengteGeopend": "186,7",
+    "lengte": "186,7",
     "lengteLemmet": "81,3",
     "dikteLemmet": "3",
     "nieuwwaarde": "298,99",
     "aankoopwaarde": "184,99",
     "aankoopdatum": "13-01-2026",
-    "afbeelding": "img/KZKI3663A4_01_kizer.webp",
+    "afbeelding": "img/knives/KZKI3663A4_01_kizer.webp",
     "link": "https://www.kizerknives.eu/products/mini-momo-m390-timascus-marble-carbon-fiber-ki3663a4-pre-order",
     "specials": [
       {
         "description": "Designer: Vladimir Legachev"
       }
     ]
+  },
+  
+  {
+    "type": "zaklamp",
+    "merk": "Olight",
+    "naam": "Arkfeld Ultra",
+    "uitvoering": "Navy Blue",
+    "afbeelding": "img/flashlights/Olight_ArkfeldUltra.webp",
+    "link": "https://www.olight.com/store/arkfeld-ultra-3-in-1-edc-flashlight-with-o-aluminum-material",
+    "nieuwwaarde": "143,95",
+    "aankoopwaarde": "115,17",
+    "aankoopdatum": "06-09-2025",
+    "gewicht": 119,
+	"lengte": 120,
+    "dikte": 27,
+    "maxLumen": 1400,
+    "minLumen": 1,
+    "maxBereik": 103,
+    "maxRuntime": "11 dagen (1 lumen)",
+    "batterij": "1500mAh Li-Po",
+    "oplaadbaar": true,
+    "usbType": "USB magnetisch",
+    "iprating": "IPX7",
+    "valbestendigheid": "",
+    "materiaal": "OAL™",
+    "diameter": "",
+	"strobe": true,
+	"sos": false,
+	"beacon": false,
+    "lightingLevels": [
+      { "description": "Turbo 1400 lumen"},
+      { "description": "High 420 lumen"},
+      { "description": "Medium 100 lumen"},
+	  { "description": "Low 15 lumen"},
+	  { "description": "Moonlight 1 lumen"}
+    ],
+	"specials": [
+	  { "description": "UV-licht 365nM 900mW"},
+      { "description": "Laser Class 3R ≤5mW groen" }
+	]
+  },
+
+  {
+    "type": "zaklamp",
+    "merk": "Olight",
+    "naam": "i3T 2 EOS",
+    "uitvoering": "Midnight Blue",
+    "afbeelding": "img/flashlights/Olight_i3T2EOS.webp",
+    "link": "https://www.olight.com/store/i3t-2-small-edc-flashlight",
+    "nieuwwaarde": "23,95",
+    "aankoopwaarde": "23,95",
+    "aankoopdatum": "12-08-2025",
+    "gewicht": "41,8",
+	"lengte": 89,
+    "dikte": 15,
+    "maxLumen": 200,
+    "minLumen": 1,
+    "maxBereik": 62,
+    "maxRuntime": "21 uur (5 lumen)",
+    "batterij": "AAA Alkaline",
+    "oplaadbaar": false,
+    "usbType": "USB-C",
+    "iprating": "IPX8",
+    "valbestendigheid": "",
+    "materiaal": "Aluminium",
+    "diameter": "",
+	"strobe": false,
+	"sos": false,
+	"beacon": false,
+    "lightingLevels": [
+      { "description": "High 200 lumen"},
+	  { "description": "Low 5 lumen"}
+    ]
+  },
+
+  {
+    "type": "zaklamp",
+    "merk": "Olight",
+    "naam": "Oclip",
+    "uitvoering": "Zwart",
+    "afbeelding": "img/flashlights/Olight_Oclip.webp",
+    "link": "https://www.olight.com/store/oclip-clip-light",
+    "nieuwwaarde": "35,95",
+    "aankoopwaarde": "0,00",
+    "aankoopdatum": "25-12-2024",
+    "gewicht": 30,
+	"lengte": "48,5",
+    "dikte": 23,
+    "maxLumen": 300,
+    "minLumen": 1,
+    "maxBereik": 68,
+    "maxRuntime": "30 uur (1 lumen)",
+    "batterij": "280mAh Li-ion",
+    "oplaadbaar": true,
+    "usbType": "USB-C",
+    "iprating": "IPX5",
+    "valbestendigheid": "",
+    "materiaal": "Aluminium",
+    "diameter": "",
+	"strobe": false,
+	"sos": true,
+	"beacon": true,
+    "lightingLevels": [
+      { "description": "High 300 lumen"},
+      { "description": "Medium 100 lumen"},
+	  { "description": "Low 10 lumen"},
+	  { "description": "Moonlight 1,5 lumen"},
+	  { "description": "Rood 4 lumen"}
+    ]
+  },
+  
+  {
+    "type": "zaklamp",
+    "merk": "Nitecore",
+    "naam": "MH12 Pro",
+    "uitvoering": "Zwart",
+    "afbeelding": "img/flashlights/Nitecore_MH12Pro.webp",
+    "link": "https://flashlight.nitecore.com/product/mh12pro",
+    "nieuwwaarde": "108,00",
+    "aankoopwaarde": "96,95",
+    "aankoopdatum": "20-05-2024",
+    "gewicht": 82,
+	"lengte": 140,
+    "dikte": 27,
+    "maxLumen": 3300,
+    "minLumen": 1,
+    "maxBereik": 505,
+    "maxRuntime": "650 uur (1 lumen)",
+    "batterij": "5300mAh 21700",
+    "oplaadbaar": true,
+    "usbType": "USB-C",
+    "iprating": "IP68",
+    "valbestendigheid": "",
+    "materiaal": "Aluminium",
+    "diameter": "",
+	"strobe": true,
+	"sos": true,
+	"beacon": true,
+    "lightingLevels": [
+      { "description": "Turbo 3300 lumen"},
+      { "description": "High 1200 lumen"},
+      { "description": "Medium 300 lumen"},
+	  { "description": "Low 50 lumen"},
+	  { "description": "Ultralow 1 lumen"}
+    ],
+	"specials": [
+	{ "description": "Nabijheidssensor"}
+	]
   }
 ]
