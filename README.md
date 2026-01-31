@@ -1,4 +1,4 @@
-# 🗡️🔦 My EDC Collection
+# 🗡️🔦 My EDC Collection (Dutch)
 
 This repository contains a simple, personal HTML page to display and manage my **Everyday Carry (EDC)** collection.  
 Currently it mainly includes **pocket knives** and **flashlights**, but other gear (multitools, pens, watches, etc.) may be added in the future.
@@ -42,3 +42,4 @@ Last updated: January 31, 2026
 ---
 
 Inspired by my ever-growing EDC collection ✌️
+[GitHub Pages](https://dennisdekoster.github.io/mijn.zakmes.collectie/)
