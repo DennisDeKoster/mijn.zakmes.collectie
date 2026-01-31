@@ -1,24 +1,43 @@
-# 🗡️ Pocket Knife Collection
+# 🗡️🔦 My EDC Collection
 
-This repository contains an HTML page that displays my personal pocket knife collection with all relevant details. 
-This project is intended for my personal use only.
+This repository contains a simple, personal HTML page to display and manage my **Everyday Carry (EDC)** collection.  
+Currently it mainly includes **pocket knives** and **flashlights**, but other gear (multitools, pens, watches, etc.) may be added in the future.
+
+This project is strictly for my own personal use and reference — not intended as a public app or showcase.
 
 ## Features
 
-- 🖼️ Display of pocket knives with images
-- 📋 Detailed information about each knife (brand, model, specifications, etc.)
-- 🎨 Simple and clean design
-- 🔍 Search and sort function for all categories
+- 🗡️ Detailed display of pocket knives (steel type, blade length, hardness, lock type, etc.)  
+- 🔦 Detailed display of flashlights (max lumens, throw, runtime, battery, IP rating, special modes like strobe/SOS/beacon, etc.)  
+- 🖼️ Card layout with product images and brand logos  
+- 🔍 Live search (text + brand filtering via logo click)  
+- 📊 Filter by category (All / Pocket Knives / Flashlights)  
+- 🔄 Sorting by multiple fields (purchase date, purchase value, new value, brand, name, weight, length, steel type, lumens, reach, etc.)  
+- 💰 Automatic summary: total count, total new value, total purchase value per category  
+- 📱 Mobile-friendly (with scroll-based card highlighting on small screens)  
+- ✨ Nice hover effects and shine animations on cards  
 
-## Files
+## File Structure
 
-- index.html - Main page
-- styles.css - Stylesheet
-- database.json - Contains knife data and links
-- img/ - Contains all the logos and images
+├── index.html          # Main page with all logic
+├── styles.css          # All styling
+├── database.json       # Collection data
+├── img/
+│   ├── logos/          # Brandlogo's
+│   └── knives/         # Product photos knives
+│   └── flashlights/    # Product flashlights
+└── README.md           # This file
 
-## Acknowledgements
+## Notes
 
-This project is for my personal use only and is not intended for public distribution.
+- This is **not a public project** — purely a personal inventory tool  
+- The data in `database.json` is private and contains no sensitive information  
+- Future expansion to other EDC categories is possible but not guaranteed  
+
+## Last Updated
+
+Last updated: January 31, 2026
 
 ---
+
+Inspired by my ever-growing EDC collection ✌️
