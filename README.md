@@ -19,14 +19,14 @@ This project is strictly for my own personal use and reference — not intended 
 
 ## File Structure
 
-├── index.html          # Main page with all logic
-├── styles.css          # All styling
-├── database.json       # Collection data
+├── index.html              # Main page with all logic
+├── styles.css              # All styling
+├── database.json           # Collection data (knives + flashlights)
 ├── img/
-│   ├── logos/          # Brandlogo's
-│   └── knives/         # Product photos knives
-│   └── flashlights/    # Product flashlights
-└── README.md           # This file
+│   ├── logos/              # Brand logos
+│   ├── knives/             # Product photos – knives
+│   └── flashlights/        # Product photos – flashlights
+└── README.md               # This file
 
 ## Notes
 
