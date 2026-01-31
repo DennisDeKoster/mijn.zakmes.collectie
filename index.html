@@ -44,32 +44,14 @@
                                 </div>
                                 <div class="row">
                                     <div class="left">
-                                        <div><strong>Maximaal aantal lumen:</strong><br>${item.maxLumen || '-'} lm</div>
-                                        <div><strong>Maximaal bereik:</strong><br>${item.maxBereik || '-'} m</div>
-                                        <div><strong>Maximale accuduur:</strong><br>${item.maxRuntime || '-'}</div>
-                                        ${item.lightingLevels ? `<div class="specials"><strong>Lichtmodi:</strong><br>
-                                            ${item.lightingLevels.map(s =>`<div>${s.description}</div>`).join('')}</div>` : ''}
+                                        <div class="maxLumen"><strong>Maximaal aantal lumen:</strong><br>${item.maxLumen || '-'} lm</div>
+                                        <div class="maxBereik"><strong>Maximaal bereik:</strong><br>${item.maxBereik || '-'} m</div>
+                                        <div class="maxAccu"><strong>Maximale accuduur:</strong><br>${item.maxRuntime || '-'}</div>
+                                        <div class="batterij"><strong>Batterij:</strong><br>${item.batterij || '-'}</div>
+                                        <div class="oplaadbaar"><strong>Oplaadbaar:</strong><br>${item.oplaadbaar ? 'Ja' + (item.usbType ? ' (' + item.usbType + ')' : '') : 'Nee'}</div>
                                         <div class="nieuwwaarde"><strong>Nieuwwaarde:</strong><br>€ ${item.nieuwwaarde || 0}</div>
                                         <div class="aankoopwaarde"><strong>Aankoopwaarde:</strong><br>€ ${item.aankoopwaarde || 0}</div>
                                         <div class="aankoopdatum"><strong>Aankoopdatum:</strong><br>${item.aankoopdatum || '-'}</div>
-                                    </div>
-                                    <div class="right">
-                                        <div><strong>Materiaal:</strong><br>${item.materiaal || '-'}</div>
-                                        <div><strong>Lengte:</strong><br>${item.lengte || '-'} mm</div>
-                                        <div><strong>Dikte:</strong><br>${item.dikte || '-'} mm</div>
-                                        <div><strong>Gewicht:</strong><br>${item.gewicht || '-'} g</div>
-                                        <div><strong>Batterij:</strong><br>${item.batterij || '-'}</div>
-                                        <div><strong>Oplaadbaar:</strong><br>${item.oplaadbaar ? 'Ja' + (item.usbType ? ' (' + item.usbType + ')' : '') : 'Nee'}</div>
-                                        <div><strong>Speciale modi:</strong><br>
-                                        ${(() => {
-                                            const active = [];
-                                            if (item.strobe)  active.push('Strobe');
-                                            if (item.sos)     active.push('SOS');
-                                            if (item.beacon)  active.push('Beacon');
-                                            return active.length ? active.join(', ') : 'Geen';
-                                        })()}
-                                        </div>
-                                        <div><strong>IP-norm:</strong><br>${item.iprating || '-'}</div>
                                         ${item.specials ? `
                                             <div class="specials">
                                                 <strong>Bijzonderheden:</strong><br>
@@ -78,6 +60,24 @@
                                                 ).join('')}
                                             </div>
                                         ` : ''}
+                                    </div>
+                                    <div class="right">
+                                        ${item.lightingLevels ? `<div class="specials"><strong>Lichtmodi:</strong><br>
+                                            ${item.lightingLevels.map(s =>`<div>${s.description}</div>`).join('')}</div>` : ''}
+                                        <div class="specmodi"><strong>Speciale modi:</strong><br>
+                                        ${(() => {
+                                            const active = [];
+                                            if (item.strobe)  active.push('Strobe');
+                                            if (item.sos)     active.push('SOS');
+                                            if (item.beacon)  active.push('Beacon');
+                                            return active.length ? active.join(', ') : 'Geen';
+                                        })()}
+                                        </div>
+                                        <div class="materiaal"><strong>Materiaal:</strong><br>${item.materiaal || '-'}</div>
+                                        <div class="iprating"><strong>IP-norm:</strong><br>${item.iprating || '-'}</div>
+                                        <div class="lengte"><strong>Lengte:</strong><br>${item.lengte || '-'} mm</div>
+                                        <div class="dikte"><strong>Dikte:</strong><br>${item.dikte || '-'} mm</div>
+                                        <div class="gewicht"><strong>Gewicht:</strong><br>${item.gewicht || '-'} g</div>
                                     </div>
                                 </div>
                             </div>
@@ -124,7 +124,7 @@
                                         <div class="afwerking"><strong>Afwerking:</strong><br>${item.afwerking}</div>
                                         <div class="hardheid"><strong>Hardheid:</strong><br>${item.hardheid} HRC</div>
                                         <div class="lengteGesloten"><strong>Lengte gesloten:</strong><br>${item.lengteGesloten} mm</div>
-                                        <div class="lengte"><strong>Lengte geopend:</strong><br>${item.lengte} mm</div>
+                                        <div class="lengteGeopend"><strong>Lengte geopend:</strong><br>${item.lengte} mm</div>
                                         <div class="lengteLemmet"><strong>Lengte lemmet:</strong><br>${item.lengteLemmet} mm</div>
                                         <div class="dikteLemmet"><strong>Dikte lemmet:</strong><br>${item.dikteLemmet} mm</div>
                                         <div class="gewicht"><strong>Gewicht:</strong><br>${item.gewicht} g</div>
@@ -153,7 +153,6 @@
                     ? 'block'
                     : 'none';
             });
-
             updateSummary();
         }
 
@@ -165,46 +164,6 @@
             document.getElementById('searchBar')?.classList.remove('active');
             document.getElementById('searchSortContainer')?.classList.remove('search-active');
             filterItems();
-        }
-
-        function sortItems() {
-            const sortBy = document.getElementById('sort').value;
-            const sortOrder = document.getElementById('sortOrder').value;
-            const container = document.getElementById('itemContainer');
-            const cards = Array.from(container.children);
-            cards.sort((a, b) => {
-                let aValue, bValue;
-                if (sortBy === 'type') {
-                    aValue = a.dataset.type || '';
-                    bValue = b.dataset.type || '';
-                    return sortOrder === 'asc'
-                        ? aValue.localeCompare(bValue)
-                        : bValue.localeCompare(aValue);
-                }
-                const aEl = a.querySelector(`.${sortBy}`);
-                const bEl = b.querySelector(`.${sortBy}`);
-                aValue = aEl ? aEl.textContent.trim() : '';
-                bValue = bEl ? bEl.textContent.trim() : '';
-                if (sortBy === 'aankoopdatum') {
-                    const aMatch = aValue.match(/\d{2}-\d{2}-\d{4}/);
-                    const bMatch = bValue.match(/\d{2}-\d{2}-\d{4}/);
-                    const aDate = aMatch
-                        ? new Date(aMatch[0].split('-').reverse().join('-'))
-                        : new Date(0);
-                    const bDate = bMatch
-                        ? new Date(bMatch[0].split('-').reverse().join('-'))
-                        : new Date(0);
-                    return sortOrder === 'asc'
-                        ? aDate - bDate
-                        : bDate - aDate;
-                }
-                return sortOrder === 'asc'
-                    ? aValue.localeCompare(bValue, undefined, { numeric: true })
-                    : bValue.localeCompare(aValue, undefined, { numeric: true });
-            });
-            container.innerHTML = '';
-            cards.forEach(card => container.appendChild(card));
-            updateSummary();
         }
 
         function updateSummary() {
@@ -246,6 +205,106 @@
             document.getElementById('totalValueZaklampen').textContent = `€ ${valueZaklampen.toLocaleString('nl-NL', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
             document.getElementById('totalPurchaseMessen').textContent    = `€ ${purchaseMessen.toLocaleString('nl-NL', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
             document.getElementById('totalPurchaseZaklampen').textContent = `€ ${purchaseZaklampen.toLocaleString('nl-NL', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+        }
+
+        const sortOptionsByType = {
+            all: [
+                { value: "type",         text: "Categorie"     },
+                { value: "aankoopdatum", text: "Aankoopdatum"  },
+                { value: "aankoopwaarde",text: "Aankoopwaarde" },
+                { value: "nieuwwaarde",  text: "Nieuwwaarde"   },
+                { value: "merk",         text: "Merk"          },
+                { value: "naam",         text: "Naam"          },
+                { value: "gewicht",      text: "Gewicht"       },
+                { value: "lengte",       text: "Lengte"        }
+            ],
+            mes: [
+                { value: "aankoopdatum", text: "Aankoopdatum"  },
+                { value: "aankoopwaarde",text: "Aankoopwaarde" },
+                { value: "nieuwwaarde",  text: "Nieuwwaarde"   },
+                { value: "merk",         text: "Merk"          },
+                { value: "naam",         text: "Naam"          },
+                { value: "gewicht",      text: "Gewicht"       },
+                { value: "lengteGeopend",text: "Lengte"        },
+                { value: "staalsoort",   text: "Staalsoort"    },
+                { value: "hardheid",     text: "Hardheid"      },
+                { value: "vergrendeling",text: "Vergrendeling" },
+                { value: "openmethode",  text: "Openmethode"   }
+            ],
+            zaklamp: [
+                { value: "aankoopdatum", text: "Aankoopdatum"  },
+                { value: "aankoopwaarde",text: "Aankoopwaarde" },
+                { value: "nieuwwaarde",  text: "Nieuwwaarde"   },
+                { value: "merk",         text: "Merk"          },
+                { value: "naam",         text: "Naam"          },
+                { value: "gewicht",      text: "Gewicht"       },
+                { value: "lengte",       text: "Lengte"        },
+                { value: "maxLumen",     text: "Max lumen"     },
+                { value: "maxBereik",    text: "Max bereik"    }
+            ]
+        };
+
+        function updateSortOptions() {
+            const filterType = document.getElementById("filterType").value;
+            const sortSelect = document.getElementById("sort");
+            const optionsList = sortOptionsByType[filterType] || sortOptionsByType.all;
+            const currentValue = sortSelect.value;
+            sortSelect.innerHTML = '';
+            optionsList.forEach(opt => {
+                const option = document.createElement("option");
+                option.value = opt.value;
+                option.textContent = opt.text;
+                sortSelect.appendChild(option);
+            });
+            const preferredDefault = 'aankoopdatum';
+            if (optionsList.some(opt => opt.value === preferredDefault)) {
+                sortSelect.value = preferredDefault;
+            } else if (optionsList.length > 0) {
+                sortSelect.value = optionsList[0].value;  // fallback
+            }
+            sortItems();
+        }
+
+        function sortItems() {
+            const sortBy = document.getElementById('sort').value;
+            const sortOrder = document.getElementById('sortOrder').value;
+            const container = document.getElementById('itemContainer');
+            const cards = Array.from(container.children);
+            cards.sort((a, b) => {
+                let aValue, bValue;
+                if (sortBy === 'type') {
+                    aValue = a.dataset.type?.toLowerCase() || '';
+                    bValue = b.dataset.type?.toLowerCase() || '';
+                    return sortOrder === 'asc'
+                        ? aValue.localeCompare(bValue)
+                        : bValue.localeCompare(aValue);
+                }
+                const aEl = a.querySelector(`.${sortBy}`);
+                const bEl = b.querySelector(`.${sortBy}`);
+                aValue = aEl ? aEl.textContent.trim() : '';
+                bValue = bEl ? bEl.textContent.trim() : '';
+                if (sortBy === 'aankoopdatum') {
+                    const parseDate = str => {
+                        const match = str.match(/\d{2}-\d{2}-\d{4}/);
+                        return match ? new Date(match[0].split('-').reverse().join('-')) : new Date(0);
+                    };
+                    const aDate = parseDate(aValue);
+                    const bDate = parseDate(bValue);
+                    return sortOrder === 'asc' ? aDate - bDate : bDate - aDate;
+                }
+                const numericKeys = ['gewicht', 'lengte', 'aankoopwaarde', 'nieuwwaarde', 'maxLumen', 'maxBereik'];
+                if (numericKeys.includes(sortBy)) {
+                    const aNum = parseFloat(aValue.replace(/[^0-9.,]/g, '').replace(',', '.')) || 0;
+                    const bNum = parseFloat(bValue.replace(/[^0-9.,]/g, '').replace(',', '.')) || 0;
+                    return sortOrder === 'asc' ? aNum - bNum : bNum - aNum;
+                }
+                return sortOrder === 'asc'
+                    ? aValue.localeCompare(bValue, undefined, { numeric: true, sensitivity: 'base' })
+                    : bValue.localeCompare(aValue, undefined, { numeric: true, sensitivity: 'base' });
+            });
+            container.innerHTML = '';
+            cards.forEach(card => container.appendChild(card));
+            updateSummary();
         }
 
         document.addEventListener('click', function (e) {
@@ -292,6 +351,7 @@
 
         document.addEventListener('DOMContentLoaded', async () => {
             await loadItems();
+            updateSortOptions();
             document.getElementById('sort').value = 'aankoopdatum';
             document.getElementById('sortOrder').value = 'desc';
             sortItems();
@@ -317,17 +377,17 @@
         <div class="last-update">Laatst bijgewerkt: 31-01-2026</div>
     </div>
     <div class="brand-logos">
-        <div class="logo-wrapper brand-filter" data-merk="Kunwu"><img src="img/logos/Kunwu-logo.webp" alt="Kunwu Knives"></div>
-        <div class="logo-wrapper brand-filter" data-merk="Remette"><img src="img/logos/Remette-logo.webp" alt="Remette Knife"></div>
         <div class="logo-wrapper brand-filter" data-merk="Benchmade"><img src="img/logos/Benchmade-logo.webp" alt="Benchmade"></div>
-        <div class="logo-wrapper brand-filter" data-merk="Vosteed"><img src="img/logos/Vosteed-logo.webp" alt="Vosteed"></div>
-        <div class="logo-wrapper brand-filter" data-merk="Kizer"><img src="img/logos/Kizer-logo.webp" alt="Kizer Knives"></div>
-        <div class="logo-wrapper brand-filter" data-merk="WE Knife"><img src="img/logos/WE-logo.webp" alt="WE Knife"></div>
         <div class="logo-wrapper brand-filter" data-merk="Civivi"><img src="img/logos/Civivi-logo.webp" alt="Civivi"></div>
-        <div class="logo-wrapper brand-filter" data-merk="Sencut"><img src="img/logos/Sencut-logo.webp" alt="Sencut"></div>
         <div class="logo-wrapper brand-filter" data-merk="Kershaw"><img src="img/logos/Kershaw-logo.webp" alt="Kershaw"></div>
-        <div class="logo-wrapper brand-filter" data-merk="Olight"><img src="img/logos/Olight-logo.webp" alt="Olight"></div>
+        <div class="logo-wrapper brand-filter" data-merk="Kizer"><img src="img/logos/Kizer-logo.webp" alt="Kizer Knives"></div>
+        <div class="logo-wrapper brand-filter" data-merk="Kunwu"><img src="img/logos/Kunwu-logo.webp" alt="Kunwu Knives"></div>
         <div class="logo-wrapper brand-filter" data-merk="Nitecore"><img src="img/logos/Nitecore-logo.webp" alt="Nitecore"></div>
+        <div class="logo-wrapper brand-filter" data-merk="Olight"><img src="img/logos/Olight-logo.webp" alt="Olight"></div>
+        <div class="logo-wrapper brand-filter" data-merk="Remette"><img src="img/logos/Remette-logo.webp" alt="Remette Knife"></div>
+        <div class="logo-wrapper brand-filter" data-merk="Sencut"><img src="img/logos/Sencut-logo.webp" alt="Sencut"></div>
+        <div class="logo-wrapper brand-filter" data-merk="Vosteed"><img src="img/logos/Vosteed-logo.webp" alt="Vosteed"></div>
+        <div class="logo-wrapper brand-filter" data-merk="WE Knife"><img src="img/logos/WE-logo.webp" alt="WE Knife"></div>
         <div class="logo-wrapper"><a href="https://knivesandtools.nl" target="_blank"><img src="img/logos/KATO-logo.webp" alt="Knives and Tools" /></a></div>
         <div class="logo-wrapper"><a href="https://lamnia.com/nl" target="_blank"><img src="img/logos/Lamnia-logo.webp" alt="Lamnia" /></a></div>
         <div class="logo-wrapper"><a href="https://unlockedcomposites.com" target="_blank"><img src="img/logos/UC-logo.webp" alt="Unlocked Composites" /></a></div>      
@@ -339,21 +399,13 @@
             <button id="clear-btn" onclick="clearSearch()">✕</button>
         </div>
         <div class="sort-options">
-            <select id="filterType" onchange="filterItems()">
+            <select id="filterType" onchange="updateSortOptions(); filterItems();">
                 <option value="all">Alles</option>
                 <option value="mes">Zakmessen</option>
                 <option value="zaklamp">Zaklampen</option>
             </select>
             <select id="sort" onchange="sortItems()">
-                <option value="type">Categorie</option>
-                <option value="aankoopdatum">Aankoopdatum</option>
-                <option value="aankoopwaarde">Aankoopwaarde</option>
-                <option value="nieuwwaarde">Nieuwwaarde</option>
-                <option value="merk">Merk</option>
-                <option value="naam">Naam</option>
-                <option value="gewicht">Gewicht</option>
-                <option value="lengte">Lengte</option>
-                <option value="staalsoort">Staalsoort</option>
+                <!-- opties worden hier dynamisch ingevuld -->
             </select>
             <select id="sortOrder" onchange="sortItems()">
                 <option value="asc">Oplopend</option>
