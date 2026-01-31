@@ -18,7 +18,7 @@ This project is strictly for my own personal use and reference — not intended 
 - ✨ Nice hover effects and shine animations on cards  
 
 ## File Structure
-
+.
 ├── index.html              # Main page with all logic
 ├── styles.css              # All styling
 ├── database.json           # Collection data (knives + flashlights)
